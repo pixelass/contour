@@ -23,7 +23,7 @@
     "ncu:major": "npx npm-check-updates@11.8.3",
     "ncu:minor": "npx npm-check-updates@11.8.3 -t minor",
     "ncu:patch": "npx npm-check-updates@11.8.3 -t patch",
-    "predeploy": "yarn clean:gh-pages && yarn build:storybook",
+    "predeploy": "yarn clean:gh-pages && yarn build-storybook",
     "prepare": "husky install && yarn setup",
     "prepublishOnly": "yarn build",
     "prerelease": "yarn build",
