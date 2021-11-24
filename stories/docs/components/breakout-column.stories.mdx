@@ -33,18 +33,19 @@ export default function App() {
 
 | Name      | Inherit | Required | Default | Description                                 |
 | :-------- | :------ | :------- | :------ | ------------------------------------------- |
-| `colSpan` | No      | No       | -       | Defines the column span for each breakpoint |
+| `colSpan` | Yes     | No       | -       | Defines the column span for each breakpoint |
 | `order`   | No      | No       | -       | Push or pull the columns’ order             |
 | `left`    | No      | No       | -       | Expand the column to the viewport edge      |
 | `right`   | No      | No       | -       | Expand the column to the viewport edge      |
 
 ## Additional Properties
 
-| Name      | Required | Default | Description                                      |
-| :-------- | :------- | :------ | :----------------------------------------------- |
-| `as`      | No       | -       | The Component or Element that should be rendered |
-| `align`   | No       | -       | One of `start`, `center`, `end`                  |
-| `justify` | No       | -       | One of `start`, `center`, `end`                  |
+| Name      | Required | Default | Description                                              |
+| :-------- | :------- | :------ | :------------------------------------------------------- |
+| `as`      | No       | -       | The Component or Element that should be rendered         |
+| `align`   | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`) |
+| `justify` | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`) |
+| `flex`    | No       | -       | Use `display: flex;` (enables `align`, `justify`)        |
 
 ## Defining the breakout
 

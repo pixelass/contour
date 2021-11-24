@@ -31,17 +31,18 @@ export default function App() {
 
 | Name       | Inherit | Required | Default | Strategy       | Description                                 |
 | :--------- | :------ | :------- | :------ | :------------- | ------------------------------------------- |
-| `colSpan`  | No      | No       | -       | `flex`, `grid` | Defines the column span for each breakpoint |
+| `colSpan`  | Yes     | No       | -       | `flex`, `grid` | Defines the column span for each breakpoint |
 | `colStart` | No      | No       | -       | `grid`         | Defines the column span for each breakpoint |
 | `order`    | No      | No       | -       | `flex`, `grid` | Push or pull the columns’ order             |
 
 ## Additional Properties
 
-| Name      | Required | Default | Description                                      |
-| :-------- | :------- | :------ | :----------------------------------------------- |
-| `as`      | No       | -       | The Component or Element that should be rendered |
-| `align`   | No       | -       | One of `start`, `center`, `end`                  |
-| `justify` | No       | -       | One of `start`, `center`, `end`                  |
+| Name      | Required | Default | Description                                              |
+| :-------- | :------- | :------ | :------------------------------------------------------- |
+| `as`      | No       | -       | The Component or Element that should be rendered         |
+| `align`   | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`) |
+| `justify` | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`) |
+| `flex`    | No       | -       | Use `display: flex;` (enables `align`, `justify`)        |
 
 ## Defining the colSpan
 
