@@ -1,0 +1,74 @@
+{
+  "name": "@contour/utils",
+  "version": "0.0.0",
+  "description": "Utilities for contour",
+  "keywords": [
+    "layout",
+    "grid",
+    "grid-system",
+    "grid-layout",
+    "css-grid",
+    "flexbox",
+    "column"
+  ],
+  "homepage": "https://pixelass.github.io/contour",
+  "bugs": {
+    "url": "https://github.com/pixelass/contour/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelass/contour.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Gregor Adams",
+    "email": "greg@pixelass.com"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./constants": "./dist/constants.js",
+    "./id": "./dist/id.js",
+    "./types": "./dist/types.js",
+    "./utils": "./dist/utils.js"
+  },
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "typesVersions": {
+    "*": {
+      "constants": [
+        "dist/constants.d.ts"
+      ],
+      "id": [
+        "dist/id.d.ts"
+      ],
+      "types": [
+        "dist/types.d.ts"
+      ],
+      "utils": [
+        "dist/utils.d.ts"
+      ]
+    }
+  },
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "watch": "rollup -cw"
+  },
+  "dependencies": {
+    "abcq": "^1.0.2",
+    "type-fest": "^2.6.0"
+  },
+  "devDependencies": {
+    "react": "^17.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,38 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Docs/Hooks/Use Viewport" />
+
+# Use Viewport
+
+You can use this hook to prevent horizontal scrollbars when usiong `<BreakoutColumn/>`.
+`useViewport` should only be used once in your application. We suggest calling it as early in your
+application as possible.
+
+```tsx
+import BreakoutColumn from "@contour/react/breakout-column";
+import Grid from "@contour/react/grid";
+import GridProvider from "@contour/react/provider";
+import useViewport from "@contour/hooks/viewport";
+
+export default function App() {
+	useViewport();
+	return (
+		<GridProvider>
+			<Grid>
+				<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }} right={{ m: 1, l: 1, xl: 1 }}>
+					1
+				</BreakoutColumn>
+			</Grid>
+		</GridProvider>
+	);
+}
+```
+
+## Install
+
+```shell
+# npm
+npm install @contour/hooks --save;
+# yarn
+yarn add @contour/hooks --save
+```

@@ -1,0 +1,111 @@
+import { Meta } from "@storybook/addon-docs";
+import Grid from "../../../packages/react/src/grid";
+import GridProvider from "../../../packages/react/src/provider";
+import { DebugColumn } from "../../helpers";
+
+<Meta title="Docs/Components/Column" />
+
+# Column
+
+Column is a sub-level component. It can be used multiple times in a `<Grid/>` or `<Row/>`.
+
+```tsx
+import Column from "@contour/react/column";
+import Grid from "@contour/react/grid";
+import GridProvider from "@contour/react/provider";
+import Row from "@contour/react/row";
+
+export default function App() {
+	return (
+		<GridProvider>
+			<Grid>
+				<Column>{/* ... */}</Column>
+				<Column>{/* ... */}</Column>
+			</Grid>
+		</GridProvider>
+	);
+}
+```
+
+## Column Properties
+
+| Name       | Inherit | Required | Default | Strategy       | Description                                 |
+| :--------- | :------ | :------- | :------ | :------------- | ------------------------------------------- |
+| `colSpan`  | No      | No       | -       | `flex`, `grid` | Defines the column span for each breakpoint |
+| `colStart` | No      | No       | -       | `grid`         | Defines the column span for each breakpoint |
+| `order`    | No      | No       | -       | `flex`, `grid` | Push or pull the columns’ order             |
+
+## Additional Properties
+
+| Name      | Required | Default | Description                                      |
+| :-------- | :------- | :------ | :----------------------------------------------- |
+| `as`      | No       | -       | The Component or Element that should be rendered |
+| `align`   | No       | -       | One of `start`, `center`, `end`                  |
+| `justify` | No       | -       | One of `start`, `center`, `end`                  |
+
+## Defining the colSpan
+
+You can set the `colSpan` per breakpoint to adjust the width/span of the column.
+
+```tsx
+import Column from "@contour/react/column";
+import Grid from "@contour/react/grid";
+import GridProvider from "@contour/react/provider";
+
+export default function App() {
+	return (
+		<GridProvider>
+			<Grid>
+				<Column colSpan={{ m: 4 }}>1</Column>
+				<Column colSpan={{ m: 6 }}>2</Column>
+				<Column colSpan={{ m: 2 }}>3</Column>
+			</Grid>
+		</GridProvider>
+	);
+}
+```
+
+<GridProvider>
+	<Grid>
+		<DebugColumn colSpan={{ m: 4 }}>1</DebugColumn>
+		<DebugColumn colSpan={{ m: 6 }}>2</DebugColumn>
+		<DebugColumn colSpan={{ m: 2 }}>3</DebugColumn>
+	</Grid>
+</GridProvider>
+
+## Defining the colStart (`strategy="grid"`)
+
+You can set the `colStart` per breakpoint to adjust the start of the column. Be aware that this
+property has no effect with `strategy="flex"`. You have to use `strategy="grid"`
+
+```tsx
+import Column from "@contour/react/column";
+import Grid from "@contour/react/grid";
+import GridProvider from "@contour/react/provider";
+
+export default function App() {
+	return (
+		<GridProvider>
+			<Grid strategy="grid">
+				<Column colStart={{ m: 2, l: 2, xl: 2 }} colSpan={{ m: 4 }}>
+					1
+				</Column>
+				<Column colStart={{ m: -6, l: -6, xl: -6 }} colSpan={{ m: 4 }}>
+					2
+				</Column>
+			</Grid>
+		</GridProvider>
+	);
+}
+```
+
+<GridProvider>
+	<Grid strategy="grid">
+		<DebugColumn colStart={{ m: 2, l: 2, xl: 2 }} colSpan={{ m: 4 }}>
+			1
+		</DebugColumn>
+		<DebugColumn colStart={{ m: -6, l: -6, xl: -6 }} colSpan={{ m: 4 }}>
+			2
+		</DebugColumn>
+	</Grid>
+</GridProvider>

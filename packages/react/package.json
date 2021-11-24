@@ -1,0 +1,86 @@
+{
+  "name": "@contour/react",
+  "version": "0.0.0",
+  "description": "Utilities for contour",
+  "keywords": [
+    "react",
+    "layout",
+    "grid",
+    "grid-system",
+    "grid-layout",
+    "css-grid",
+    "flexbox",
+    "column"
+  ],
+  "homepage": "https://pixelass.github.io/contour",
+  "bugs": {
+    "url": "https://github.com/pixelass/contour/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelass/contour.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Gregor Adams",
+    "email": "greg@pixelass.com"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./breakout-column": "./dist/breakout-column.js",
+    "./column": "./dist/column.js",
+    "./context": "./dist/context.js",
+    "./grid": "./dist/grid.js",
+    "./provider": "./dist/provider.js",
+    "./row": "./dist/row.js"
+  },
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "typesVersions": {
+    "*": {
+      "breakpout-column": [
+        "dist/breakout-column.d.ts"
+      ],
+      "column": [
+        "dist/column.d.ts"
+      ],
+      "context": [
+        "dist/context.d.ts"
+      ],
+      "grid": [
+        "dist/grid.d.ts"
+      ],
+      "provider": [
+        "dist/provider.d.ts"
+      ],
+      "row": [
+        "dist/row.d.ts"
+      ]
+    }
+  },
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "watch": "rollup -cw"
+  },
+  "dependencies": {
+    "@contour/utils": "^0.0.0"
+  },
+  "devDependencies": {
+    "react": "^17.0.2",
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.6.0"
+  },
+  "peerDependencies": {
+    "@emotion/core": ">=11.0.0",
+    "@emotion/react": ">=11.0.0",
+    "react": ">=17.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

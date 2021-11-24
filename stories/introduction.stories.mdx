@@ -1,0 +1,57 @@
+import { Meta } from "@storybook/addon-docs";
+import logo from "./contour-logo.png";
+
+<Meta title="Introduction" />
+
+<img src={logo} style={{ display: "block", margin: "auto", width: "100%", maxWidth: 512 }} />
+
+# Introduction
+
+Contour is a grid-system. Built on css-variables it offers a lightweight implementation with
+seemingly endless possibilities.
+
+## Value Proposition
+
+Contour offers several advantages over other libraries.
+
+-   [Responsive column collapsing](#responsive-column-collapsing)
+-   [Inheritance of column count](#inheritance-of-column-count)
+-   [Compound grids](#compound-grids)
+-   [Intentionally breaking the grid](#intentionally-breaking-the-grid)
+-   [Grid vs. Flexbox](#grid-vs-flexbox)
+
+### Responsive column collapsing
+
+Contour is a mobile-first/watch-first grid. It uses as many columns as applicable per viewport.
+This makes working with Contour intuitive.
+
+### Inheritance of column count
+
+Contour is built on inheritance. Rows inherit their column-count from the parent column. A row
+inside a column with `colSpan: 2` has 2 columns, while a row inside a column with `colSpan: 4` has
+4 columns.
+
+Working with contour on a component level is very easy. It does not matter where you use your
+component, it will always fit the grid (assuming you configured it correctly)
+
+### Compound grids
+
+A compound grid follows a logic different from the main grid. You might want to render a different
+amount of columns for a speciffic section.
+
+You can read more abouzt compound grids in these articles:
+
+-   https://www.smashingmagazine.com/2019/07/inspired-design-decisions-pressing-matters/
+-   http://www.bookdesignmadesimple.com/layout-grid-book-design/
+
+### Intentionally breaking the grid
+
+In some cases we might want to extend an element beyond the grid. To allow this we added a special
+column component called `BreakoutColumn`. It offers several options to break free from the column
+boundaries.
+
+### Grid vs. Flexbox
+
+Contour allows you to switch between grid-layout and flexbox. They work very similar but offer
+different features. With Contour, you can choose the strategy freely since Contour allows you to
+mix Grid-layout and Flexbox.

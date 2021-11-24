@@ -1,0 +1,72 @@
+{
+  "name": "@contour/theme",
+  "version": "0.0.0",
+  "description": "Theme for contour",
+  "keywords": [
+    "layout",
+    "grid",
+    "grid-system",
+    "grid-layout",
+    "css-grid",
+    "flexbox",
+    "column"
+  ],
+  "homepage": "https://pixelass.github.io/contour",
+  "bugs": {
+    "url": "https://github.com/pixelass/contour/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelass/contour.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Gregor Adams",
+    "email": "greg@pixelass.com"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./theme": "./dist/theme.js",
+    "./create-theme": "./dist/create-theme.js",
+    "./create-mediaqueries": "./dist/create-mediaqueries.js"
+  },
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "typesVersions": {
+    "*": {
+      "theme": [
+        "dist/theme.d.ts"
+      ],
+      "create-theme": [
+        "dist/create-theme.d.ts"
+      ],
+      "create-mediaqueries": [
+        "dist/create-mediaqueries.d.ts"
+      ]
+    }
+  },
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "watch": "rollup -cw"
+  },
+  "dependencies": {
+    "@contour/utils": "^0.0.0",
+    "abcq": "^1.0.2",
+    "deepmerge": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/deepmerge": "^2.2.0",
+    "react": "^17.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

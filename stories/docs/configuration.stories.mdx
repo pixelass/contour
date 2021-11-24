@@ -1,0 +1,96 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Docs/Configuration" />
+
+# Configuration
+
+You can configure Contour to match your specs.
+
+## Creating a theme
+
+Contour offers several helpers to create a custom theme. To prevent conflicts with other libraries,
+Contour nests its config under `contour`
+
+### Example: Changing the breakpoints
+
+```ts
+import createTheme from "@contour/theme/create-theme";
+import createMediaqueries from "@contour/theme/create-mediaqueries";
+
+const breakpoints = {
+	xs: 0,
+	s: 320,
+	m: 640,
+	l: 960,
+	xl: 1280,
+};
+
+export default createTheme({
+	contour: {
+		mq: createMediaqueries(breakpoints),
+		breakpoints,
+	},
+});
+```
+
+### Example: Changing the margin
+
+```ts
+import createTheme from "@contour/theme/create-theme";
+
+export default createTheme({
+	contour: {
+		margin: {
+			xs: 16,
+			s: 16,
+			m: 16,
+			l: 16,
+			xl: 16,
+		},
+	},
+});
+```
+
+## Default Theme
+
+```json
+{
+	"contour": {
+		"mq": {
+			"xs": "@media (min-width: 0rem)",
+			"s": "@media (min-width: 22.5rem)",
+			"m": "@media (min-width: 37.5rem)",
+			"l": "@media (min-width: 56.5625rem)",
+			"xl": "@media (min-width: 77.5rem)"
+		},
+		"breakpoints": {
+			"xs": 0,
+			"s": 360,
+			"m": 600,
+			"l": 905,
+			"xl": 1240
+		},
+		"colCount": {
+			"xs": 2,
+			"s": 4,
+			"m": 8,
+			"l": 12,
+			"xl": 12
+		},
+		"gap": {
+			"xs": 16,
+			"s": 16,
+			"m": 16,
+			"l": 16,
+			"xl": 16
+		},
+		"margin": {
+			"xs": 16,
+			"s": 16,
+			"m": 32,
+			"l": 64,
+			"xl": 64
+		}
+	}
+}
+```

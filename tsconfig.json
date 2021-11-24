@@ -1,0 +1,64 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "alwaysStrict": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "importHelpers": true,
+        "isolatedModules": true,
+        "lib": [
+            "dom",
+            "esnext"
+        ],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "jsx": "preserve",
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "allowJs": true,
+        "sourceMap": true,
+        "strict": false,
+        "target": "es6",
+        "typeRoots": [
+            "../node_modules/@types",
+            "./types"
+        ],
+        "baseUrl": "./",
+        "paths": {
+            "@contour/hooks": [
+                "./packages/hooks/src"
+            ],
+            "@contour/hooks/*": [
+                "./packages/hooks/src/*"
+            ],
+            "@contour/react": [
+                "./packages/react/src"
+            ],
+            "@contour/react/*": [
+                "./packages/react/src/*"
+            ],
+            "@contour/theme": [
+                "./packages/theme/src"
+            ],
+            "@contour/theme/*": [
+                "./packages/theme/src/*"
+            ],
+            "@contour/utils": [
+                "./packages/utils/src"
+            ],
+            "@contour/utils/*": [
+                "./packages/utils/src/*"
+            ]
+        }
+    },
+    "include": [
+        "./types/*.d.ts",
+        "**/*.ts",
+        "**/*.tsx"
+    ],
+    "exclude": [
+        "../node_modules"
+    ]
+}

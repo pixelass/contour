@@ -1,0 +1,35 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Docs/Getting Started" />
+
+# Getting Started
+
+## Install
+
+```shell
+# npm
+npm install @contour/react --save;
+# yarn
+yarn add @contour/react --save
+```
+
+## Basic Usage
+
+Contour needs to have at least one Provider. We suggest calling it as early in your application as
+possible.
+
+```tsx
+import GridProvider from "@contour/react/provider";
+import Grid from "@contour/react/grid";
+import Column from "@contour/react/column";
+
+export default function App() {
+	return (
+		<GridProvider>
+			<Grid>
+				<Column>Contour</Column>
+			</Grid>
+		</GridProvider>
+	);
+}
+```
