@@ -5,7 +5,7 @@ import { Axis, BreakpointValues, CSSVarKey } from "./types";
 export const DOT = "̇";
 export const LOGO = "⃪";
 
-export const IS_PROD = process.env.NODE_ENV !== "production";
+export const IS_PROD = process.env.NODE_ENV === "production";
 export const CSS_VAR_PREFIX = IS_PROD ? LOGO : "contour-";
 export const CSS_VAR_SUFFIX = IS_PROD ? "" : "";
 
