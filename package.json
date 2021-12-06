@@ -14,7 +14,7 @@
     "bootstrap": "lerna bootstrap",
     "prebuild": "yarn setup --build && lerna run clean",
     "build": "lerna run build",
-    "build-storybook": "build-storybook -c .storybook -o public --quiet",
+    "build-storybook": "npx cross-env NODE_ENV=production build-storybook -c .storybook -o public --quiet",
     "build-storybook:local": "build-storybook -c .storybook -o public --quiet",
     "clean": "lerna run clean",
     "clean:gh-pages": "rimraf node_modules/gh-pages/.cache node_modules/.cache/gh-pages",
