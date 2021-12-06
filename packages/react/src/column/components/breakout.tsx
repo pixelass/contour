@@ -1,7 +1,7 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { BreakoutColumnProps, Theme } from "@contour/utils/types";
+import { BreakoutColumnProps } from "@contour/utils/types";
 import { cssVar, getCSSVars } from "@contour/utils/utils";
 import { css } from "@emotion/react";
 import React, { memo } from "react";

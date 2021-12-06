@@ -1,6 +1,5 @@
 import { defaultTheme } from "@contour/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { Theme } from "@contour/utils/types";
 import { cssVar, pxToRem } from "@contour/utils/utils";
 import { css } from "@emotion/react";
 

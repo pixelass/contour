@@ -1,7 +1,7 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { FlexGridProps, Theme } from "@contour/utils/types";
+import { FlexGridProps } from "@contour/utils/types";
 import { getCSSVars } from "@contour/utils/utils";
 import { css } from "@emotion/react";
 import React, { memo } from "react";
