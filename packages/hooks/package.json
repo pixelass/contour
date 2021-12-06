@@ -27,30 +27,14 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./column": "./dist/column.js",
-    "./context": "./dist/context.js",
-    "./grid": "./dist/grid.js",
-    "./provider": "./dist/provider.js",
-    "./row": "./dist/row.js"
+    "./viewport": "./dist/viewport.js"
   },
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "typesVersions": {
     "*": {
       "column": [
-        "dist/column.d.ts"
-      ],
-      "context": [
-        "dist/context.d.ts"
-      ],
-      "grid": [
-        "dist/grid.d.ts"
-      ],
-      "provider": [
-        "dist/provider.d.ts"
-      ],
-      "row": [
-        "dist/row.d.ts"
+        "dist/viewport.d.ts"
       ]
     }
   },
