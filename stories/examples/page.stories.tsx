@@ -86,6 +86,7 @@ const InlineLink: FC<HTMLProps<HTMLAnchorElement>> = ({ children, ...props }) =>
 		{children}
 	</a>
 );
+
 export const Page: Story = () => {
 	return (
 		<GridProvider>
