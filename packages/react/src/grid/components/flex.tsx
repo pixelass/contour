@@ -1,4 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { FlexGridProps, Theme } from "@contour/utils/types";
 import { getCSSVars } from "@contour/utils/utils";
@@ -6,7 +7,7 @@ import { css } from "@emotion/react";
 import React, { memo } from "react";
 import { gridCommon, gridVars } from "../css";
 
-const flexGrid = (theme: Theme) => css`
+const flexGrid = (theme = defaultTheme) => css`
 	${gridVars(theme)};
 	${gridCommon(theme)};
 	display: flex;

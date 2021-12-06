@@ -1,9 +1,10 @@
+import { defaultTheme } from "@contour/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { Theme } from "@contour/utils/types";
 import { cssVar, cssVarChain } from "@contour/utils/utils";
 import { css } from "@emotion/react";
 
-export const rowVars = (theme: Theme) => css`
+export const rowVars = ({ contour = defaultTheme.contour } = defaultTheme) => css`
 	${cssVar("colCount", "xs")}: var(${CSS_VAR_RESET});
 	${cssVar("colCount", "s")}: var(${CSS_VAR_RESET});
 	${cssVar("colCount", "m")}: var(${CSS_VAR_RESET});
@@ -14,28 +15,28 @@ export const rowVars = (theme: Theme) => css`
 		PUBLIC_CSS_VARS.colSpan,
 	])};
 
-	${theme.contour.mq.s} {
+	${contour.mq.s} {
 		${PUBLIC_CSS_VARS.colCount}: ${cssVarChain([
 			cssVar("colCount", "s"),
 			PUBLIC_CSS_VARS.colSpan,
 		])};
 	}
 
-	${theme.contour.mq.m} {
+	${contour.mq.m} {
 		${PUBLIC_CSS_VARS.colCount}: ${cssVarChain([
 			cssVar("colCount", "m"),
 			PUBLIC_CSS_VARS.colSpan,
 		])};
 	}
 
-	${theme.contour.mq.l} {
+	${contour.mq.l} {
 		${PUBLIC_CSS_VARS.colCount}: ${cssVarChain([
 			cssVar("colCount", "l"),
 			PUBLIC_CSS_VARS.colSpan,
 		])};
 	}
 
-	${theme.contour.mq.xl} {
+	${contour.mq.xl} {
 		${PUBLIC_CSS_VARS.colCount}: ${cssVarChain([
 			cssVar("colCount", "xl"),
 			PUBLIC_CSS_VARS.colSpan,

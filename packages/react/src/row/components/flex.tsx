@@ -1,4 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { FlexRowProps, Theme } from "@contour/utils/types";
 import { getCSSVars } from "@contour/utils/utils";
@@ -6,7 +7,7 @@ import { css } from "@emotion/react";
 import React, { memo } from "react";
 import { rowCommon, rowVars } from "../css";
 
-const flexRow = (theme: Theme) => css`
+const flexRow = (theme = defaultTheme) => css`
 	${rowVars(theme)};
 	${rowCommon};
 	display: flex;

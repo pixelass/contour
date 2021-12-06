@@ -1,4 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { BreakoutColumnProps, Theme } from "@contour/utils/types";
 import { cssVar, getCSSVars } from "@contour/utils/utils";
@@ -6,7 +7,7 @@ import { css } from "@emotion/react";
 import React, { memo } from "react";
 import { columnCommon, columnVars } from "../css";
 
-const breakoutColumnVars = (theme: Theme) => css`
+const breakoutColumnVars = (theme = defaultTheme) => css`
 	${cssVar("breakoutLeft", "xs")}: var(${CSS_VAR_RESET});
 	${cssVar("breakoutLeft", "s")}: var(${CSS_VAR_RESET});
 	${cssVar("breakoutLeft", "m")}: var(${CSS_VAR_RESET});
@@ -41,7 +42,7 @@ const breakoutColumnVars = (theme: Theme) => css`
 	}
 `;
 
-const breakoutColumn = (theme: Theme) => css`
+const breakoutColumn = (theme = defaultTheme) => css`
 	${columnVars(theme)};
 	${breakoutColumnVars(theme)};
 	${columnCommon};

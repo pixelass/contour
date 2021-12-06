@@ -1,4 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { GridColumnProps, Theme } from "@contour/utils/types";
 import { cssVar, getCSSVars } from "@contour/utils/utils";
@@ -6,7 +7,7 @@ import { css } from "@emotion/react";
 import React, { memo } from "react";
 import { columnCommon, columnVars } from "../css";
 
-export const gridColumnVars = (theme: Theme) => css`
+export const gridColumnVars = (theme = defaultTheme) => css`
 	${cssVar("colStart", "xs")}: var(${CSS_VAR_RESET});
 	${cssVar("colStart", "s")}: var(${CSS_VAR_RESET});
 	${cssVar("colStart", "m")}: var(${CSS_VAR_RESET});

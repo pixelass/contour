@@ -1,9 +1,9 @@
+import { defaultTheme } from "@contour/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { Theme } from "@contour/utils/types";
 import { cssVar, cssVarChain } from "@contour/utils/utils";
 import { css } from "@emotion/react";
 
-export const columnVars = (theme: Theme) => css`
+export const columnVars = ({ contour = defaultTheme.contour } = defaultTheme) => css`
 	${cssVar("colSpan", "xs")}: var(${CSS_VAR_RESET});
 	${cssVar("colSpan", "s")}: var(${CSS_VAR_RESET});
 	${cssVar("colSpan", "m")}: var(${CSS_VAR_RESET});
@@ -17,7 +17,7 @@ export const columnVars = (theme: Theme) => css`
 	${PUBLIC_CSS_VARS.colSpan}: ${cssVarChain([cssVar("colSpan", "xs"), PUBLIC_CSS_VARS.colCount])};
 	${PUBLIC_CSS_VARS.order}: var(${cssVar("order", "xs")});
 
-	${theme.contour.mq.s} {
+	${contour.mq.s} {
 		${PUBLIC_CSS_VARS.colSpan}: ${cssVarChain([
 			cssVar("colSpan", "s"),
 			cssVar("colSpan", "xs"),
@@ -26,7 +26,7 @@ export const columnVars = (theme: Theme) => css`
 		${PUBLIC_CSS_VARS.order}: var(${cssVar("order", "s")});
 	}
 
-	${theme.contour.mq.m} {
+	${contour.mq.m} {
 		${PUBLIC_CSS_VARS.colSpan}: ${cssVarChain([
 			cssVar("colSpan", "m"),
 			cssVar("colSpan", "s"),
@@ -36,7 +36,7 @@ export const columnVars = (theme: Theme) => css`
 		${PUBLIC_CSS_VARS.order}: var(${cssVar("order", "m")});
 	}
 
-	${theme.contour.mq.l} {
+	${contour.mq.l} {
 		${PUBLIC_CSS_VARS.colSpan}: ${cssVarChain([
 			cssVar("colSpan", "l"),
 			cssVar("colSpan", "m"),
@@ -47,7 +47,7 @@ export const columnVars = (theme: Theme) => css`
 		${PUBLIC_CSS_VARS.order}: var(${cssVar("order", "l")});
 	}
 
-	${theme.contour.mq.xl} {
+	${contour.mq.xl} {
 		${PUBLIC_CSS_VARS.colSpan}: ${cssVarChain([
 			cssVar("colSpan", "xl"),
 			cssVar("colSpan", "l"),
