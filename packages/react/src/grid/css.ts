@@ -1,6 +1,6 @@
-import { defaultTheme } from "@contour/theme";
+import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { cssVar, pxToRem } from "@contour/utils/utils";
+import { cssVar, pxToRem } from "@contour/utils/css";
 import { css } from "@emotion/react";
 
 export const gridVars = ({ contour = defaultTheme.contour } = defaultTheme) => css`

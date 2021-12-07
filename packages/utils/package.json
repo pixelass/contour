@@ -29,7 +29,7 @@
     "./constants": "./dist/constants.js",
     "./id": "./dist/id.js",
     "./types": "./dist/types.js",
-    "./utils": "./dist/utils.js"
+    "./css": "./dist/css.js"
   },
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -44,8 +44,8 @@
       "types": [
         "dist/types.d.ts"
       ],
-      "utils": [
-        "dist/utils.d.ts"
+      "css": [
+        "dist/css.d.ts"
       ]
     }
   },
@@ -60,13 +60,13 @@
   },
   "dependencies": {
     "abcq": "^1.0.2",
-    "type-fest": "^2.6.0"
+    "type-fest": "^2.8.0"
   },
   "devDependencies": {
     "react": "^17.0.2"
   },
   "peerDependencies": {
-    "react": ">=17.0.0"
+    "react": ">=17.0.2"
   },
   "publishConfig": {
     "access": "public"

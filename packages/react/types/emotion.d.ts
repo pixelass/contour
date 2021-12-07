@@ -1,5 +1,4 @@
-import { Theme as ThemeType } from "@contour/utils/theme";
-import "@emotion/react";
+import { Theme as ThemeType } from "@contour/utils/types";
 
 declare module "@emotion/react" {
 	export interface Theme extends ThemeType {}

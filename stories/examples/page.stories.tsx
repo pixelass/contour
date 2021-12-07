@@ -1,11 +1,11 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
-import { PUBLIC_CSS_VARS, pxToRem } from "@contour/utils";
 import { css, Global, useTheme } from "@emotion/react";
 import { Story } from "@storybook/react";
-import React, { FC, HTMLAttributes, HTMLProps } from "react";
+import React, { FC, HTMLProps } from "react";
+import Column from "../../packages/react/src/column";
+import Grid from "../../packages/react/src/grid";
+import GridProvider from "../../packages/react/src/provider";
+import { pxToRem } from "../../packages/utils/src";
 import { DebugBox, DebugColumn } from "../helpers";
 
 const Header: FC = ({ children }) => {

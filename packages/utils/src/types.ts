@@ -24,7 +24,7 @@ export type AtMediaquery = `@media${string}(min-width:${string})`;
 
 export type BreakpointValues<T = string | number> = Record<BreakpointKey, T>;
 
-export type Mediaqueries = Record<BreakpointKey, AtMediaquery>;
+export type MediaQueries = Record<BreakpointKey, AtMediaquery>;
 
 export interface GridContextShape {
 	strategy: Strategy;
@@ -89,7 +89,7 @@ export interface Theme {
 		colCount: BreakpointValues<number>;
 		gap: BreakpointValues<number>;
 		margin: BreakpointValues<number>;
-		mq: Mediaqueries;
+		mq: MediaQueries;
 	};
 }
 
@@ -99,7 +99,7 @@ export interface PartialTheme {
 		colCount?: Partial<BreakpointValues<number>>;
 		gap?: Partial<BreakpointValues<number>>;
 		margin?: Partial<BreakpointValues<number>>;
-		mq?: Partial<Mediaqueries>;
+		mq?: Partial<MediaQueries>;
 	};
 }
 

@@ -1,12 +1,3 @@
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
-import {
-	createMediaqueries,
-	createTheme as createContourTheme,
-	defaultTheme,
-} from "@contour/theme";
-import { BreakpointValues } from "@contour/utils";
 import { css, Global } from "@emotion/react";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
@@ -23,7 +14,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Story } from "@storybook/react";
 import React from "react";
-import { Page } from "./page.stories";
+import Column from "../../packages/react/src/column";
+import Grid from "../../packages/react/src/grid";
+import GridProvider from "../../packages/react/src/provider";
+import {
+	createMediaQueries,
+	createTheme as createContourTheme,
+	defaultTheme,
+} from "../../packages/theme/src";
+import { BreakpointValues } from "../../packages/utils/src/types";
 
 const muiTheme = createTheme({});
 const keyMap = {
@@ -46,7 +45,7 @@ const breakpoints: BreakpointValues<number> = Object.entries(muiTheme.breakpoint
 const muiGap = Number.parseInt(muiTheme.spacing(1), 10);
 const contourTheme = createContourTheme({
 	contour: {
-		mq: createMediaqueries(breakpoints),
+		mq: createMediaQueries(breakpoints),
 		breakpoints,
 		gap: {
 			xs: muiGap * 2,

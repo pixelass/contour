@@ -18,8 +18,8 @@
     "sourceMap": true,
     "strict": false,
     "target": "es6",
-    "typeRoots": ["../node_modules/@types", "./types"]
+    "typeRoots": ["./node_modules/@types", "./types"]
   },
   "include": ["./types/*.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["../node_modules"]
+  "exclude": ["./node_modules"]
 }

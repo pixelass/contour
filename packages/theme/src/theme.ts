@@ -1,5 +1,5 @@
 import { Theme } from "@contour/utils/types";
-import createMediaqueries from "./create-mediaqueries";
+import createMediaQueries from "./create-media-queries";
 
 const defaultBreakpoints = {
 	xs: 0,
@@ -11,7 +11,7 @@ const defaultBreakpoints = {
 
 const defaultTheme: Theme = {
 	contour: {
-		mq: createMediaqueries(defaultBreakpoints),
+		mq: createMediaQueries(defaultBreakpoints),
 		breakpoints: defaultBreakpoints,
 		colCount: {
 			xs: 2,

@@ -22,7 +22,7 @@
         "strict": false,
         "target": "es6",
         "typeRoots": [
-            "../node_modules/@types",
+            "./node_modules/@types",
             "./types"
         ],
         "baseUrl": "./",
@@ -59,6 +59,6 @@
         "**/*.tsx"
     ],
     "exclude": [
-        "../node_modules"
+        "./node_modules"
     ]
 }

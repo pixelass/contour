@@ -1,6 +1,6 @@
-import { defaultTheme } from "@contour/theme";
+import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { cssVar, cssVarChain } from "@contour/utils/utils";
+import { cssVar, cssVarChain } from "@contour/utils/css";
 import { css } from "@emotion/react";
 
 export const rowVars = ({ contour = defaultTheme.contour } = defaultTheme) => css`

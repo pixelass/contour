@@ -24,14 +24,15 @@
     "name": "Gregor Adams",
     "email": "greg@pixelass.com"
   },
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./theme": "./dist/theme.js",
     "./create-theme": "./dist/create-theme.js",
-    "./create-mediaqueries": "./dist/create-mediaqueries.js"
+    "./create-media-queries": "./dist/create-media-queries.js"
   },
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
   "typesVersions": {
     "*": {
       "theme": [
@@ -40,12 +41,11 @@
       "create-theme": [
         "dist/create-theme.d.ts"
       ],
-      "create-mediaqueries": [
-        "dist/create-mediaqueries.d.ts"
+      "create-media-queries": [
+        "dist/create-media-queries.d.ts"
       ]
     }
   },
-  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -64,7 +64,7 @@
     "react": "^17.0.2"
   },
   "peerDependencies": {
-    "react": ">=17.0.0"
+    "react": ">=17.0.2"
   },
   "publishConfig": {
     "access": "public"

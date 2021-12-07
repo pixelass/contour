@@ -25,6 +25,9 @@
     "name": "Gregor Adams",
     "email": "greg@pixelass.com"
   },
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./breakout-column": "./dist/breakout-column.js",
@@ -34,11 +37,9 @@
     "./provider": "./dist/provider.js",
     "./row": "./dist/row.js"
   },
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
   "typesVersions": {
     "*": {
-      "breakpout-column": [
+      "breakout-column": [
         "dist/breakout-column.d.ts"
       ],
       "column": [
@@ -58,7 +59,6 @@
       ]
     }
   },
-  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -68,7 +68,8 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
-    "@contour/utils": "^0.0.0"
+    "@contour/utils": "^0.0.0",
+    "@contour/theme": "^0.0.0"
   },
   "devDependencies": {
     "react": "^17.0.2",
@@ -77,8 +78,8 @@
   },
   "peerDependencies": {
     "@emotion/core": ">=11.0.0",
-    "@emotion/react": ">=11.0.0",
-    "react": ">=17.0.0"
+    "@emotion/react": ">=11.7.0",
+    "react": ">=17.0.2"
   },
   "publishConfig": {
     "access": "public"

@@ -34,14 +34,8 @@ module.exports = () => {
 				.map(key => key.replace(/^\.\//, ""))
 		: [];
 	const tsconfig = path.resolve(cwd, "tsconfig.json");
-	const external = [
-		...Object.keys(pkg.dependencies || {}),
-		...Object.keys(pkg.dependencies || {}).map(key => new RegExp(`${key}/.*`)),
-		...Object.keys(pkg.peerDependencies || {}),
-		...Object.keys(pkg.peerDependencies || {}).map(key => new RegExp(`${key}/.*`)),
-		"path",
-		"fs",
-	];
+	const external = [...Object.keys(pkg.peerDependencies || {}), "path", "fs"];
+	console.log(pkg.name, external);
 	return [
 		{
 			input: `src/index.ts`,
@@ -79,7 +73,7 @@ module.exports = () => {
 			],
 		},
 		...packageExports.map(packageExport => ({
-			input: `src/${packageExport}.ts`,
+			input: `src/${packageExport}.ts${pkg.name === "@contour/react" ? "x" : ""}`,
 			external,
 			output: [
 				{
@@ -96,7 +90,7 @@ module.exports = () => {
 			],
 		})),
 		...packageExports.map(packageExport => ({
-			input: `src/${packageExport}.ts`,
+			input: `src/${packageExport}.ts${pkg.name === "@contour/react" ? "x" : ""}`,
 			external,
 			output: [
 				{

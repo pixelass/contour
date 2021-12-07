@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/addon-docs";
+import {Meta} from "@storybook/addon-docs";
 
 <Meta title="Docs/Configuration" />
 
@@ -15,7 +15,7 @@ Contour nests its config under `contour`
 
 ```ts
 import createTheme from "@contour/theme/create-theme";
-import createMediaqueries from "@contour/theme/create-mediaqueries";
+import createMediaQueries from "@contour/theme/create-mediaQueries";
 
 const breakpoints = {
 	xs: 0,
@@ -27,7 +27,7 @@ const breakpoints = {
 
 export default createTheme({
 	contour: {
-		mq: createMediaqueries(breakpoints),
+		mq: createMediaQueries(breakpoints),
 		breakpoints,
 	},
 });

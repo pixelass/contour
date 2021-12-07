@@ -11,9 +11,9 @@ import { GridContext, useGridContext } from "./context";
 import FlexRow from "./row/components/flex";
 import GridRow from "./row/components/grid";
 
-const Row = ({ strategy: assigneedStrategy, ...props }: OptionalStrategy<RowProps>) => {
+const Row = ({ strategy: assignedStrategy, ...props }: OptionalStrategy<RowProps>) => {
 	const { strategy } = useGridContext();
-	const strategy_ = assigneedStrategy ?? strategy;
+	const strategy_ = assignedStrategy ?? strategy;
 	const gridContext: GridContextShape = useMemo(() => ({ strategy: "grid" }), []);
 	const flexContext: GridContextShape = useMemo(() => ({ strategy: "flex" }), []);
 	switch (strategy_) {
