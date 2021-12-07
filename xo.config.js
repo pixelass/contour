@@ -2,7 +2,7 @@
  * {@see https://eslint.org/docs/user-guide/configuring/rules}
  */
 module.exports = {
-	extends: ["xo-react", "plugin:prettier/recommended"],
+	extends: ["xo-react"],
 	ignores: ["lib", "public", "*.config.js", "node_modules", "**/*.d.ts", "docs", "stories"],
 	plugins: ["prettier"],
 	env: ["browser", "node"],
