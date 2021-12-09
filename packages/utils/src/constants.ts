@@ -2,7 +2,6 @@ import process from "process";
 import id from "./id";
 import { Axis, BreakpointValues, CSSVarKey } from "./types";
 
-export const DOT = "̇";
 export const LOGO = "⃪";
 
 export const IS_PROD = process.env.NODE_ENV === "production";
