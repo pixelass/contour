@@ -108,3 +108,4 @@ dist
 
 # generated
 public
+tscconfig.json
