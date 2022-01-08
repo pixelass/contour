@@ -56,7 +56,6 @@
   },
   "dependencies": {
     "@contour/utils": "^0.0.0",
-    "abcq": "^1.0.2",
     "deepmerge": "^4.2.2"
   },
   "devDependencies": {

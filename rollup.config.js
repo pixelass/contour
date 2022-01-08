@@ -34,7 +34,12 @@ module.exports = () => {
 				.map(key => key.replace(/^\.\//, ""))
 		: [];
 	const tsconfig = path.resolve(cwd, "tsconfig.json");
-	const external = [...Object.keys(pkg.peerDependencies || {}), "path", "fs"];
+	const external = [
+		...Object.keys(pkg.dependencies || {}),
+		...Object.keys(pkg.peerDependencies || {}),
+		"path",
+		"fs",
+	];
 	console.log(pkg.name, external);
 	return [
 		{
