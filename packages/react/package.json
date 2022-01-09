@@ -63,7 +63,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "npx cross-env@7.0.3 NODE_ENV=production rollup -c",
     "clean": "rimraf dist",
     "watch": "rollup -cw"
   },
