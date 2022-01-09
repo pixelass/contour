@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/pixelass/contour/compare/v0.1.7...v0.1.8) (2022-01-09)
+
+
+### Bug Fixes
+
+* calc function typo ([e75fe32](https://github.com/pixelass/contour/commit/e75fe32fa0989fcdbf79a93627e7366ad2e040f0))
+
+
+
+
+
 ## [0.1.7](https://github.com/pixelass/contour/compare/v0.1.6...v0.1.7) (2022-01-09)
 
 
