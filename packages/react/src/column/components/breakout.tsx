@@ -7,7 +7,7 @@ import { css } from "@emotion/react";
 import React, { CSSProperties, memo } from "react";
 import { columnCommon, columnVars } from "../css";
 
-const breakoutColumnVars = (theme = defaultTheme) => css`
+const breakoutColumnVars = ({ contour = defaultTheme.contour } = defaultTheme) => css`
 	${cssVar("breakoutLeft", "xs")}: var(${CSS_VAR_RESET});
 	${cssVar("breakoutLeft", "s")}: var(${CSS_VAR_RESET});
 	${cssVar("breakoutLeft", "m")}: var(${CSS_VAR_RESET});
@@ -21,22 +21,22 @@ const breakoutColumnVars = (theme = defaultTheme) => css`
 	${PUBLIC_CSS_VARS.breakoutLeft}: var(${cssVar("breakoutLeft", "xs")});
 	${PUBLIC_CSS_VARS.breakoutRight}: var(${cssVar("breakoutRight", "xs")});
 
-	${theme.contour.mq.s} {
+	${contour.mq.s} {
 		${PUBLIC_CSS_VARS.breakoutLeft}: var(${cssVar("breakoutLeft", "s")});
 		${PUBLIC_CSS_VARS.breakoutRight}: var(${cssVar("breakoutRight", "s")});
 	}
 
-	${theme.contour.mq.m} {
+	${contour.mq.m} {
 		${PUBLIC_CSS_VARS.breakoutLeft}: var(${cssVar("breakoutLeft", "m")});
 		${PUBLIC_CSS_VARS.breakoutRight}: var(${cssVar("breakoutRight", "m")});
 	}
 
-	${theme.contour.mq.l} {
+	${contour.mq.l} {
 		${PUBLIC_CSS_VARS.breakoutLeft}: var(${cssVar("breakoutLeft", "l")});
 		${PUBLIC_CSS_VARS.breakoutRight}: var(${cssVar("breakoutRight", "l")});
 	}
 
-	${theme.contour.mq.xl} {
+	${contour.mq.xl} {
 		${PUBLIC_CSS_VARS.breakoutLeft}: var(${cssVar("breakoutLeft", "xl")});
 		${PUBLIC_CSS_VARS.breakoutRight}: var(${cssVar("breakoutRight", "xl")});
 	}
@@ -64,27 +64,35 @@ const breakoutColumn = (theme = defaultTheme) => css`
 				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
 		);
 
-	${theme.contour.mq.xl} {
+	${(theme.contour ?? defaultTheme.contour).mq.xl} {
 		width: calc(
 			100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) -
 				var(${PUBLIC_CSS_VARS.gap}) * 1px +
-				(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${theme.contour.breakpoints.xl}px) / 2 *
-				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) +
-				(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${theme.contour.breakpoints.xl}px) / 2 *
-				var(${PUBLIC_CSS_VARS.breakoutRight}, 0) + var(${PUBLIC_CSS_VARS.margin}) *
+				(
+					var(${PUBLIC_CSS_VARS.vw}, 100vw) -
+						${(theme.contour ?? defaultTheme.contour).breakpoints.xl}px
+				) / 2 * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) +
+				(
+					var(${PUBLIC_CSS_VARS.vw}, 100vw) -
+						${(theme.contour ?? defaultTheme.contour).breakpoints.xl}px
+				) / 2 * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) + var(${PUBLIC_CSS_VARS.margin}) *
 				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.margin}) *
 				var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 		);
 		margin-right: calc(
 			var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px -
-				(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${theme.contour.breakpoints.xl}px) / 2 *
-				var(${PUBLIC_CSS_VARS.breakoutRight}, 0) - var(${PUBLIC_CSS_VARS.margin}) *
+				(
+					var(${PUBLIC_CSS_VARS.vw}, 100vw) -
+						${(theme.contour ?? defaultTheme.contour).breakpoints.xl}px
+				) / 2 * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) - var(${PUBLIC_CSS_VARS.margin}) *
 				var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 		);
 		margin-left: calc(
 			var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px -
-				(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${theme.contour.breakpoints.xl}px) / 2 *
-				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) - var(${PUBLIC_CSS_VARS.margin}) *
+				(
+					var(${PUBLIC_CSS_VARS.vw}, 100vw) -
+						${(theme.contour ?? defaultTheme.contour).breakpoints.xl}px
+				) / 2 * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) - var(${PUBLIC_CSS_VARS.margin}) *
 				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
 		);
 	}
