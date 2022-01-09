@@ -108,4 +108,4 @@ dist
 
 # generated
 public
-tscconfig.json
+tsconfig.json
