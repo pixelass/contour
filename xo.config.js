@@ -2,10 +2,9 @@
  * {@see https://eslint.org/docs/user-guide/configuring/rules}
  */
 module.exports = {
+	env: ["browser", "node"],
 	extends: ["xo-react"],
 	ignores: ["lib", "public", "*.config.js", "node_modules", "**/*.d.ts", "docs", "stories"],
-	plugins: ["prettier"],
-	env: ["browser", "node"],
 	overrides: [
 		{
 			files: "**/__tests__/*.{ts,tsx}",
@@ -51,6 +50,7 @@ module.exports = {
 			},
 		},
 	],
+	plugins: ["prettier"],
 	prettier: true,
 	rules: {
 		"unicorn/prefer-node-protocol": 0,
