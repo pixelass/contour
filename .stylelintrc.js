@@ -24,7 +24,7 @@ module.exports = {
 		"value-keyword-case": [
 			"lower",
 			{
-				ignoreKeywords: ["dummyValue", /^PUBLIC_CSS_VARS/],
+				ignoreKeywords: ["dummyValue", /^PUBLIC_CSS_VARS/, /^defaultTheme/],
 			},
 		],
 		"property-no-unknown": [
