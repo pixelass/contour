@@ -13,7 +13,7 @@ const flexGrid = (theme = defaultTheme) => css`
 
 	display: flex;
 	flex-wrap: wrap;
-	padding: 0 calc ((var(${PUBLIC_CSS_VARS.margin}) - var(${PUBLIC_CSS_VARS.gap}) / 2) * 1px);
+	padding: 0 calc((var(${PUBLIC_CSS_VARS.margin}) - var(${PUBLIC_CSS_VARS.gap}) / 2) * 1px);
 `;
 
 const FlexGrid = ({
