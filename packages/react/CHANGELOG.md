@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/pixelass/contour/compare/v0.1.0...v0.1.1) (2022-01-09)
+
+
+### Bug Fixes
+
+* grid-provider was still required ([77fd478](https://github.com/pixelass/contour/commit/77fd478daf31e99c1e1bcefe03e9c3e41b3c2f06))
+
+
+
+
+
 # 0.1.0 (2022-01-09)
 
 
