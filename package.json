@@ -13,7 +13,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "prebuild": "yarn setup --build && lerna run clean",
-    "build": "npx cross-env@7.0.3 NODE_ENV=production lerna run build",
+    "build": "lerna run build",
     "build-storybook": "npx cross-env@7.0.3 NODE_ENV=production build-storybook -c .storybook -o public --quiet",
     "build-storybook:local": "build-storybook -c .storybook -o public --quiet",
     "clean": "lerna run clean",
