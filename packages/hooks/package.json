@@ -43,7 +43,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c --environment INCLUDE_DEPS,BUILD:production",
+    "build": "rollup -c --environment INCLUDE_DEPS,BUILD,NODE_ENV:production",
     "clean": "rimraf dist",
     "watch": "rollup -cw"
   },
