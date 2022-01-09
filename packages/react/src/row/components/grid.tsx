@@ -10,14 +10,11 @@ import { rowCommon, rowVars } from "../css";
 const gridRow = (theme = defaultTheme) => css`
 	${rowVars(theme)};
 	${rowCommon};
+
 	display: grid;
-	grid-column-gap: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
-	grid-row-gap: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
+	gap: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
 	grid-template-columns: repeat(var(${PUBLIC_CSS_VARS.colCount}), 1fr);
-	padding-top: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
-	padding-right: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
-	padding-bottom: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
-	padding-left: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
+	padding: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
 `;
 
 const GridRow = ({

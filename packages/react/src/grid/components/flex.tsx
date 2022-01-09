@@ -4,16 +4,16 @@ import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { getCSSVars } from "@contour/utils/css";
 import { FlexGridProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
-import React, { memo } from "react";
+import React, { CSSProperties, memo } from "react";
 import { gridCommon, gridVars } from "../css";
 
 const flexGrid = (theme = defaultTheme) => css`
 	${gridVars(theme)};
 	${gridCommon(theme)};
+
 	display: flex;
 	flex-wrap: wrap;
-	padding-right: calc((var(${PUBLIC_CSS_VARS.margin}) - var(${PUBLIC_CSS_VARS.gap}) / 2) * 1px);
-	padding-left: calc((var(${PUBLIC_CSS_VARS.margin}) - var(${PUBLIC_CSS_VARS.gap}) / 2) * 1px);
+	padding: 0 calc ((var(${PUBLIC_CSS_VARS.margin}) - var(${PUBLIC_CSS_VARS.gap}) / 2) * 1px);
 `;
 
 const FlexGrid = ({
@@ -34,14 +34,16 @@ const FlexGrid = ({
 		<Component
 			{...props}
 			css={flexGrid}
-			style={{
-				...style,
-				...colCountVars,
-				...gapVars,
-				...marginVars,
-				[PUBLIC_CSS_VARS.align]: align,
-				[PUBLIC_CSS_VARS.justify]: justify,
-			}}
+			style={
+				{
+					...style,
+					...colCountVars,
+					...gapVars,
+					...marginVars,
+					[PUBLIC_CSS_VARS.align]: align,
+					[PUBLIC_CSS_VARS.justify]: justify,
+				} as CSSProperties
+			}
 		/>
 	);
 };

@@ -47,6 +47,5 @@ export const rowCommon = css`
 	box-sizing: border-box;
 	align-items: var(${PUBLIC_CSS_VARS.align});
 	justify-content: var(${PUBLIC_CSS_VARS.justify});
-	margin-right: calc(var(${PUBLIC_CSS_VARS.gap}) / -2 * 1px);
-	margin-left: calc(var(${PUBLIC_CSS_VARS.gap}) / -2 * 1px);
+	margin: 0 calc(var(${PUBLIC_CSS_VARS.gap}) / -2 * 1px);
 `;

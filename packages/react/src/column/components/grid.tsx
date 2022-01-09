@@ -4,7 +4,7 @@ import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { cssVar, getCSSVars } from "@contour/utils/css";
 import { GridColumnProps, Theme } from "@contour/utils/types";
 import { css } from "@emotion/react";
-import React, { memo } from "react";
+import React, { CSSProperties, memo } from "react";
 import { columnCommon, columnVars } from "../css";
 
 export const gridColumnVars = (theme = defaultTheme) => css`
@@ -36,8 +36,9 @@ const gridColumn = (theme: Theme) => css`
 	${columnVars(theme)};
 	${gridColumnVars(theme)};
 	${columnCommon};
-	grid-column-end: span var(${PUBLIC_CSS_VARS.colSpan}, var(${PUBLIC_CSS_VARS.colSpan}));
-	grid-column-start: var(${PUBLIC_CSS_VARS.colStart});
+
+	grid-column-start: var(${PUBLIC_CSS_VARS.colStart}) / span
+		var(${PUBLIC_CSS_VARS.colSpan}, var(${PUBLIC_CSS_VARS.colSpan}));
 `;
 
 const GridColumn = ({
@@ -59,15 +60,17 @@ const GridColumn = ({
 		<Component
 			{...props}
 			css={gridColumn}
-			style={{
-				...style,
-				...colSpanVars,
-				...colStartVars,
-				...orderVars,
-				[PUBLIC_CSS_VARS.align]: align,
-				[PUBLIC_CSS_VARS.justify]: justify,
-				[PUBLIC_CSS_VARS.display]: flex && "flex",
-			}}
+			style={
+				{
+					...style,
+					...colSpanVars,
+					...colStartVars,
+					...orderVars,
+					[PUBLIC_CSS_VARS.align]: align,
+					[PUBLIC_CSS_VARS.justify]: justify,
+					[PUBLIC_CSS_VARS.display]: flex && "flex",
+				} as CSSProperties
+			}
 		/>
 	);
 };

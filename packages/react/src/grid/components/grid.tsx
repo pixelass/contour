@@ -4,20 +4,17 @@ import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { getCSSVars } from "@contour/utils/css";
 import { GridGridProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
-import React, { memo } from "react";
+import React, { CSSProperties, memo } from "react";
 import { gridCommon, gridVars } from "../css";
 
 const gridGrid = (theme = defaultTheme) => css`
 	${gridVars(theme)};
 	${gridCommon(theme)};
+
 	display: grid;
-	grid-column-gap: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
-	grid-row-gap: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
+	gap: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
 	grid-template-columns: repeat(var(${PUBLIC_CSS_VARS.colCount}), 1fr);
-	padding-top: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
-	padding-right: calc(var(${PUBLIC_CSS_VARS.margin}) * 1px);
-	padding-bottom: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
-	padding-left: calc(var(${PUBLIC_CSS_VARS.margin}) * 1px);
+	padding: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px) calc(var(${PUBLIC_CSS_VARS.margin}) * 1px);
 `;
 
 const GridGrid = ({
@@ -38,14 +35,16 @@ const GridGrid = ({
 		<Component
 			{...props}
 			css={gridGrid}
-			style={{
-				...style,
-				...colCountVars,
-				...gapVars,
-				...marginVars,
-				[PUBLIC_CSS_VARS.align]: align,
-				[PUBLIC_CSS_VARS.justify]: justify,
-			}}
+			style={
+				{
+					...style,
+					...colCountVars,
+					...gapVars,
+					...marginVars,
+					[PUBLIC_CSS_VARS.align]: align,
+					[PUBLIC_CSS_VARS.justify]: justify,
+				} as CSSProperties
+			}
 		/>
 	);
 };

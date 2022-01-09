@@ -4,7 +4,7 @@ import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { cssVar, getCSSVars } from "@contour/utils/css";
 import { BreakoutColumnProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
-import React, { memo } from "react";
+import React, { CSSProperties, memo } from "react";
 import { columnCommon, columnVars } from "../css";
 
 const breakoutColumnVars = (theme = defaultTheme) => css`
@@ -46,22 +46,23 @@ const breakoutColumn = (theme = defaultTheme) => css`
 	${columnVars(theme)};
 	${breakoutColumnVars(theme)};
 	${columnCommon};
+
 	width: calc(
 		100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) -
 			var(${PUBLIC_CSS_VARS.gap}) * 1px + var(${PUBLIC_CSS_VARS.margin}) *
 			var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.margin}) *
 			var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 	);
-	margin-top: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
-	margin-right: calc(
-		var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px - var(${PUBLIC_CSS_VARS.margin}) *
-			var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
-	);
-	margin-bottom: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
-	margin-left: calc(
-		var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px - var(${PUBLIC_CSS_VARS.margin}) *
-			var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
-	);
+	margin: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px)
+		calc(
+			var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px - var(${PUBLIC_CSS_VARS.margin}) *
+				var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
+		)
+		calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px)
+		calc(
+			var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px - var(${PUBLIC_CSS_VARS.margin}) *
+				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
+		);
 
 	${theme.contour.mq.xl} {
 		width: calc(
@@ -105,20 +106,23 @@ const BreakoutColumn = ({
 	const orderVars = getCSSVars("order", order);
 	const breakoutLeftVars = getCSSVars("breakoutLeft", left);
 	const breakoutRightVars = getCSSVars("breakoutRight", right);
+
 	return (
 		<Component
 			{...props}
 			css={breakoutColumn}
-			style={{
-				...style,
-				...colSpanVars,
-				...orderVars,
-				...breakoutLeftVars,
-				...breakoutRightVars,
-				[PUBLIC_CSS_VARS.align]: align,
-				[PUBLIC_CSS_VARS.justify]: justify,
-				[PUBLIC_CSS_VARS.display]: flex && "flex",
-			}}
+			style={
+				{
+					...style,
+					...colSpanVars,
+					...orderVars,
+					...breakoutLeftVars,
+					...breakoutRightVars,
+					[PUBLIC_CSS_VARS.align]: align,
+					[PUBLIC_CSS_VARS.justify]: justify,
+					[PUBLIC_CSS_VARS.display]: flex && "flex",
+				} as CSSProperties
+			}
 		/>
 	);
 };

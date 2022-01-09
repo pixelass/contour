@@ -54,6 +54,5 @@ export const gridCommon = ({ contour = defaultTheme.contour } = defaultTheme) =>
 	align-items: var(${PUBLIC_CSS_VARS.align});
 	justify-content: var(${PUBLIC_CSS_VARS.justify});
 	max-width: ${pxToRem(contour.breakpoints.xl)};
-	margin-right: auto;
-	margin-left: auto;
+	margin: 0 auto;
 `;
