@@ -1,18 +1,18 @@
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
+import { defaultTheme } from "@contour/theme";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import amber from "@mui/material/colors/amber";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
 import Slider from "@mui/material/Slider";
 import Switch from "@mui/material/Switch";
-import Grid from "../../packages/react/src/grid";
-import Column from "../../packages/react/src/column";
 import { Story } from "@storybook/react";
-import React, { useState } from "react";
 import Abcq from "abcq";
+import React, { useState } from "react";
+import Column from "../../packages/react/src/column";
+import Grid from "../../packages/react/src/grid";
 import { DebugBox } from "../helpers";
 
 const id = new Abcq();
@@ -104,13 +104,9 @@ const ConfigurableColumn = ({ colCount }: { colCount: Record<string, number> }) 
 
 export const Playground: Story = () => {
 	const [gridConfigOpen, setGridConfigOpen] = useState(false);
-	const [colCount, setColCount] = useState({
-		xs: 2,
-		s: 4,
-		m: 8,
-		l: 12,
-		xl: 12,
-	});
+	const [colCount, setColCount] = useState(defaultTheme.contour.colCount);
+	const [margin, setMargin] = useState(defaultTheme.contour.margin);
+	const [gap, setGap] = useState(defaultTheme.contour.gap);
 	const [columns, setColumns] = useState([id.generate(), id.generate()]);
 	return (
 		<>
@@ -118,7 +114,7 @@ export const Playground: Story = () => {
 				<DialogContent>
 					{Object.keys(colCount).map(breakpointKey => {
 						return (
-							<div key={breakpointKey}>
+							<div key={`colCount:${breakpointKey}`}>
 								<label>
 									<div>
 										<code>colCount {breakpointKey}</code>
@@ -132,10 +128,68 @@ export const Playground: Story = () => {
 										value={colCount[breakpointKey]}
 										sx={{
 											maxWidth: "100%",
-											width: 150,
+											width: 250,
 										}}
 										onChange={(event_, value) => {
 											setColCount(previousState => ({
+												...previousState,
+												[breakpointKey]: value,
+											}));
+										}}
+									/>
+								</label>
+							</div>
+						);
+					})}
+					{Object.keys(colCount).map(breakpointKey => {
+						return (
+							<div key={`margin:${breakpointKey}`}>
+								<label>
+									<div>
+										<code>Margin {breakpointKey}</code>
+									</div>
+									<Slider
+										marks
+										size="small"
+										valueLabelDisplay="on"
+										min={0}
+										max={96}
+										value={margin[breakpointKey]}
+										sx={{
+											maxWidth: "100%",
+											width: 250,
+										}}
+										onChange={(event_, value) => {
+											setMargin(previousState => ({
+												...previousState,
+												[breakpointKey]: value,
+											}));
+										}}
+									/>
+								</label>
+							</div>
+						);
+					})}
+					{Object.keys(colCount).map(breakpointKey => {
+						return (
+							<div key={`gap:${breakpointKey}`}>
+								<label>
+									<div>
+										<code>Gap {breakpointKey}</code>
+									</div>
+									<Slider
+										marks
+										size="small"
+										valueLabelDisplay="on"
+										min={0}
+										max={96}
+										value={gap[breakpointKey]}
+										sx={{
+											maxWidth: "100%",
+											width: 250,
+										}}
+										onChange={(event_, value) => {
+											setGap(previousState => ({
 												...previousState,
 												[breakpointKey]: value,
 											}));
@@ -157,7 +211,7 @@ export const Playground: Story = () => {
 				</DialogActions>
 			</Dialog>
 
-			<Grid colCount={colCount}>
+			<Grid colCount={colCount} margin={margin} gap={gap}>
 				<Column>
 					<Button
 						onClick={() => {
