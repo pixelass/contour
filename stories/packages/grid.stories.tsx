@@ -1,4 +1,3 @@
-import { defaultTheme } from "@contour/theme";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -13,6 +12,8 @@ import Abcq from "abcq";
 import React, { useState } from "react";
 import Column from "../../packages/react/src/column";
 import Grid from "../../packages/react/src/grid";
+import defaultTheme from "../../packages/theme/src/theme";
+
 import { DebugBox } from "../helpers";
 
 const id = new Abcq();
