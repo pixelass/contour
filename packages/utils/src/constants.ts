@@ -4,37 +4,36 @@ import { Axis, BreakpointValues, CSSVarKey } from "./types";
 
 export const LOGO = "⃪";
 
-export const IS_PROD = process.env.NODE_ENV === "production";
-export const CSS_VAR_PREFIX = IS_PROD ? LOGO : "contour-";
-export const CSS_VAR_SUFFIX = IS_PROD ? "" : "";
+export const CSS_VAR_PREFIX = process.env.NODE_ENV === "production" ? LOGO : "contour-";
+export const CSS_VAR_SUFFIX = process.env.NODE_ENV === "production" ? "" : "";
 
 export const CSS_VARS_MAP: Record<
 	keyof BreakpointValues | CSSVarKey | Axis | "align" | "justify" | "display" | "vw",
 	string
 > = {
-	align: IS_PROD ? id.generate() : "align",
-	justify: IS_PROD ? id.generate() : "justify",
-	display: IS_PROD ? id.generate() : "display",
-	colCount: IS_PROD ? id.generate() : "col-count",
-	colSpan: IS_PROD ? id.generate() : "col-span",
-	colStart: IS_PROD ? id.generate() : "col-start",
-	gap: IS_PROD ? id.generate() : "gap",
-	margin: IS_PROD ? id.generate() : "margin",
-	breakoutLeft: IS_PROD ? id.generate() : "breakout-left",
-	breakoutRight: IS_PROD ? id.generate() : "breakout-right",
-	order: IS_PROD ? id.generate() : "order",
-	xs: IS_PROD ? id.generate() : "-xs",
-	s: IS_PROD ? id.generate() : "-s",
-	m: IS_PROD ? id.generate() : "-m",
-	l: IS_PROD ? id.generate() : "-l",
-	xl: IS_PROD ? id.generate() : "-xl",
-	x: IS_PROD ? id.generate() : "-x",
-	y: IS_PROD ? id.generate() : "-y",
-	vw: IS_PROD ? id.generate() : "-vw",
+	align: process.env.NODE_ENV === "production" ? id.generate() : "align",
+	justify: process.env.NODE_ENV === "production" ? id.generate() : "justify",
+	display: process.env.NODE_ENV === "production" ? id.generate() : "display",
+	colCount: process.env.NODE_ENV === "production" ? id.generate() : "col-count",
+	colSpan: process.env.NODE_ENV === "production" ? id.generate() : "col-span",
+	colStart: process.env.NODE_ENV === "production" ? id.generate() : "col-start",
+	gap: process.env.NODE_ENV === "production" ? id.generate() : "gap",
+	margin: process.env.NODE_ENV === "production" ? id.generate() : "margin",
+	breakoutLeft: process.env.NODE_ENV === "production" ? id.generate() : "breakout-left",
+	breakoutRight: process.env.NODE_ENV === "production" ? id.generate() : "breakout-right",
+	order: process.env.NODE_ENV === "production" ? id.generate() : "order",
+	xs: process.env.NODE_ENV === "production" ? id.generate() : "-xs",
+	s: process.env.NODE_ENV === "production" ? id.generate() : "-s",
+	m: process.env.NODE_ENV === "production" ? id.generate() : "-m",
+	l: process.env.NODE_ENV === "production" ? id.generate() : "-l",
+	xl: process.env.NODE_ENV === "production" ? id.generate() : "-xl",
+	x: process.env.NODE_ENV === "production" ? id.generate() : "-x",
+	y: process.env.NODE_ENV === "production" ? id.generate() : "-y",
+	vw: process.env.NODE_ENV === "production" ? id.generate() : "-vw",
 };
 
 export const CSS_VAR_RESET = `--${CSS_VAR_PREFIX}${
-	IS_PROD ? id.generate() : "reset"
+	process.env.NODE_ENV === "production" ? id.generate() : "reset"
 }${CSS_VAR_SUFFIX}`;
 
 export const PUBLIC_CSS_VARS = {
