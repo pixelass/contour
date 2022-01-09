@@ -43,6 +43,7 @@ const breakoutColumnVars = ({ contour = defaultTheme.contour } = defaultTheme) =
 `;
 
 const breakoutColumn = (theme = defaultTheme) => css`
+	/* stylelint-disable function-whitespace-after */
 	${columnVars(theme)};
 	${breakoutColumnVars(theme)};
 	${columnCommon};
@@ -96,6 +97,7 @@ const breakoutColumn = (theme = defaultTheme) => css`
 				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
 		);
 	}
+	/* stylelint-enable function-whitespace-after */
 `;
 
 const BreakoutColumn = ({
