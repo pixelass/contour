@@ -1,4 +1,4 @@
-export { default as column } from "./column";
-export { default as grid } from "./grid";
-export { default as provider } from "./provider";
-export { default as row } from "./row";
+export { default as Column } from "./column";
+export { default as Grid } from "./grid";
+export { default as Provider } from "./provider";
+export { default as Row } from "./row";
