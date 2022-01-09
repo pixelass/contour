@@ -4,12 +4,13 @@ import { Story } from "@storybook/react";
 import React, { FC, HTMLProps } from "react";
 import Column from "../../packages/react/src/column";
 import Grid from "../../packages/react/src/grid";
-import GridProvider from "../../packages/react/src/provider";
 import { pxToRem } from "../../packages/utils/src";
+import { defaultTheme } from "../../packages/theme/src";
+
 import { DebugBox, DebugColumn } from "../helpers";
 
 const Header: FC = ({ children }) => {
-	const theme = useTheme();
+	const { contour = defaultTheme.contour } = useTheme();
 	return (
 		<header
 			css={css`
@@ -21,21 +22,20 @@ const Header: FC = ({ children }) => {
 				css={css`
 					display: flex;
 					box-sizing: border-box;
-					max-width: ${pxToRem(theme.contour.breakpoints.xl)};
+					max-width: ${pxToRem(contour.breakpoints.xl)};
 					margin: auto;
-					padding: ${pxToRem(theme.contour.gap.xs)} ${pxToRem(theme.contour.margin.xs)};
-					${theme.contour.mq.s} {
-						padding: ${pxToRem(theme.contour.gap.s)} ${pxToRem(theme.contour.margin.s)};
+					padding: ${pxToRem(contour.gap.xs)} ${pxToRem(contour.margin.xs)};
+					${contour.mq.s} {
+						padding: ${pxToRem(contour.gap.s)} ${pxToRem(contour.margin.s)};
 					}
-					${theme.contour.mq.m} {
-						padding: ${pxToRem(theme.contour.gap.m)} ${pxToRem(theme.contour.margin.m)};
+					${contour.mq.m} {
+						padding: ${pxToRem(contour.gap.m)} ${pxToRem(contour.margin.m)};
 					}
-					${theme.contour.mq.l} {
-						padding: ${pxToRem(theme.contour.gap.l)} ${pxToRem(theme.contour.margin.l)};
+					${contour.mq.l} {
+						padding: ${pxToRem(contour.gap.l)} ${pxToRem(contour.margin.l)};
 					}
-					${theme.contour.mq.xl} {
-						padding: ${pxToRem(theme.contour.gap.xl)}
-							${pxToRem(theme.contour.margin.xl)};
+					${contour.mq.xl} {
+						padding: ${pxToRem(contour.gap.xl)} ${pxToRem(contour.margin.xl)};
 					}
 				`}
 			>
@@ -59,12 +59,12 @@ const Link: FC<HTMLProps<HTMLAnchorElement>> = ({ children, ...props }) => (
 );
 
 const Nav: FC = ({ children }) => {
-	const theme = useTheme();
+	const { contour = defaultTheme.contour } = useTheme();
 	return (
 		<nav
 			css={css`
 				display: none;
-				${theme.contour.mq.m} {
+				${contour.mq.m} {
 					display: block;
 				}
 			`}
@@ -89,7 +89,7 @@ const InlineLink: FC<HTMLProps<HTMLAnchorElement>> = ({ children, ...props }) =>
 
 export const Page: Story = () => {
 	return (
-		<GridProvider>
+		<>
 			<Global
 				styles={css`
 					body,
@@ -97,6 +97,7 @@ export const Page: Story = () => {
 						margin: 0;
 						padding: 0;
 					}
+
 					* {
 						box-sizing: border-box;
 					}
@@ -175,7 +176,7 @@ export const Page: Story = () => {
 					</DebugColumn>
 				</Grid>
 			</footer>
-		</GridProvider>
+		</>
 	);
 };
 

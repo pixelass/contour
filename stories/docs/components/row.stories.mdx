@@ -9,24 +9,21 @@ import {Rainbow} from "../../helpers";
 
 # Row
 
-Row is a sub-level component. It can be used multiple times in a `<Column/>`.
+Row is a sublevel component. It can be used multiple times in a `<Column/>`.
 
 ```tsx
 import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 import Row from "@contour/react/row";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid>
-				<Column>
-					<Row>{/* ... */}</Row>
-					<Row>{/* ... */}</Row>
-				</Column>
-			</Grid>
-		</GridProvider>
+		<Grid>
+			<Column>
+				<Row>{/* ... */}</Row>
+				<Row>{/* ... */}</Row>
+			</Column>
+		</Grid>
 	);
 }
 ```
@@ -55,37 +52,31 @@ When chosing `grid`, `<Row/>` becomes a standalone layout.
 ```tsx
 import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 import Row from "@contour/react/row";
 
 export default function App() {
 	return (
-		<GridProvider>
 			<Grid>
 				<Column>
 					<Row strategy="grid">{/* ... */}</Row>
 					<Row>{/* ... */}</Row>
 				</Column>
 			</Grid>
-		</GridProvider>
 	);
 }
 ```
 
-<GridProvider>
-	<GridProvider>
-		<Grid>
-			<Column>
-				<Row strategy="grid" align="start">
-					<Rainbow length={12} />
-				</Row>
-				<Row>
-					<Rainbow length={12} />
-				</Row>
-			</Column>
-		</Grid>
-	</GridProvider>
-</GridProvider>
+<Grid>
+	<Column>
+		<Row strategy="grid" align="start">
+			<Rainbow length={12} />
+		</Row>
+		<Row>
+			<Rainbow length={12} />
+		</Row>
+	</Column>
+</Grid>
+
 
 ## Compound Row
 
@@ -94,32 +85,27 @@ To use a different grid logic for a section, you can adjust the `<Row/>`.
 ```tsx
 import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 import Row from "@contour/react/row";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid>
-				<Column colSpan={{ l: 9 }}>
-					<Row colCount={{ l: 4, xl: 4 }} justify="center">
-						{/* ... */}
-					</Row>
-				</Column>
-			</Grid>
-		</GridProvider>
+		<Grid>
+			<Column colSpan={{ l: 9 }}>
+				<Row colCount={{ l: 4, xl: 4 }} justify="center">
+					{/* ... */}
+				</Row>
+			</Column>
+		</Grid>
 	);
 }
 ```
 
-<GridProvider>
-	<Grid>
-		<Rainbow length={12} />
-		<Column colSpan={{ l: 9 }}>
-			<Row colCount={{ l: 4, xl: 4 }} justify="center">
-				<Rainbow length={3} />
-			</Row>
-		</Column>
-		<Rainbow length={15} />
-	</Grid>
-</GridProvider>
+<Grid>
+	<Rainbow length={12} />
+	<Column colSpan={{ l: 9 }}>
+		<Row colCount={{ l: 4, xl: 4 }} justify="center">
+			<Rainbow length={3} />
+		</Row>
+	</Column>
+	<Rainbow length={15} />
+</Grid>

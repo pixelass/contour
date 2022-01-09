@@ -12,19 +12,14 @@ BreakoutColumn is a sub-level component. It can be used multiple times in a `<Gr
 It can only be used with `strategy="flex"`
 
 ```tsx
-import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
-import Row from "@contour/react/row";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid>
-				<BreakoutColumn>{/* ... */}</BreakoutColumn>
-				<BreakoutColumn>{/* ... */}</BreakoutColumn>
-			</Grid>
-		</GridProvider>
+		<Grid>
+			<BreakoutColumn>{/* ... */}</BreakoutColumn>
+			<BreakoutColumn>{/* ... */}</BreakoutColumn>
+		</Grid>
 	);
 }
 ```
@@ -53,26 +48,23 @@ export default function App() {
 import BreakoutColumn from "@contour/react/breakout-column";
 import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid>
-				<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }} right={{ m: 1, l: 1, xl: 1 }}>
-					1
-				</BreakoutColumn>
-				<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }}>2</BreakoutColumn>
-				<BreakoutColumn right={{ m: 1, l: 1, xl: 1 }}>3</BreakoutColumn>
-				<BreakoutColumn colSpan={{ m: 2, l: 4 }} left={{ m: 1, l: 1, xl: 1 }}>
-					2
-				</BreakoutColumn>
-				<Column colSpan={{ m: 4 }} />
-				<BreakoutColumn colSpan={{ m: 2, l: 4 }} right={{ m: 1, l: 1, xl: 1 }}>
-					3
-				</BreakoutColumn>
-			</Grid>
-		</GridProvider>
+		<Grid>
+			<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }} right={{ m: 1, l: 1, xl: 1 }}>
+				1
+			</BreakoutColumn>
+			<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }}>2</BreakoutColumn>
+			<BreakoutColumn right={{ m: 1, l: 1, xl: 1 }}>3</BreakoutColumn>
+			<BreakoutColumn colSpan={{ m: 2, l: 4 }} left={{ m: 1, l: 1, xl: 1 }}>
+				2
+			</BreakoutColumn>
+			<Column colSpan={{ m: 4 }} />
+			<BreakoutColumn colSpan={{ m: 2, l: 4 }} right={{ m: 1, l: 1, xl: 1 }}>
+				3
+			</BreakoutColumn>
+		</Grid>
 	);
 }
 ```
@@ -107,19 +99,16 @@ the [use-viewport docs](/story/docs-hooks-use-viewport--page)
 ```tsx
 import BreakoutColumn from "@contour/react/breakout-column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 import useViewport from "@contour/hooks/viewport";
 
 export default function App() {
 	useViewport();
 	return (
-		<GridProvider>
-			<Grid>
-				<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }} right={{ m: 1, l: 1, xl: 1 }}>
-					1
-				</BreakoutColumn>
-			</Grid>
-		</GridProvider>
+		<Grid>
+			<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }} right={{ m: 1, l: 1, xl: 1 }}>
+				1
+			</BreakoutColumn>
+		</Grid>
 	);
 }
 ```

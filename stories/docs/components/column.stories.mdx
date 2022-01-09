@@ -12,17 +12,13 @@ Column is a sub-level component. It can be used multiple times in a `<Grid/>` or
 ```tsx
 import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
-import Row from "@contour/react/row";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid>
-				<Column>{/* ... */}</Column>
-				<Column>{/* ... */}</Column>
-			</Grid>
-		</GridProvider>
+		<Grid>
+			<Column>{/* ... */}</Column>
+			<Column>{/* ... */}</Column>
+		</Grid>
 	);
 }
 ```
@@ -51,28 +47,23 @@ You can set the `colSpan` per breakpoint to adjust the width/span of the column.
 ```tsx
 import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid>
-				<Column colSpan={{ m: 4 }}>1</Column>
-				<Column colSpan={{ m: 6 }}>2</Column>
-				<Column colSpan={{ m: 2 }}>3</Column>
-			</Grid>
-		</GridProvider>
+		<Grid>
+			<Column colSpan={{ m: 4 }}>1</Column>
+			<Column colSpan={{ m: 6 }}>2</Column>
+			<Column colSpan={{ m: 2 }}>3</Column>
+		</Grid>
 	);
 }
 ```
 
-<GridProvider>
-	<Grid>
-		<DebugColumn colSpan={{ m: 4 }}>1</DebugColumn>
-		<DebugColumn colSpan={{ m: 6 }}>2</DebugColumn>
-		<DebugColumn colSpan={{ m: 2 }}>3</DebugColumn>
-	</Grid>
-</GridProvider>
+<Grid>
+	<DebugColumn colSpan={{ m: 4 }}>1</DebugColumn>
+	<DebugColumn colSpan={{ m: 6 }}>2</DebugColumn>
+	<DebugColumn colSpan={{ m: 2 }}>3</DebugColumn>
+</Grid>
 
 ## Defining the colStart (`strategy="grid"`)
 
@@ -82,31 +73,26 @@ property has no effect with `strategy="flex"`. You have to use `strategy="grid"`
 ```tsx
 import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid strategy="grid">
-				<Column colStart={{ m: 2, l: 2, xl: 2 }} colSpan={{ m: 4 }}>
-					1
-				</Column>
-				<Column colStart={{ m: -6, l: -6, xl: -6 }} colSpan={{ m: 4 }}>
-					2
-				</Column>
-			</Grid>
-		</GridProvider>
+		<Grid strategy="grid">
+			<Column colStart={{ m: 2, l: 2, xl: 2 }} colSpan={{ m: 4 }}>
+				1
+			</Column>
+			<Column colStart={{ m: -6, l: -6, xl: -6 }} colSpan={{ m: 4 }}>
+				2
+			</Column>
+		</Grid>
 	);
 }
 ```
 
-<GridProvider>
-	<Grid strategy="grid">
-		<DebugColumn colStart={{ m: 2, l: 2, xl: 2 }} colSpan={{ m: 4 }}>
-			1
-		</DebugColumn>
-		<DebugColumn colStart={{ m: -6, l: -6, xl: -6 }} colSpan={{ m: 4 }}>
-			2
-		</DebugColumn>
-	</Grid>
-</GridProvider>
+<Grid strategy="grid">
+	<DebugColumn colStart={{ m: 2, l: 2, xl: 2 }} colSpan={{ m: 4 }}>
+		1
+	</DebugColumn>
+	<DebugColumn colStart={{ m: -6, l: -6, xl: -6 }} colSpan={{ m: 4 }}>
+		2
+	</DebugColumn>
+</Grid>

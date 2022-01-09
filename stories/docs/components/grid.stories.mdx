@@ -47,35 +47,36 @@ export default function App() {
 
 You can choose one of two strategies: `flex` (default) or `grid`
 
-When chosing `grid`, `<Grid/>` becomes a standalone layout. You can use this as your grid-system,
+When choosing `grid`, `<Grid/>` becomes a standalone layout. You can use this as your grid-system,
 without using any other Contour components.
 
 ```tsx
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid strategy="grid">
-				<div style={{ gridColumn: "1 / -1" }}>1</div>
-				<div style={{ gridColumnEnd: "span 2" }}>2</div>
-			</Grid>
-		</GridProvider>
+		<Grid strategy="grid">
+			<div style={{ gridColumn: "1 / -1" }}>1</div>
+			<div style={{ gridColumnEnd: "span 2" }}>2</div>
+		</Grid>
 	);
 }
 ```
 
-<GridProvider>
-	<Grid strategy="grid">
-		<div style={{ gridColumn: "2 / -2" }}>
-			<DebugBox>1</DebugBox>
-		</div>
-		<div style={{ gridColumnEnd: "span 2" }}>
-			<DebugBox>2</DebugBox>
-		</div>
-	</Grid>
-</GridProvider>
+<Grid strategy="grid">
+	<div style={{ gridColumn: "2 / -2" }}>
+		<DebugBox>1</DebugBox>
+	</div>
+	<div style={{ gridColumnEnd: "span 2" }}>
+		<DebugBox>2</DebugBox>
+	</div>
+	<Column colSpan={{m: 4}}>
+		<DebugBox>3</DebugBox>
+	</Column>
+	<Column colSpan={{m: 4}}>
+		<DebugBox>3</DebugBox>
+	</Column>
+</Grid>
 
 ## Compound Grid
 
@@ -85,41 +86,36 @@ aware that this adds extra padding that cannot be removed.
 ```tsx
 import Column from "@contour/react/column";
 import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
 
 export default function App() {
 	return (
-		<GridProvider>
-			<Grid>
-				<Column>
-					<Grid
-						colCount={{ l: 4, xl: 4 }}
-						gap={{ l: 32, xl: 32 }}
-						margin={{ l: 32, xl: 32 }}
-						justify="center"
-					>
-						{/* ... */}
-					</Grid>
-				</Column>
-			</Grid>
-		</GridProvider>
+		<Grid>
+			<Column>
+				<Grid
+					colCount={{ l: 4, xl: 4 }}
+					gap={{ l: 32, xl: 32 }}
+					margin={{ l: 32, xl: 32 }}
+					justify="center"
+				>
+					{/* ... */}
+				</Grid>
+			</Column>
+		</Grid>
 	);
 }
 ```
 
-<GridProvider>
-	<Grid>
-		<Rainbow length={12} />
-		<Column colSpan={{ l: 9 }}>
-			<Grid
-				colCount={{ l: 4, xl: 4 }}
-				gap={{ l: 32, xl: 32 }}
-				margin={{ l: 32, xl: 32 }}
-				justify="center"
-			>
-				<Rainbow length={3} />
-			</Grid>
-		</Column>
-		<Rainbow length={15} />
-	</Grid>
-</GridProvider>
+<Grid>
+	<Rainbow length={12} />
+	<Column colSpan={{ l: 9 }}>
+		<Grid
+			colCount={{ l: 4, xl: 4 }}
+			gap={{ l: 32, xl: 32 }}
+			margin={{ l: 32, xl: 32 }}
+			justify="center"
+		>
+			<Rainbow length={3} />
+		</Grid>
+	</Column>
+	<Rainbow length={15} />
+</Grid>
