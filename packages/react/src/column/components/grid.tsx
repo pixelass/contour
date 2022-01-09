@@ -37,8 +37,10 @@ const gridColumn = (theme: Theme) => css`
 	${gridColumnVars(theme)};
 	${columnCommon};
 
-	grid-column-start: var(${PUBLIC_CSS_VARS.colStart}) / span
-		var(${PUBLIC_CSS_VARS.colSpan}, var(${PUBLIC_CSS_VARS.colSpan}));
+	grid-column-end: span var(${PUBLIC_CSS_VARS.colSpan}, var(${PUBLIC_CSS_VARS.colCount}));
+	/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+	grid-column-start: var(${PUBLIC_CSS_VARS.colStart});
+	/* stylelint-enable declaration-block-no-redundant-longhand-properties */
 `;
 
 const GridColumn = ({
