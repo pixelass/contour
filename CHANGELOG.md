@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/pixelass/contour/compare/v0.1.6...v0.1.7) (2022-01-09)
+
+
+### Bug Fixes
+
+* exports were lowercased ([7f9aaf9](https://github.com/pixelass/contour/commit/7f9aaf931ed3a75afcfb52ac475c4cafe33ed14d))
+
+
+
+
+
 ## [0.1.6](https://github.com/pixelass/contour/compare/v0.1.5...v0.1.6) (2022-01-09)
 
 **Note:** Version bump only for package contour
