@@ -6,7 +6,6 @@ import { useGridContext } from "./context";
 
 const Column = (props: NoStrategy<ColumnProps>) => {
 	const { strategy } = useGridContext();
-	console.log(strategy);
 	switch (strategy) {
 		case "grid":
 			return <GridColumn {...(props as NoStrategy<GridColumnProps>)} strategy="grid" />;
