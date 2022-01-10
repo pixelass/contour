@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.9](https://github.com/pixelass/contour/compare/v0.1.8...v0.1.9) (2022-01-10)
+
+
+### Bug Fixes
+
+* force share the context ([e462780](https://github.com/pixelass/contour/commit/e4627803fcecaa96163276be637d5248d553d330))
+
+
+
+
+
 ## [0.1.8](https://github.com/pixelass/contour/compare/v0.1.7...v0.1.8) (2022-01-09)
 
 
