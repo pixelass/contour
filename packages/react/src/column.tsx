@@ -1,8 +1,8 @@
 import { ColumnProps, FlexColumnProps, GridColumnProps, NoStrategy } from "@contour/utils/types";
+import { useGridContext } from "@contour/react/context";
 import React from "react";
 import FlexColumn from "./column/components/flex";
 import GridColumn from "./column/components/grid";
-import { useGridContext } from "./context";
 
 const Column = (props: NoStrategy<ColumnProps>) => {
 	const { strategy } = useGridContext();
