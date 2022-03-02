@@ -1,6 +1,6 @@
 import { CSSProperties, ElementType, ReactNode } from "react";
 import { Except } from "type-fest";
-
+/* eslint-disable @typescript-eslint/ban-types */
 /**
  * Remove properties `K` from `T`.
  * Distributive for union types.
@@ -21,6 +21,7 @@ export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K
 export type OverridableStringUnion<T extends string | number, U = {}> = GenerateStringUnion<
 	Overwrite<Record<T, true>, U>
 >;
+/* eslint-enable @typescript-eslint/ban-types */
 
 /**
  * Like `T & U`, but using the value types from `U` where their properties overlap.
@@ -36,7 +37,9 @@ type GenerateStringUnion<T> = Extract<
 	string
 >;
 
+/* eslint-disable @typescript-eslint/no-empty-interface */
 export interface BreakpointKeyOverrides {}
+/* eslint-enable @typescript-eslint/no-empty-interface */
 
 export type BreakpointKey = OverridableStringUnion<
 	"xs" | "s" | "m" | "l" | "xl",

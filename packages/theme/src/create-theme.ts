@@ -10,8 +10,7 @@ const createTheme = (partialTheme: PartialTheme): Theme => {
 	const margin = partialTheme.contour.margin ?? defaultTheme.contour.margin;
 	const gap = partialTheme.contour.gap ?? defaultTheme.contour.gap;
 	const colCount = partialTheme.contour.colCount ?? defaultTheme.contour.colCount;
-
-	return {
+	const theme: Theme = {
 		contour: {
 			breakpoints,
 			mq,
@@ -19,7 +18,8 @@ const createTheme = (partialTheme: PartialTheme): Theme => {
 			gap,
 			margin,
 		},
-	} as Theme;
+	};
+	return theme;
 };
 
 export default createTheme;
