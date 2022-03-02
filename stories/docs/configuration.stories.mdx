@@ -18,17 +18,67 @@ import createTheme from "@contour/theme/create-theme";
 import createMediaQueries from "@contour/theme/create-mediaQueries";
 
 const breakpoints = {
-	xs: 0,
-	s: 320,
-	m: 640,
-	l: 960,
-	xl: 1280,
+	values: {
+		xs: 0,
+		s: 320,
+		m: 640,
+		l: 960,
+		xl: 1280,
+	}
 };
 
 export default createTheme({
 	contour: {
-		mq: createMediaQueries(breakpoints),
+		mq: createMediaQueries(breakpoints.values),
 		breakpoints,
+	},
+});
+```
+
+### Example: Changing the breakpoints keys
+
+This example demonstrates how to adjust the keys of the breakpoints to match [Material-ui](https://mui.com/customization/breakpoints/#main-content)
+
+```ts
+import createTheme from "@contour/theme/create-theme";
+import createMediaQueries from "@contour/theme/create-mediaQueries";
+
+const breakpoints = {
+	keys: ["xs", "sm", "md", "lg", "xl"],
+	values: {
+		xs: 0,
+		s: 360,
+		m: 600,
+		l: 905,
+		xl: 1240
+	}
+};
+
+export default createTheme({
+	contour: {
+		mq: createMediaQueries(breakpoints.values),
+		breakpoints,
+		colCount: {
+			xs: 2,
+			sm: 4,
+			md: 8,
+			lg: 12,
+			xl: 12
+		},
+		gap: {
+			xs: 16,
+			sm: 16,
+			md: 16,
+			lg: 16,
+			xl: 16
+		},
+		margin: {
+			xs: 16,
+			sm: 16,
+			md: 32,
+			lg: 64,
+			xl: 64
+		}
 	},
 });
 ```
@@ -64,11 +114,14 @@ export default createTheme({
 			"xl": "@media (min-width: 77.5rem)"
 		},
 		"breakpoints": {
-			"xs": 0,
-			"s": 360,
-			"m": 600,
-			"l": 905,
-			"xl": 1240
+			"keys": ["xs", "s", "m", "l", "xl"],
+			"values": {
+				"xs": 0,
+				"s": 360,
+				"m": 600,
+				"l": 905,
+				"xl": 1240
+			}
 		},
 		"colCount": {
 			"xs": 2,
