@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/pixelass/contour/compare/v0.1.9...v0.2.0) (2022-03-02)
+
+
+### Features
+
+* rename breakpoint keys ([#2](https://github.com/pixelass/contour/issues/2)) ([9ced1e7](https://github.com/pixelass/contour/commit/9ced1e7e88042ec05264a15ea7beb1d30dacc7bc))
+
+
+
+
+
 ## [0.1.6](https://github.com/pixelass/contour/compare/v0.1.5...v0.1.6) (2022-01-09)
 
 **Note:** Version bump only for package @contour/theme
