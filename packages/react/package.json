@@ -72,12 +72,10 @@
     "@contour/utils": "^0.1.6"
   },
   "devDependencies": {
-    "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.7.1",
     "react": "^17.0.2"
   },
   "peerDependencies": {
-    "@emotion/core": ">=11.0.0",
     "@emotion/react": ">=11.7.0",
     "react": ">=17.0.2"
   },

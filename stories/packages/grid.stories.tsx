@@ -134,7 +134,7 @@ export const Playground: Story = () => {
 										onChange={(event_, value) => {
 											setColCount(previousState => ({
 												...previousState,
-												[breakpointKey]: value,
+												[breakpointKey]: value as number,
 											}));
 										}}
 									/>
@@ -163,7 +163,7 @@ export const Playground: Story = () => {
 										onChange={(event_, value) => {
 											setMargin(previousState => ({
 												...previousState,
-												[breakpointKey]: value,
+												[breakpointKey]: value as number,
 											}));
 										}}
 									/>
@@ -192,7 +192,7 @@ export const Playground: Story = () => {
 										onChange={(event_, value) => {
 											setGap(previousState => ({
 												...previousState,
-												[breakpointKey]: value,
+												[breakpointKey]: value as number,
 											}));
 										}}
 									/>

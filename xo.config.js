@@ -53,6 +53,7 @@ module.exports = {
 	plugins: ["prettier"],
 	prettier: true,
 	rules: {
+		"unicorn/no-unreadable-array-destructuring": 0,
 		"unicorn/prefer-node-protocol": 0,
 		"import/order": 0,
 	},

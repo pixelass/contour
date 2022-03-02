@@ -22,14 +22,14 @@ export const CSS_VARS_MAP: Record<
 	breakoutLeft: process.env.NODE_ENV === "production" ? id.generate() : "breakout-left",
 	breakoutRight: process.env.NODE_ENV === "production" ? id.generate() : "breakout-right",
 	order: process.env.NODE_ENV === "production" ? id.generate() : "order",
-	xs: process.env.NODE_ENV === "production" ? id.generate() : "-xs",
-	s: process.env.NODE_ENV === "production" ? id.generate() : "-s",
-	m: process.env.NODE_ENV === "production" ? id.generate() : "-m",
-	l: process.env.NODE_ENV === "production" ? id.generate() : "-l",
-	xl: process.env.NODE_ENV === "production" ? id.generate() : "-xl",
-	x: process.env.NODE_ENV === "production" ? id.generate() : "-x",
-	y: process.env.NODE_ENV === "production" ? id.generate() : "-y",
-	vw: process.env.NODE_ENV === "production" ? id.generate() : "-vw",
+	xs: process.env.NODE_ENV === "production" ? id.generate() : "xs",
+	s: process.env.NODE_ENV === "production" ? id.generate() : "s",
+	m: process.env.NODE_ENV === "production" ? id.generate() : "m",
+	l: process.env.NODE_ENV === "production" ? id.generate() : "l",
+	xl: process.env.NODE_ENV === "production" ? id.generate() : "xl",
+	x: process.env.NODE_ENV === "production" ? id.generate() : "x",
+	y: process.env.NODE_ENV === "production" ? id.generate() : "y",
+	vw: process.env.NODE_ENV === "production" ? id.generate() : "vw",
 };
 
 export const CSS_VAR_RESET = `--${CSS_VAR_PREFIX}${

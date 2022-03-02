@@ -1,15 +1,16 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import Column from "@contour/react/column";
+import Grid from "@contour/react/grid";
 import { Story } from "@storybook/react";
 import React from "react";
-import Column from "../../packages/react/src/column";
-import Grid from "../../packages/react/src/grid";
 import { v4 } from "uuid";
 import { DebugBox } from "../helpers";
 
-const items = Array.from({ length: 50 }, (_, index) => ({
+const items = Array.from({ length: 50 }, () => ({
 	id: v4(),
 	height: Math.round(Math.random() * 300) + 50,
 }));
+
 export const Masonry: Story = () => {
 	return (
 		<>

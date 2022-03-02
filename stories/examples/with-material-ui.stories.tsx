@@ -1,3 +1,7 @@
+import Column from "@contour/react/column";
+import Grid from "@contour/react/grid";
+import GridProvider from "@contour/react/provider";
+import { createMediaQueries, createTheme as createContourTheme } from "@contour/theme";
 import { css, Global } from "@emotion/react";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
@@ -14,51 +18,47 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Story } from "@storybook/react";
 import React from "react";
-import Column from "../../packages/react/src/column";
-import Grid from "../../packages/react/src/grid";
-import GridProvider from "../../packages/react/src/provider";
-import {
-	createMediaQueries,
-	createTheme as createContourTheme,
-	defaultTheme,
-} from "../../packages/theme/src";
-import { BreakpointValues } from "../../packages/utils/src/types";
+
+declare module "@contour/utils" {
+	export interface BreakpointKeyOverrides {
+		s: false;
+		m: false;
+		l: false;
+		sm: true;
+		md: true;
+		lg: true;
+	}
+}
 
 const muiTheme = createTheme({});
-const keyMap = {
-	xs: "xs",
-	sm: "s",
-	md: "m",
-	lg: "l",
-	xl: "xl",
-};
-const breakpoints: BreakpointValues<number> = Object.entries(muiTheme.breakpoints.values).reduce(
-	(previousValue, [key, value]) => {
-		return {
-			...previousValue,
-			[keyMap[key]]: value,
-		};
-	},
-	defaultTheme.contour.breakpoints
-);
 
 const muiGap = Number.parseInt(muiTheme.spacing(1), 10);
 const contourTheme = createContourTheme({
 	contour: {
-		mq: createMediaQueries(breakpoints),
-		breakpoints,
+		mq: createMediaQueries(muiTheme.breakpoints.values),
+		breakpoints: {
+			values: muiTheme.breakpoints.values,
+			keys: muiTheme.breakpoints.keys,
+		},
+		colCount: {
+			xs: 2,
+			sm: 4,
+			md: 8,
+			lg: 12,
+			xl: 12,
+		},
 		gap: {
 			xs: muiGap * 2,
-			s: muiGap * 2,
-			m: muiGap * 2,
-			l: muiGap * 2,
+			sm: muiGap * 2,
+			md: muiGap * 2,
+			lg: muiGap * 2,
 			xl: muiGap * 2,
 		},
 		margin: {
 			xs: muiGap * 2,
-			s: muiGap * 2,
-			m: muiGap * 2,
-			l: muiGap * 2,
+			sm: muiGap * 2,
+			md: muiGap * 2,
+			lg: muiGap * 2,
 			xl: muiGap * 2,
 		},
 	},
@@ -70,41 +70,42 @@ const bull = (
 	</Box>
 );
 
-export const MaterialUI: Story = args => {
+export const MaterialUI: Story = () => {
 	return (
 		<ThemeProvider theme={muiTheme}>
-			<Global
-				styles={css`
-					body,
-					.sb-show-main.sb-main-padded {
-						margin: 0;
-						padding: 0;
-					}
-					* {
-						box-sizing: border-box;
-					}
-				`}
-			/>
-			<AppBar position="static">
-				<Toolbar>
-					<IconButton
-						size="large"
-						edge="start"
-						color="inherit"
-						aria-label="menu"
-						sx={{ mr: 2 }}
-					>
-						<MenuIcon />
-					</IconButton>
-					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						News
-					</Typography>
-					<Button color="inherit">Login</Button>
-				</Toolbar>
-			</AppBar>
 			<GridProvider theme={contourTheme}>
+				<Global
+					styles={css`
+						body,
+						.sb-show-main.sb-main-padded {
+							margin: 0;
+							padding: 0;
+						}
+
+						* {
+							box-sizing: border-box;
+						}
+					`}
+				/>
+				<AppBar position="static">
+					<Toolbar>
+						<IconButton
+							size="large"
+							edge="start"
+							color="inherit"
+							aria-label="menu"
+							sx={{ mr: 2 }}
+						>
+							<MenuIcon />
+						</IconButton>
+						<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+							News
+						</Typography>
+						<Button color="inherit">Login</Button>
+					</Toolbar>
+				</AppBar>
 				<Grid strategy="grid">
-					<Column colSpan={{ m: 4 }}>
+					<Column colSpan={{ md: 4 }}>
 						<Card>
 							<CardContent>
 								<Typography
@@ -131,7 +132,7 @@ export const MaterialUI: Story = args => {
 							</CardActions>
 						</Card>
 					</Column>
-					<Column colSpan={{ m: 4 }}>
+					<Column colSpan={{ md: 4 }}>
 						<Card>
 							<CardMedia
 								component="img"
@@ -154,7 +155,7 @@ export const MaterialUI: Story = args => {
 							</CardActions>
 						</Card>
 					</Column>
-					<Column colSpan={{ m: 4 }}>
+					<Column colSpan={{ md: 4 }}>
 						<Card>
 							<CardContent sx={{ height: 200 }}>
 								<Typography>Contour</Typography>
@@ -165,22 +166,22 @@ export const MaterialUI: Story = args => {
 						<Typography variant="h2">Advanced</Typography>
 						<Typography variant="h3">No additional markup</Typography>
 					</Column>
-					<Column colSpan={{ s: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card}>
 						<CardContent sx={{ height: 200, background: teal[50] }} />
 					</Column>
-					<Column colSpan={{ s: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card}>
 						<CardContent sx={{ height: 200, background: teal[100] }} />
 					</Column>
-					<Column colSpan={{ s: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card}>
 						<CardContent sx={{ height: 200, background: teal[200] }} />
 					</Column>
-					<Column colSpan={{ s: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card}>
 						<CardContent sx={{ height: 200, background: teal[300] }} />
 					</Column>
-					<Column colSpan={{ s: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card}>
 						<CardContent sx={{ height: 200, background: teal[400] }} />
 					</Column>
-					<Column colSpan={{ s: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card}>
 						<CardContent sx={{ height: 200, background: teal[500] }} />
 					</Column>
 					<Column>
