@@ -7,28 +7,35 @@ import { css } from "@emotion/react";
 import React, { CSSProperties, memo } from "react";
 import { columnCommon, columnVars } from "../css";
 
-export const gridColumnVars = ({ contour = defaultTheme.contour } = defaultTheme) => css`
+export const gridColumnVars = ({
+	contour: {
+		breakpoints: {
+			keys: [xs, s, m, l, xl],
+		},
+		mq,
+	} = defaultTheme.contour,
+} = defaultTheme) => css`
 	${cssVar("colStart", "xs")}: var(${CSS_VAR_RESET});
 	${cssVar("colStart", "s")}: var(${CSS_VAR_RESET});
 	${cssVar("colStart", "m")}: var(${CSS_VAR_RESET});
 	${cssVar("colStart", "l")}: var(${CSS_VAR_RESET});
 	${cssVar("colStart", "xl")}: var(${CSS_VAR_RESET});
-	${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", "xs")});
+	${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", xs)});
 
-	${contour.mq.s} {
-		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", "s")});
+	${mq[s]} {
+		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", s)});
 	}
 
-	${contour.mq.m} {
+	${mq[m]} {
 		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", "m")});
 	}
 
-	${contour.mq.l} {
-		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", "l")});
+	${mq[l]} {
+		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", l)});
 	}
 
-	${contour.mq.xl} {
-		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", "xl")});
+	${mq[xl]} {
+		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", xl)});
 	}
 `;
 

@@ -1,11 +1,11 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import Column from "@contour/react/column";
+import Grid from "@contour/react/grid";
+import { defaultTheme } from "@contour/theme";
+import { pxToRem } from "@contour/utils";
 import { css, Global, useTheme } from "@emotion/react";
 import { Story } from "@storybook/react";
 import React, { FC, HTMLProps } from "react";
-import Column from "../../packages/react/src/column";
-import Grid from "../../packages/react/src/grid";
-import { pxToRem } from "../../packages/utils/src";
-import { defaultTheme } from "../../packages/theme/src";
 
 import { DebugBox, DebugColumn } from "../helpers";
 
@@ -22,7 +22,7 @@ const Header: FC = ({ children }) => {
 				css={css`
 					display: flex;
 					box-sizing: border-box;
-					max-width: ${pxToRem(contour.breakpoints.xl)};
+					max-width: ${pxToRem(contour.breakpoints.values.xl)};
 					margin: auto;
 					padding: ${pxToRem(contour.gap.xs)} ${pxToRem(contour.margin.xs)};
 					${contour.mq.s} {

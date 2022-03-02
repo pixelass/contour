@@ -1,8 +1,8 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import { css, keyframes } from "@emotion/react";
 import React, { CSSProperties, FC } from "react";
-import Column from "../packages/react/src/column";
-import { ColumnProps, NoStrategy, Theme } from "../packages/utils/src/types";
+import Column from "@contour/react/column";
+import { ColumnProps, NoStrategy, Theme } from "@contour/utils";
 
 const marchingAnts = keyframes`
 	from {
@@ -16,6 +16,7 @@ const marchingAnts = keyframes`
 export const debugBox = css`
 	position: relative;
 	min-height: 2rem;
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -85,11 +86,18 @@ export const ColorBox: FC<{ color?: string }> = ({ color = "hsla(0,0%,0%, 1)", .
 	/>
 );
 
-export const getColumnWidth = (theme: Theme) =>
-	(theme.contour.breakpoints.xl - theme.contour.margin.xl * 2) / theme.contour.colCount.xl;
+export const getColumnWidth = (theme: Theme) => {
+	const [, , , , xl] = theme.contour.breakpoints.keys;
+	return (
+		(theme.contour.breakpoints[xl] - theme.contour.margin[xl] * 2) / theme.contour.colCount[xl]
+	);
+};
 
-export const getColumnsWidth = (theme: Theme, colSpan: number, gap = 0) =>
-	colSpan * getColumnWidth(theme) - (theme.contour.gap.xl / 2) * gap;
+export const getColumnsWidth = (theme: Theme, colSpan: number, gap = 0) => {
+	const [, , , , xl] = theme.contour.breakpoints.keys;
+
+	return colSpan * getColumnWidth(theme) - (theme.contour.gap[xl] / 2) * gap;
+};
 
 export const Rainbow = ({ length }: { length: number }) => (
 	<>

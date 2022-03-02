@@ -1,5 +1,5 @@
-import { ColumnProps, FlexColumnProps, GridColumnProps, NoStrategy } from "@contour/utils/types";
 import { useGridContext } from "@contour/react/context";
+import { ColumnProps, FlexColumnProps, GridColumnProps, NoStrategy } from "@contour/utils/types";
 import React from "react";
 import FlexColumn from "./column/components/flex";
 import GridColumn from "./column/components/grid";

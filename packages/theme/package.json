@@ -55,11 +55,9 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
-    "@contour/utils": "^0.1.6",
-    "deepmerge": "^4.2.2"
+    "@contour/utils": "^0.1.6"
   },
   "devDependencies": {
-    "@types/deepmerge": "^2.2.0",
     "react": "^17.0.2"
   },
   "peerDependencies": {
