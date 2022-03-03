@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/pixelass/contour/compare/v0.2.0...v0.3.0) (2022-03-03)
+
+
+### Features
+
+* add breakout-column to named exports ([#4](https://github.com/pixelass/contour/issues/4)) ([b0d09ff](https://github.com/pixelass/contour/commit/b0d09ffc8337aacbbd4f60f9c0a362830da01554))
+* add sx-property ([#3](https://github.com/pixelass/contour/issues/3)) ([f04ba03](https://github.com/pixelass/contour/commit/f04ba030956424dd906fd080d937db963ad757dd))
+
+
+
+
+
 # [0.2.0](https://github.com/pixelass/contour/compare/v0.1.9...v0.2.0) (2022-03-02)
 
 
