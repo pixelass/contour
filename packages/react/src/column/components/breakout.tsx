@@ -2,6 +2,7 @@
 import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { cssVar, getCSSVars } from "@contour/utils/css";
+import { resolveSx } from "@contour/utils/resolve-sx";
 import { BreakoutColumnProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
 import React, { CSSProperties, memo } from "react";
@@ -124,6 +125,7 @@ const BreakoutColumn = ({
 	order = {},
 	left = {},
 	right = {},
+	sx = {},
 	...props
 }: BreakoutColumnProps) => {
 	const colSpanVars = getCSSVars("colSpan", colSpan);
@@ -134,7 +136,7 @@ const BreakoutColumn = ({
 	return (
 		<Component
 			{...props}
-			css={breakoutColumn}
+			css={[breakoutColumn, resolveSx(sx)]}
 			style={
 				{
 					...style,

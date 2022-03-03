@@ -2,6 +2,7 @@
 import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { getCSSVars } from "@contour/utils/css";
+import { resolveSx } from "@contour/utils/resolve-sx";
 import { GridRowProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
 import React, { memo } from "react";
@@ -24,13 +25,14 @@ const GridRow = ({
 	justify,
 	style = {},
 	colCount = {},
+	sx = {},
 	...props
 }: GridRowProps) => {
 	const cssVars = getCSSVars("colCount", colCount);
 	return (
 		<Component
 			{...props}
-			css={gridRow}
+			css={[gridRow, resolveSx(sx)]}
 			style={{
 				...style,
 				...cssVars,

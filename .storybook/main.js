@@ -11,6 +11,7 @@ module.exports = {
 		"../stories/introduction.stories.mdx",
 		"../stories/docs/getting-started.stories.mdx",
 		"../stories/docs/configuration.stories.mdx",
+		"../stories/docs/advanced.stories.mdx",
 		"../stories/docs/components/grid.stories.mdx",
 		"../stories/docs/components/row.stories.mdx",
 		"../stories/docs/components/column.stories.mdx",

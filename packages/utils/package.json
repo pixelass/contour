@@ -29,7 +29,8 @@
     "./constants": "./dist/constants.js",
     "./id": "./dist/id.js",
     "./types": "./dist/types.js",
-    "./css": "./dist/css.js"
+    "./css": "./dist/css.js",
+    "./resolve-sx": "./dist/resolve-sx.js"
   },
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -46,6 +47,9 @@
       ],
       "css": [
         "dist/css.d.ts"
+      ],
+      "resolve-sx": [
+        "dist/resolve-sx.d.ts"
       ]
     }
   },

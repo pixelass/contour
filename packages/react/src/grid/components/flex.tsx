@@ -2,6 +2,7 @@
 import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { getCSSVars } from "@contour/utils/css";
+import { resolveSx } from "@contour/utils/resolve-sx";
 import { FlexGridProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
 import React, { CSSProperties, memo } from "react";
@@ -25,6 +26,7 @@ const FlexGrid = ({
 	style = {},
 	gap = {},
 	margin = {},
+	sx = {},
 	...props
 }: FlexGridProps) => {
 	const colCountVars = getCSSVars("colCount", colCount);
@@ -33,7 +35,7 @@ const FlexGrid = ({
 	return (
 		<Component
 			{...props}
-			css={flexGrid}
+			css={[flexGrid, resolveSx(sx)]}
 			style={
 				{
 					...style,

@@ -20,6 +20,7 @@ const defaultTheme: Theme = {
 			values: defaultBreakpointValues,
 			keys: defaultBreakpointNames as BreakpointKey[],
 		},
+		spacing: 8,
 		colCount: {
 			[xs]: 2,
 			[s]: 4,

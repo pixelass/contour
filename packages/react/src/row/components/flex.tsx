@@ -2,6 +2,7 @@
 import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { getCSSVars } from "@contour/utils/css";
+import { resolveSx } from "@contour/utils/resolve-sx";
 import { FlexRowProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
 import React, { CSSProperties, memo } from "react";
@@ -22,13 +23,14 @@ const FlexRow = ({
 	justify,
 	style,
 	colCount = {},
+	sx = {},
 	...props
 }: FlexRowProps) => {
 	const cssVars = getCSSVars("colCount", colCount);
 	return (
 		<Component
 			{...props}
-			css={flexRow}
+			css={[flexRow, resolveSx(sx)]}
 			style={
 				{
 					...style,

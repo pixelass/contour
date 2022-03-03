@@ -1,6 +1,6 @@
-import useViewport from "../../../packages/hooks/src/viewport";
-import BreakoutColumn from "../../../packages/react/src/breakout-column";
-import Grid from "../../../packages/react/src/grid";
+import useViewport from "@contour/hooks/viewport";
+import BreakoutColumn from "@contour/react/breakout-column";
+import Grid from "@contour/react/grid";
 import { DebugBox } from "../../helpers";
 
 export default function Example() {
