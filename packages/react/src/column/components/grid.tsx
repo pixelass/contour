@@ -2,6 +2,7 @@
 import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { cssVar, getCSSVars } from "@contour/utils/css";
+import { resolveSx } from "@contour/utils/resolve-sx";
 import { GridColumnProps, Theme } from "@contour/utils/types";
 import { css } from "@emotion/react";
 import React, { CSSProperties, memo } from "react";
@@ -60,6 +61,7 @@ const GridColumn = ({
 	colSpan = {},
 	colStart = {},
 	order = {},
+	sx = {},
 	...props
 }: GridColumnProps) => {
 	const colSpanVars = getCSSVars("colSpan", colSpan);
@@ -68,7 +70,7 @@ const GridColumn = ({
 	return (
 		<Component
 			{...props}
-			css={gridColumn}
+			css={[gridColumn, resolveSx(sx)]}
 			style={
 				{
 					...style,

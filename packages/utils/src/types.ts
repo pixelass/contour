@@ -1,5 +1,6 @@
 import { CSSProperties, ElementType, ReactNode } from "react";
 import { Except } from "type-fest";
+
 /* eslint-disable @typescript-eslint/ban-types */
 /**
  * Remove properties `K` from `T`.
@@ -73,11 +74,33 @@ export interface GridContextShape {
 	strategy: Strategy;
 }
 
+export interface SxObject extends CSSProperties {
+	m?: number | string;
+	mt?: number | string;
+	mr?: number | string;
+	mb?: number | string;
+	ml?: number | string;
+	mx?: number | string;
+	my?: number | string;
+	p?: number | string;
+	pt?: number | string;
+	pr?: number | string;
+	pb?: number | string;
+	pl?: number | string;
+	px?: number | string;
+	py?: number | string;
+}
+
+export type SxFunction = (theme: Theme) => SxObject;
+
+export type Sx = SxFunction | SxObject;
+
 export interface BaseProps<T> {
 	as?: ElementType;
 	children?: ReactNode;
 	strategy: T;
 	style?: CSSProperties;
+	sx?: SxFunction | SxObject;
 	align?: Align;
 	justify?: Justify;
 }
@@ -137,6 +160,7 @@ export interface Theme {
 		colCount: BreakpointValues<number>;
 		gap: BreakpointValues<number>;
 		margin: BreakpointValues<number>;
+		spacing: number;
 		mq: MediaQueries;
 	};
 }
@@ -147,6 +171,7 @@ export interface PartialTheme {
 		colCount?: Partial<BreakpointValues<number>>;
 		gap?: Partial<BreakpointValues<number>>;
 		margin?: Partial<BreakpointValues<number>>;
+		spacing?: number;
 		mq?: Partial<MediaQueries>;
 	};
 }

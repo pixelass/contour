@@ -1,8 +1,8 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import { css, keyframes } from "@emotion/react";
-import React, { CSSProperties, FC } from "react";
 import Column from "@contour/react/column";
 import { ColumnProps, NoStrategy, Theme } from "@contour/utils";
+import { css, keyframes } from "@emotion/react";
+import React, { CSSProperties, FC } from "react";
 
 const marchingAnts = keyframes`
 	from {

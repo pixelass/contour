@@ -2,6 +2,7 @@
 import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { getCSSVars } from "@contour/utils/css";
+import { resolveSx } from "@contour/utils/resolve-sx";
 import { GridGridProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
 import React, { CSSProperties, memo } from "react";
@@ -26,6 +27,7 @@ const GridGrid = ({
 	gap = {},
 	margin = {},
 	style = {},
+	sx = {},
 	...props
 }: GridGridProps) => {
 	const colCountVars = getCSSVars("colCount", colCount);
@@ -34,7 +36,7 @@ const GridGrid = ({
 	return (
 		<Component
 			{...props}
-			css={gridGrid}
+			css={[gridGrid, resolveSx(sx)]}
 			style={
 				{
 					...style,

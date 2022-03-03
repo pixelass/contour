@@ -1,0 +1,79 @@
+import Grid from "@contour/react/grid";
+import { Meta } from "@storybook/addon-docs";
+import { DebugBox, DebugColumn } from "../helpers";
+
+<Meta title="Docs/Advanced" />
+
+# Advanced Options
+
+## The SX property
+
+The `sx` prop is a shortcut for defining custom style that has access to the theme.
+
+This feature is strongly inspired by [Material UI](https://mui.com/system/the-sx-prop/)
+
+> Word of Caution!  
+> Contour does not support all aliases and or behavior as MUI.
+
+These properties are supported:
+
+```js
+const aliases = {
+	m: ["margin"],
+	mt: ["marginTop"],
+	mr: ["marginRight"],
+	mb: ["marginBottom"],
+	ml: ["marginLeft"],
+	mx: ["marginRight", "marginLeft"],
+	my: ["marginTop", "marginBottom"],
+	p: ["padding"],
+	pt: ["paddingTop"],
+	pr: ["paddingRight"],
+	pb: ["paddingBottom"],
+	pl: ["paddingLeft"],
+	px: ["paddingRight", "paddingLeft"],
+	py: ["paddingTop", "paddingBottom"],
+};
+```
+
+```tsx
+import Grid from "@contour/react/grid";
+import Column from "@contour/react/column";
+
+export default function App() {
+	return (
+        <>
+		<Grid strategy="grid" >
+			<Column >Contour</Column>
+			<Column  >Contour</Column>
+		</Grid>
+		<Grid strategy="grid" sx={{py: 0}}>
+			<Column sx={{p: 4}}>Contour</Column>
+			<Column  sx={{background: "red", color: "white"}}>Contour</Column>
+		</Grid>
+</>
+	);
+}
+```
+<>
+	<DebugBox>
+		<Grid strategy="grid">
+			<DebugColumn>
+				<DebugBox>Contour</DebugBox>
+			</DebugColumn>
+			<DebugColumn>
+				<DebugBox>Contour</DebugBox>
+			</DebugColumn>
+		</Grid>
+	</DebugBox>
+	<DebugBox>
+		<Grid strategy="grid" sx={{py: 0}}>
+			<DebugColumn  sx={{p: 4}}>
+				<DebugBox>Contour</DebugBox>
+			</DebugColumn>
+			<DebugColumn sx={{background: "red", color: "white"}}>
+				<DebugBox>Contour</DebugBox>
+			</DebugColumn>
+		</Grid>
+	</DebugBox>
+</>

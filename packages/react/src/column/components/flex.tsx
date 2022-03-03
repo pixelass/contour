@@ -2,6 +2,7 @@
 import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { getCSSVars } from "@contour/utils/css";
+import { resolveSx } from "@contour/utils/resolve-sx";
 import { FlexColumnProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
 import React, { CSSProperties, memo } from "react";
@@ -27,6 +28,7 @@ const FlexColumn = ({
 	flex,
 	colSpan = {},
 	order = {},
+	sx = {},
 	...props
 }: FlexColumnProps) => {
 	const colSpanVars = getCSSVars("colSpan", colSpan);
@@ -34,7 +36,7 @@ const FlexColumn = ({
 	return (
 		<Component
 			{...props}
-			css={flexColumn}
+			css={[flexColumn, resolveSx(sx)]}
 			style={
 				{
 					...style,
