@@ -64,25 +64,25 @@ const breakoutColumn = (theme = defaultTheme) => {
 
 		width: calc(
 			100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) -
-				var(${PUBLIC_CSS_VARS.gap}) * 1px + var(${PUBLIC_CSS_VARS.margin}) *
-				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.margin}) *
+				var(${PUBLIC_CSS_VARS.gapX}) * 1px + var(${PUBLIC_CSS_VARS.marginX}) *
+				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.marginX}) *
 				var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 		);
-		margin: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px)
+		margin: calc(var(${PUBLIC_CSS_VARS.gapY}) / 2 * 1px)
 			calc(
-				var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px - var(${PUBLIC_CSS_VARS.margin}) *
+				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px - var(${PUBLIC_CSS_VARS.marginX}) *
 					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 			)
-			calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px)
+			calc(var(${PUBLIC_CSS_VARS.gapY}) / 2 * 1px)
 			calc(
-				var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px - var(${PUBLIC_CSS_VARS.margin}) *
+				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px - var(${PUBLIC_CSS_VARS.marginX}) *
 					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
 			);
 
 		${(theme.contour ?? defaultTheme.contour).mq[xl]} {
 			width: calc(
 				100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) -
-					var(${PUBLIC_CSS_VARS.gap}) * 1px +
+					var(${PUBLIC_CSS_VARS.gapX}) * 1px +
 					(
 						var(${PUBLIC_CSS_VARS.vw}, 100vw) -
 							${(theme.contour ?? defaultTheme.contour).breakpoints[xl]}px
@@ -91,24 +91,24 @@ const breakoutColumn = (theme = defaultTheme) => {
 						var(${PUBLIC_CSS_VARS.vw}, 100vw) -
 							${(theme.contour ?? defaultTheme.contour).breakpoints[xl]}px
 					) / 2 * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) +
-					var(${PUBLIC_CSS_VARS.margin}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px +
-					var(${PUBLIC_CSS_VARS.margin}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
+					var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px +
+					var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 			);
 			margin-right: calc(
-				var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px -
+				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px -
 					(
 						var(${PUBLIC_CSS_VARS.vw}, 100vw) -
 							${(theme.contour ?? defaultTheme.contour).breakpoints[xl]}px
 					) / 2 * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) -
-					var(${PUBLIC_CSS_VARS.margin}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
+					var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 			);
 			margin-left: calc(
-				var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px -
+				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px -
 					(
 						var(${PUBLIC_CSS_VARS.vw}, 100vw) -
 							${(theme.contour ?? defaultTheme.contour).breakpoints[xl]}px
-					) / 2 * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) - var(${PUBLIC_CSS_VARS.margin}) *
-					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
+					) / 2 * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) -
+					var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
 			);
 		}
 		/* stylelint-enable function-whitespace-after */

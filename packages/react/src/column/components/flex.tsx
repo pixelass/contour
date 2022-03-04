@@ -14,9 +14,10 @@ const flexColumn = (theme = defaultTheme) => css`
 
 	width: calc(
 		100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) -
-			var(${PUBLIC_CSS_VARS.gap}) * 1px
+			var(${PUBLIC_CSS_VARS.gapX}) * 1px
 	);
-	margin: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
+	margin: calc(var(${PUBLIC_CSS_VARS.gapY}) / 2 * 1px)
+		calc(var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px);
 `;
 
 const FlexColumn = ({

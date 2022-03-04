@@ -30,7 +30,10 @@
     "./id": "./dist/id.js",
     "./types": "./dist/types.js",
     "./css": "./dist/css.js",
-    "./resolve-sx": "./dist/resolve-sx.js"
+    "./resolve-sx": "./dist/resolve-sx.js",
+    "./type-guards": "./dist/type-guards.js",
+    "./shallow-merge": "./dist/shallow-merge.js",
+    "./get-breakpont-values": "./dist/get-breakpoint-values.js"
   },
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -50,6 +53,15 @@
       ],
       "resolve-sx": [
         "dist/resolve-sx.d.ts"
+      ],
+      "type-guards": [
+        "dist/type-guards.d.ts"
+      ],
+      "shallow-merge": [
+        "dist/shallow-merge.d.ts"
+      ],
+      "get-breakpoint-values": [
+        "dist/get-breakpoint-values.d.ts"
       ]
     }
   },

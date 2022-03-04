@@ -2,7 +2,7 @@ import { defaultTheme } from "@contour/theme";
 import { pxToRem } from "@contour/utils/css";
 import { Sx, SxObject, Theme } from "@contour/utils/types";
 
-const aliases: Record<string, string[]> = {
+export const aliases: Record<string, string[]> = {
 	m: ["margin"],
 	mt: ["marginTop"],
 	mr: ["marginRight"],

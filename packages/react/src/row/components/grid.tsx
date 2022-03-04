@@ -13,9 +13,10 @@ const gridRow = (theme = defaultTheme) => css`
 	${rowCommon};
 
 	display: grid;
-	gap: calc(var(${PUBLIC_CSS_VARS.gap}) * 1px);
 	grid-template-columns: repeat(var(${PUBLIC_CSS_VARS.colCount}), 1fr);
-	padding: calc(var(${PUBLIC_CSS_VARS.gap}) / 2 * 1px);
+	padding: 0 calc(var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px);
+	column-gap: calc(var(${PUBLIC_CSS_VARS.gapX}) * 1px);
+	row-gap: calc(var(${PUBLIC_CSS_VARS.gapY}) * 1px);
 `;
 
 const GridRow = ({

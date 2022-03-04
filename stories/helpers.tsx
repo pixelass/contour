@@ -89,7 +89,8 @@ export const ColorBox: FC<{ color?: string }> = ({ color = "hsla(0,0%,0%, 1)", .
 export const getColumnWidth = (theme: Theme) => {
 	const [, , , , xl] = theme.contour.breakpoints.keys;
 	return (
-		(theme.contour.breakpoints[xl] - theme.contour.margin[xl] * 2) / theme.contour.colCount[xl]
+		(theme.contour.breakpoints[xl] - theme.contour.margin.x[xl] * 2) /
+		theme.contour.colCount[xl]
 	);
 };
 

@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import CssBaseline from "@mui/material/CssBaseline";
 import CardMedia from "@mui/material/CardMedia";
 import { red, teal } from "@mui/material/colors";
 import IconButton from "@mui/material/IconButton";
@@ -30,9 +31,20 @@ declare module "@contour/utils" {
 	}
 }
 
-const muiTheme = createTheme({});
+const muiTheme = createTheme({
+	breakpoints: {
+		values: {
+			xs: 0,
+			sm: 600,
+			md: 905,
+			lg: 1240,
+			xl: 1440,
+		},
+	},
+});
 
 const muiGap = Number.parseInt(muiTheme.spacing(1), 10);
+
 const contourTheme = createContourTheme({
 	contour: {
 		mq: createMediaQueries(muiTheme.breakpoints.values),
@@ -48,18 +60,36 @@ const contourTheme = createContourTheme({
 			xl: 12,
 		},
 		gap: {
-			xs: muiGap * 2,
-			sm: muiGap * 2,
-			md: muiGap * 2,
-			lg: muiGap * 2,
-			xl: muiGap * 2,
+			x: {
+				xs: muiGap * 2,
+				sm: muiGap * 2,
+				md: muiGap * 2,
+				lg: muiGap * 2,
+				xl: muiGap * 2,
+			},
+			y: {
+				xs: muiGap * 2,
+				sm: muiGap * 2,
+				md: muiGap * 2,
+				lg: muiGap * 2,
+				xl: muiGap * 2,
+			},
 		},
 		margin: {
-			xs: muiGap * 2,
-			sm: muiGap * 2,
-			md: muiGap * 2,
-			lg: muiGap * 2,
-			xl: muiGap * 2,
+			x: {
+				xs: muiGap * 2,
+				sm: muiGap * 2,
+				md: muiGap * 4,
+				lg: muiGap * 25,
+				xl: muiGap * 25,
+			},
+			y: {
+				xs: muiGap * 2,
+				sm: muiGap * 2,
+				md: muiGap * 2,
+				lg: muiGap * 4,
+				xl: muiGap * 4,
+			},
 		},
 	},
 });
@@ -74,16 +104,13 @@ export const MaterialUI: Story = () => {
 	return (
 		<ThemeProvider theme={muiTheme}>
 			<GridProvider theme={contourTheme}>
+				<CssBaseline />
 				<Global
 					styles={css`
 						body,
 						.sb-show-main.sb-main-padded {
 							margin: 0;
 							padding: 0;
-						}
-
-						* {
-							box-sizing: border-box;
 						}
 					`}
 				/>

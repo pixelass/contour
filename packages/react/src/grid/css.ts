@@ -21,42 +21,62 @@ export const gridVars = ({ contour = defaultTheme.contour } = defaultTheme) => {
 		${cssVar("colCount", m)}: ${colCount[m]};
 		${cssVar("colCount", l)}: ${colCount[l]};
 		${cssVar("colCount", xl)}: ${colCount[xl]};
-		${cssVar("gap", xs)}: ${gap[xs]};
-		${cssVar("gap", s)}: ${gap[s]};
-		${cssVar("gap", m)}: ${gap[m]};
-		${cssVar("gap", l)}: ${gap[l]};
-		${cssVar("gap", xl)}: ${gap[xl]};
-		${cssVar("margin", xs)}: ${margin[xs]};
-		${cssVar("margin", s)}: ${margin[s]};
-		${cssVar("margin", m)}: ${margin[m]};
-		${cssVar("margin", l)}: ${margin[l]};
-		${cssVar("margin", xl)}: ${margin[xl]};
+		${cssVar("gapX", xs)}: ${gap.x[xs]};
+		${cssVar("gapX", s)}: ${gap.x[s]};
+		${cssVar("gapX", m)}: ${gap.x[m]};
+		${cssVar("gapX", l)}: ${gap.x[l]};
+		${cssVar("gapX", xl)}: ${gap.x[xl]};
+		${cssVar("gapY", xs)}: ${gap.y[xs]};
+		${cssVar("gapY", s)}: ${gap.y[s]};
+		${cssVar("gapY", m)}: ${gap.y[m]};
+		${cssVar("gapY", l)}: ${gap.y[l]};
+		${cssVar("gapY", xl)}: ${gap.y[xl]};
+		${cssVar("marginX", xs)}: ${margin.x[xs]};
+		${cssVar("marginX", s)}: ${margin.x[s]};
+		${cssVar("marginX", m)}: ${margin.x[m]};
+		${cssVar("marginX", l)}: ${margin.x[l]};
+		${cssVar("marginX", xl)}: ${margin.x[xl]};
+		${cssVar("marginY", xs)}: ${margin.y[xs]};
+		${cssVar("marginY", s)}: ${margin.y[s]};
+		${cssVar("marginY", m)}: ${margin.y[m]};
+		${cssVar("marginY", l)}: ${margin.y[l]};
+		${cssVar("marginY", xl)}: ${margin.y[xl]};
 		${PUBLIC_CSS_VARS.colCount}: var(${cssVar("colCount", xs)});
-		${PUBLIC_CSS_VARS.gap}: var(${cssVar("gap", xs)});
-		${PUBLIC_CSS_VARS.margin}: var(${cssVar("margin", xs)});
+		${PUBLIC_CSS_VARS.gapX}: var(${cssVar("gapX", xs)});
+		${PUBLIC_CSS_VARS.gapY}: var(${cssVar("gapY", xs)});
+		${PUBLIC_CSS_VARS.marginX}: var(${cssVar("marginX", xs)});
+		${PUBLIC_CSS_VARS.marginY}: var(${cssVar("marginY", xs)});
 
 		${mq[s]} {
 			${PUBLIC_CSS_VARS.colCount}: var(${cssVar("colCount", s)});
-			${PUBLIC_CSS_VARS.gap}: var(${cssVar("gap", xs)});
-			${PUBLIC_CSS_VARS.margin}: var(${cssVar("margin", xs)});
+			${PUBLIC_CSS_VARS.gapX}: var(${cssVar("gapX", xs)});
+			${PUBLIC_CSS_VARS.gapY}: var(${cssVar("gapY", xs)});
+			${PUBLIC_CSS_VARS.marginX}: var(${cssVar("marginX", xs)});
+			${PUBLIC_CSS_VARS.marginY}: var(${cssVar("marginY", xs)});
 		}
 
 		${mq[m]} {
 			${PUBLIC_CSS_VARS.colCount}: var(${cssVar("colCount", m)});
-			${PUBLIC_CSS_VARS.gap}: var(${cssVar("gap", m)});
-			${PUBLIC_CSS_VARS.margin}: var(${cssVar("margin", m)});
+			${PUBLIC_CSS_VARS.gapX}: var(${cssVar("gapX", m)});
+			${PUBLIC_CSS_VARS.gapY}: var(${cssVar("gapY", m)});
+			${PUBLIC_CSS_VARS.marginX}: var(${cssVar("marginX", m)});
+			${PUBLIC_CSS_VARS.marginY}: var(${cssVar("marginY", m)});
 		}
 
 		${mq[l]} {
 			${PUBLIC_CSS_VARS.colCount}: var(${cssVar("colCount", l)});
-			${PUBLIC_CSS_VARS.gap}: var(${cssVar("gap", l)});
-			${PUBLIC_CSS_VARS.margin}: var(${cssVar("margin", l)});
+			${PUBLIC_CSS_VARS.gapX}: var(${cssVar("gapX", l)});
+			${PUBLIC_CSS_VARS.gapY}: var(${cssVar("gapY", l)});
+			${PUBLIC_CSS_VARS.marginX}: var(${cssVar("marginX", l)});
+			${PUBLIC_CSS_VARS.marginY}: var(${cssVar("marginY", l)});
 		}
 
 		${mq[xl]} {
 			${PUBLIC_CSS_VARS.colCount}: var(${cssVar("colCount", xl)});
-			${PUBLIC_CSS_VARS.gap}: var(${cssVar("gap", xl)});
-			${PUBLIC_CSS_VARS.margin}: var(${cssVar("margin", xl)});
+			${PUBLIC_CSS_VARS.gapX}: var(${cssVar("gapX", xl)});
+			${PUBLIC_CSS_VARS.gapY}: var(${cssVar("gapY", xl)});
+			${PUBLIC_CSS_VARS.marginX}: var(${cssVar("marginX", xl)});
+			${PUBLIC_CSS_VARS.marginY}: var(${cssVar("marginY", xl)});
 		}
 	`;
 };

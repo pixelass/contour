@@ -24,18 +24,18 @@ const Header: FC = ({ children }) => {
 					box-sizing: border-box;
 					max-width: ${pxToRem(contour.breakpoints.values.xl)};
 					margin: auto;
-					padding: ${pxToRem(contour.gap.xs)} ${pxToRem(contour.margin.xs)};
+					padding: ${pxToRem(contour.gap.y.xs)} ${pxToRem(contour.margin.x.xs)};
 					${contour.mq.s} {
-						padding: ${pxToRem(contour.gap.s)} ${pxToRem(contour.margin.s)};
+						padding: ${pxToRem(contour.gap.y.s)} ${pxToRem(contour.margin.x.s)};
 					}
 					${contour.mq.m} {
-						padding: ${pxToRem(contour.gap.m)} ${pxToRem(contour.margin.m)};
+						padding: ${pxToRem(contour.gap.y.m)} ${pxToRem(contour.margin.x.m)};
 					}
 					${contour.mq.l} {
-						padding: ${pxToRem(contour.gap.l)} ${pxToRem(contour.margin.l)};
+						padding: ${pxToRem(contour.gap.y.l)} ${pxToRem(contour.margin.x.l)};
 					}
 					${contour.mq.xl} {
-						padding: ${pxToRem(contour.gap.xl)} ${pxToRem(contour.margin.xl)};
+						padding: ${pxToRem(contour.gap.y.xl)} ${pxToRem(contour.margin.x.xl)};
 					}
 				`}
 			>
