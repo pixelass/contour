@@ -1,5 +1,4 @@
-import { defaultTheme } from "@contour/theme";
-import { pxToRem } from "@contour/utils/css";
+import { pxToRem } from "./css";
 import { Sx, SxObject, Theme } from "@contour/utils/types";
 
 export const aliases: Record<string, string[]> = {
@@ -20,10 +19,6 @@ export const aliases: Record<string, string[]> = {
 };
 
 export const resolveSx = (sx: Sx) => (theme: Theme) => {
-	if (!theme.contour) {
-		theme.contour = defaultTheme.contour;
-	}
-
 	const sxResult: SxObject = typeof sx === "function" ? sx(theme) : sx;
 	for (const key in sxResult) {
 		if (Object.prototype.hasOwnProperty.call(aliases, key)) {

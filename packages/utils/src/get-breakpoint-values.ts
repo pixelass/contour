@@ -1,10 +1,10 @@
-import shallowMerge from "@contour/utils/shallow-merge";
+import shallowMerge from "./shallow-merge";
 import {
 	isXBreakpointValues,
 	isXYBreakpointValues,
 	isYBreakpointValues,
 } from "@contour/utils/type-guards";
-import { BreakpointValues, PartialTheme, Theme, XYBreakpointValues } from "@contour/utils/types";
+import { BreakpointValues, PartialTheme, Theme, XYBreakpointValues } from "./types";
 
 /**
  * Ensure x & y separation of properties. In the cases "gap" and "margin" the API allows specifying

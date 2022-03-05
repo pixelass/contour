@@ -13,7 +13,6 @@ export const gridVars = ({ contour = defaultTheme.contour } = defaultTheme) => {
 		margin,
 		mq,
 	} = contour;
-	console.log("contour", contour);
 	return css`
 		${CSS_VAR_RESET}: initial;
 		${cssVar("colCount", xs)}: ${colCount[xs]};
