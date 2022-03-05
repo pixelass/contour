@@ -60,7 +60,10 @@ export type CSSVarKey =
 	| "colStart"
 	| "order"
 	| "gap"
-	| "margin"
+	| "gapX"
+	| "gapY"
+	| "marginX"
+	| "marginY"
 	| "breakoutLeft"
 	| "breakoutRight";
 
@@ -114,8 +117,8 @@ export interface BaseColumnProps<T = "flex"> extends BaseProps<T> {
 
 export interface BaseGridProps<T = "flex"> extends BaseProps<T> {
 	colCount?: Partial<BreakpointValues>;
-	gap?: Partial<BreakpointValues>;
-	margin?: Partial<BreakpointValues>;
+	gap?: Partial<XYBreakpointValues<number>> | Partial<BreakpointValues<number>>;
+	margin?: Partial<XYBreakpointValues<number>> | Partial<BreakpointValues<number>>;
 }
 
 export interface BaseRowProps<T = "flex"> extends BaseGridProps<T> {}
@@ -154,12 +157,17 @@ export interface Breakpoints {
 	keys: BreakpointKey[];
 }
 
+export interface XYBreakpointValues<T = string | number> {
+	x: BreakpointValues<T>;
+	y: BreakpointValues<T>;
+}
+
 export interface Theme {
 	contour: {
 		breakpoints: Breakpoints;
 		colCount: BreakpointValues<number>;
-		gap: BreakpointValues<number>;
-		margin: BreakpointValues<number>;
+		gap: XYBreakpointValues<number>;
+		margin: XYBreakpointValues<number>;
 		spacing: number;
 		mq: MediaQueries;
 	};
@@ -169,8 +177,8 @@ export interface PartialTheme {
 	contour: {
 		breakpoints?: Partial<Breakpoints>;
 		colCount?: Partial<BreakpointValues<number>>;
-		gap?: Partial<BreakpointValues<number>>;
-		margin?: Partial<BreakpointValues<number>>;
+		gap?: Partial<BreakpointValues<number>> | Partial<XYBreakpointValues<number>>;
+		margin?: Partial<BreakpointValues<number>> | Partial<XYBreakpointValues<number>>;
 		spacing?: number;
 		mq?: Partial<MediaQueries>;
 	};

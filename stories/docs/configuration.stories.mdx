@@ -101,6 +101,31 @@ export default createTheme({
 });
 ```
 
+```ts
+import createTheme from "@contour/theme/create-theme";
+
+export default createTheme({
+	contour: {
+		margin: {
+			 x: {
+				xs: 16,
+				s: 16,
+				m: 16,
+				l: 16,
+				xl: 16,
+			},
+			y: {
+				xs: 16,
+				s: 16,
+				m: 16,
+				l: 16,
+				xl: 16,
+			}
+		},
+	},
+});
+```
+
 ## Default Theme
 
 ```json
@@ -131,18 +156,36 @@ export default createTheme({
 			"xl": 12
 		},
 		"gap": {
-			"xs": 16,
-			"s": 16,
-			"m": 16,
-			"l": 16,
-			"xl": 16
+			"x":  {
+				"xs": 16,
+				"s": 16,
+				"m": 16,
+				"l": 16,
+				"xl": 16
+			},
+			"y":  {
+				"xs": 16,
+				"s": 16,
+				"m": 16,
+				"l": 16,
+				"xl": 16
+			}
 		},
 		"margin": {
+		"x": {
 			"xs": 16,
 			"s": 16,
 			"m": 32,
 			"l": 64,
 			"xl": 64
+		},
+		"y": {
+				"xs": 16,
+				"s": 16,
+				"m": 16,
+				"l": 16,
+				"xl": 16
+			}
 		}
 	}
 }

@@ -1,7 +1,7 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import { getCommonVars } from "@contour/react/grid/utils";
 import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { getCSSVars } from "@contour/utils/css";
 import { resolveSx } from "@contour/utils/resolve-sx";
 import { FlexGridProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
@@ -14,7 +14,7 @@ const flexGrid = (theme = defaultTheme) => css`
 
 	display: flex;
 	flex-wrap: wrap;
-	padding: 0 calc((var(${PUBLIC_CSS_VARS.margin}) - var(${PUBLIC_CSS_VARS.gap}) / 2) * 1px);
+	padding: 0 calc((var(${PUBLIC_CSS_VARS.marginX}) - var(${PUBLIC_CSS_VARS.gapY}) / 2) * 1px);
 `;
 
 const FlexGrid = ({
@@ -29,9 +29,6 @@ const FlexGrid = ({
 	sx = {},
 	...props
 }: FlexGridProps) => {
-	const colCountVars = getCSSVars("colCount", colCount);
-	const gapVars = getCSSVars("gap", gap);
-	const marginVars = getCSSVars("margin", margin);
 	return (
 		<Component
 			{...props}
@@ -39,9 +36,7 @@ const FlexGrid = ({
 			style={
 				{
 					...style,
-					...colCountVars,
-					...gapVars,
-					...marginVars,
+					...getCommonVars({ gap, margin, colCount }),
 					[PUBLIC_CSS_VARS.align]: align,
 					[PUBLIC_CSS_VARS.justify]: justify,
 				} as CSSProperties
