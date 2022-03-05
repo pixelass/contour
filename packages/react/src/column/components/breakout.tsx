@@ -54,6 +54,7 @@ const breakoutColumn = (theme = defaultTheme) => {
 	const {
 		breakpoints: {
 			keys: [, , , , xl],
+			values,
 		},
 	} = theme.contour ?? defaultTheme.contour;
 	return css`
@@ -83,32 +84,24 @@ const breakoutColumn = (theme = defaultTheme) => {
 			width: calc(
 				100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) -
 					var(${PUBLIC_CSS_VARS.gapX}) * 1px +
-					(
-						var(${PUBLIC_CSS_VARS.vw}, 100vw) -
-							${(theme.contour ?? defaultTheme.contour).breakpoints[xl]}px
-					) / 2 * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) +
-					(
-						var(${PUBLIC_CSS_VARS.vw}, 100vw) -
-							${(theme.contour ?? defaultTheme.contour).breakpoints[xl]}px
-					) / 2 * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) +
-					var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px +
-					var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
+					(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 *
+					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) +
+					(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 *
+					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) + var(${PUBLIC_CSS_VARS.marginX}) *
+					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.marginX}) *
+					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 			);
 			margin-right: calc(
 				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px -
-					(
-						var(${PUBLIC_CSS_VARS.vw}, 100vw) -
-							${(theme.contour ?? defaultTheme.contour).breakpoints[xl]}px
-					) / 2 * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) -
-					var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
+					(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 *
+					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) - var(${PUBLIC_CSS_VARS.marginX}) *
+					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
 			);
 			margin-left: calc(
 				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px -
-					(
-						var(${PUBLIC_CSS_VARS.vw}, 100vw) -
-							${(theme.contour ?? defaultTheme.contour).breakpoints[xl]}px
-					) / 2 * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) -
-					var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
+					(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 *
+					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) - var(${PUBLIC_CSS_VARS.marginX}) *
+					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
 			);
 		}
 		/* stylelint-enable function-whitespace-after */
