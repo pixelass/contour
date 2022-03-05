@@ -1,6 +1,6 @@
 {
   "name": "@contour/react",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Utilities for contour",
   "keywords": [
     "react",
@@ -68,8 +68,8 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
-    "@contour/theme": "^0.3.0",
-    "@contour/utils": "^0.3.0"
+    "@contour/theme": "^0.4.0",
+    "@contour/utils": "^0.4.0"
   },
   "devDependencies": {
     "@emotion/react": "^11.7.1",

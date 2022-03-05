@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/pixelass/contour/compare/v0.3.0...v0.4.0) (2022-03-05)
+
+
+### Features
+
+* x-y separation for gap & margin ([#5](https://github.com/pixelass/contour/issues/5)) ([2b3a18d](https://github.com/pixelass/contour/commit/2b3a18deb7c8c54141e48af15ec704bfb0e6d437))
+
+
+
+
+
 # [0.3.0](https://github.com/pixelass/contour/compare/v0.2.0...v0.3.0) (2022-03-03)
 
 

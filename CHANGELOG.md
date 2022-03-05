@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/pixelass/contour/compare/v0.3.0...v0.4.0) (2022-03-05)
+
+
+### Bug Fixes
+
+* breakout column broke with breakpoint adjustments ([#6](https://github.com/pixelass/contour/issues/6)) ([8396fa1](https://github.com/pixelass/contour/commit/8396fa1d0e29bad8937d1e0878a96c39fe932d6f))
+* default theme should be set in grid ([b48dce6](https://github.com/pixelass/contour/commit/b48dce6f9ff23f7b13863316ea0b4c3186dd6125))
+
+
+### Features
+
+* x-y separation for gap & margin ([#5](https://github.com/pixelass/contour/issues/5)) ([2b3a18d](https://github.com/pixelass/contour/commit/2b3a18deb7c8c54141e48af15ec704bfb0e6d437))
+
+
+
+
+
 # [0.3.0](https://github.com/pixelass/contour/compare/v0.2.0...v0.3.0) (2022-03-03)
 
 
