@@ -75,6 +75,7 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
+    "@emotion/serialize": "^1.0.2",
     "abcq": "^1.0.2",
     "type-fest": "^2.9.0"
   },

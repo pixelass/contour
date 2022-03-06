@@ -1,23 +1,19 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import { getCommonVars } from "@contour/react/grid/utils";
-import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { resolveSx } from "@contour/utils/resolve-sx";
+import resolveSX from "@contour/utils/resolve-sx";
 import { GridGridProps } from "@contour/utils/types";
-import { css } from "@emotion/react";
+import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";
 import { gridCommon, gridVars } from "../css";
 
-const gridGrid = (theme = defaultTheme) => css`
-	${gridVars(theme)};
-	${gridCommon(theme)};
-
-	display: grid;
-	grid-template-columns: repeat(var(${PUBLIC_CSS_VARS.colCount}), 1fr);
-	padding: calc(var(${PUBLIC_CSS_VARS.marginY}) * 1px) calc(var(${PUBLIC_CSS_VARS.marginX}) * 1px);
-	column-gap: calc(var(${PUBLIC_CSS_VARS.gapX}) * 1px);
-	row-gap: calc(var(${PUBLIC_CSS_VARS.gapY}) * 1px);
-`;
+const gridGrid: CSSProperties = {
+	display: "grid",
+	gridTemplateColumns: `repeat(var(${PUBLIC_CSS_VARS.colCount}), 1fr)`,
+	padding: `calc(var(${PUBLIC_CSS_VARS.marginY}) * 1px) calc(var(${PUBLIC_CSS_VARS.marginX}) * 1px)`,
+	columnGap: `calc(var(${PUBLIC_CSS_VARS.gapX}) * 1px)`,
+	rowGap: `calc(var(${PUBLIC_CSS_VARS.gapY}) * 1px)`,
+};
 
 const GridGrid = ({
 	as: Component = "div",
@@ -34,7 +30,7 @@ const GridGrid = ({
 	return (
 		<Component
 			{...props}
-			css={[gridGrid, resolveSx(sx)]}
+			css={[gridVars, theme => gridCommon(theme, deepmerge(gridGrid, resolveSX(sx)(theme)))]}
 			style={
 				{
 					...style,

@@ -18,7 +18,7 @@ module.exports = {
 		"function-name-case": [
 			"lower",
 			{
-				ignoreFunctions: [/^[$[]/, "cssVar", "cssVarChain"],
+				ignoreFunctions: [/^[$[]/, "cssVar", "cssVarChain", "pxToRem"],
 			},
 		],
 		"value-keyword-case": [

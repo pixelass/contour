@@ -2,6 +2,7 @@ import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { cssVar, cssVarChain } from "@contour/utils/css";
 import { css } from "@emotion/react";
+import { CSSObject } from "@emotion/serialize";
 
 export const columnVars = ({
 	contour: {
@@ -67,10 +68,12 @@ export const columnVars = ({
 	}
 `;
 
-export const columnCommon = css`
-	display: var(${PUBLIC_CSS_VARS.display});
-	box-sizing: border-box;
-	align-items: var(${PUBLIC_CSS_VARS.align});
-	justify-content: var(${PUBLIC_CSS_VARS.justify});
-	order: var(${PUBLIC_CSS_VARS.order});
-`;
+export const columnCommon = (overrides: CSSObject = {}) =>
+	css({
+		display: ` var(${PUBLIC_CSS_VARS.display})`,
+		boxSizing: "border-box",
+		alignItems: `var(${PUBLIC_CSS_VARS.align})`,
+		justifyContent: `var(${PUBLIC_CSS_VARS.justify})`,
+		order: ` var(${PUBLIC_CSS_VARS.order})`,
+		...overrides,
+	});
