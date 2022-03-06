@@ -1,4 +1,4 @@
-import Grid from "@contour/react/grid";
+import { Grid } from "@contour/react";
 import { Meta } from "@storybook/addon-docs";
 import { DebugColumn } from "../../helpers";
 
@@ -8,9 +8,9 @@ import { DebugColumn } from "../../helpers";
 
 Column is a sub-level component. It can be used multiple times in a `<Grid/>` or `<Row/>`.
 
-```tsx
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
+```jsx
+import { Column, Grid } from "@contour/react";
+
 
 export default function App() {
 	return (
@@ -43,9 +43,8 @@ export default function App() {
 
 You can set the `colSpan` per breakpoint to adjust the width/span of the column.
 
-```tsx
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
+```jsx
+import { Column, Grid } from "@contour/react";
 
 export default function App() {
 	return (
@@ -69,9 +68,9 @@ export default function App() {
 You can set the `colStart` per breakpoint to adjust the start of the column. Be aware that this
 property has no effect with `strategy="flex"`. You have to use `strategy="grid"`
 
-```tsx
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
+```jsx
+import { Column, Grid } from "@contour/react";
+
 
 export default function App() {
 	return (

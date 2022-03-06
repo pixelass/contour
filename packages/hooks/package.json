@@ -43,15 +43,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c --environment INCLUDE_DEPS,BUILD,NODE_ENV:production",
+    "build": "rollup -c",
     "clean": "rimraf dist",
     "watch": "rollup -cw"
   },
   "dependencies": {
     "@contour/utils": "^0.4.0"
-  },
-  "devDependencies": {
-    "react": "^17.0.2"
   },
   "peerDependencies": {
     "react": ">=17.0.2"

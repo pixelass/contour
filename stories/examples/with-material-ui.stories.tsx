@@ -1,6 +1,4 @@
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
+import { Column, Grid, Provider as GridProvider } from "@contour/react";
 import { createMediaQueries, createTheme as createContourTheme } from "@contour/theme";
 import { css, Global } from "@emotion/react";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -10,9 +8,9 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CssBaseline from "@mui/material/CssBaseline";
 import CardMedia from "@mui/material/CardMedia";
 import { red, teal } from "@mui/material/colors";
+import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
@@ -22,9 +20,6 @@ import React from "react";
 
 declare module "@contour/utils" {
 	export interface BreakpointKeyOverrides {
-		s: false;
-		m: false;
-		l: false;
 		sm: true;
 		md: true;
 		lg: true;
@@ -193,43 +188,43 @@ export const MaterialUI: Story = () => {
 						<Typography variant="h2">Advanced</Typography>
 						<Typography variant="h3">No additional markup</Typography>
 					</Column>
-					<Column colSpan={{ sm: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card} elevation={2}>
 						<CardContent sx={{ height: 200, background: teal[50] }} />
 					</Column>
-					<Column colSpan={{ sm: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card} elevation={4}>
 						<CardContent sx={{ height: 200, background: teal[100] }} />
 					</Column>
-					<Column colSpan={{ sm: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card} elevation={6}>
 						<CardContent sx={{ height: 200, background: teal[200] }} />
 					</Column>
-					<Column colSpan={{ sm: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card} elevation={8}>
 						<CardContent sx={{ height: 200, background: teal[300] }} />
 					</Column>
-					<Column colSpan={{ sm: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card} elevation={10}>
 						<CardContent sx={{ height: 200, background: teal[400] }} />
 					</Column>
-					<Column colSpan={{ sm: 2 }} as={Card}>
+					<Column colSpan={{ sm: 2 }} as={Card} elevation={12}>
 						<CardContent sx={{ height: 200, background: teal[500] }} />
 					</Column>
 					<Column>
 						<Typography variant="h3">Standalone</Typography>
 					</Column>
-					<Card sx={{ gridColumnEnd: "span 2" }}>
+					<Card sx={{ gridColumnEnd: "span 2" }} elevation={2}>
 						<CardContent sx={{ height: 200, background: red[50] }} />
 					</Card>
-					<Card sx={{ gridColumnEnd: "span 2" }}>
+					<Card sx={{ gridColumnEnd: "span 2" }} elevation={4}>
 						<CardContent sx={{ height: 200, background: red[100] }} />
 					</Card>
-					<Card sx={{ gridColumnEnd: "span 2" }}>
+					<Card sx={{ gridColumnEnd: "span 2" }} elevation={6}>
 						<CardContent sx={{ height: 200, background: red[200] }} />
 					</Card>
-					<Card sx={{ gridColumnEnd: "span 2" }}>
+					<Card sx={{ gridColumnEnd: "span 2" }} elevation={8}>
 						<CardContent sx={{ height: 200, background: red[300] }} />
 					</Card>
-					<Card sx={{ gridColumnEnd: "span 2" }}>
+					<Card sx={{ gridColumnEnd: "span 2" }} elevation={10}>
 						<CardContent sx={{ height: 200, background: red[400] }} />
 					</Card>
-					<Card sx={{ gridColumnEnd: "span 2" }}>
+					<Card sx={{ gridColumnEnd: "span 2" }} elevation={12}>
 						<CardContent sx={{ height: 200, background: red[500] }} />
 					</Card>
 				</Grid>

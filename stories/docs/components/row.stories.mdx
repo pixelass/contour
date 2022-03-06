@@ -1,6 +1,4 @@
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
-import Row from "@contour/react/row";
+import { Column, Grid, Row } from "@contour/react";
 import { Meta } from "@storybook/addon-docs";
 import { Rainbow } from "../../helpers";
 
@@ -10,10 +8,8 @@ import { Rainbow } from "../../helpers";
 
 Row is a sublevel component. It can be used multiple times in a `<Column/>`.
 
-```tsx
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
-import Row from "@contour/react/row";
+```jsx
+import { Column, Grid, Row } from "@contour/react";
 
 export default function App() {
 	return (
@@ -48,10 +44,9 @@ You can choose one of two strategies: `flex` (default) or `grid`
 
 When chosing `grid`, `<Row/>` becomes a standalone layout.
 
-```tsx
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
-import Row from "@contour/react/row";
+```jsx
+import { Column, Grid, Row } from "@contour/react";
+
 
 export default function App() {
 	return (
@@ -81,10 +76,9 @@ export default function App() {
 
 To use a different grid logic for a section, you can adjust the `<Row/>`.
 
-```tsx
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
-import Row from "@contour/react/row";
+```jsx
+import { Column, Grid, Row } from "@contour/react";
+
 
 export default function App() {
 	return (

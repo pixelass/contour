@@ -29,54 +29,24 @@
   "module": "dist/esm/index.js",
   "typings": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./breakout-column": "./dist/breakout-column.js",
-    "./column": "./dist/column.js",
-    "./context": "./dist/context.js",
-    "./grid": "./dist/grid.js",
-    "./provider": "./dist/provider.js",
-    "./row": "./dist/row.js"
-  },
-  "typesVersions": {
-    "*": {
-      "breakout-column": [
-        "dist/breakout-column.d.ts"
-      ],
-      "column": [
-        "dist/column.d.ts"
-      ],
-      "context": [
-        "dist/context.d.ts"
-      ],
-      "grid": [
-        "dist/grid.d.ts"
-      ],
-      "provider": [
-        "dist/provider.d.ts"
-      ],
-      "row": [
-        "dist/row.d.ts"
-      ]
-    }
+    ".": "./dist/index.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c --environment INCLUDE_DEPS,BUILD,NODE_ENV:production",
+    "build": "rollup -c",
     "clean": "rimraf dist",
     "watch": "rollup -cw"
   },
   "dependencies": {
+    "@emotion/serialize": "^1.0.2",
     "@contour/theme": "^0.4.0",
-    "@contour/utils": "^0.4.0"
-  },
-  "devDependencies": {
-    "@emotion/react": "^11.7.1",
-    "react": "^17.0.2"
+    "@contour/utils": "^0.4.0",
+    "deepmerge": "^4.2.2"
   },
   "peerDependencies": {
-    "@emotion/react": ">=11.7.0",
+    "@emotion/react": ">=11.8.1",
     "react": ">=17.0.2"
   },
   "publishConfig": {

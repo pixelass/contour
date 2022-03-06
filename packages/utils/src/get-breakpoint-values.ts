@@ -1,9 +1,5 @@
+import { isXBreakpointValues, isXYBreakpointValues, isYBreakpointValues } from "./type-guards";
 import shallowMerge from "./shallow-merge";
-import {
-	isXBreakpointValues,
-	isXYBreakpointValues,
-	isYBreakpointValues,
-} from "@contour/utils/type-guards";
 import { BreakpointValues, PartialTheme, Theme, XYBreakpointValues } from "./types";
 
 /**

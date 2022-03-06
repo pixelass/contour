@@ -1,10 +1,15 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import defaultTheme from "@contour/theme/theme";
-import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { cssVar, getCSSVars } from "@contour/utils/css";
-import { resolveSx } from "@contour/utils/resolve-sx";
-import { GridColumnProps, Theme } from "@contour/utils/types";
+import { defaultTheme } from "@contour/theme";
+import {
+	CSS_VAR_RESET,
+	cssVar,
+	getCSSVars,
+	GridColumnProps,
+	PUBLIC_CSS_VARS,
+	resolveSX,
+} from "@contour/utils";
 import { css } from "@emotion/react";
+import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";
 import { columnCommon, columnVars } from "../css";
 
@@ -40,16 +45,12 @@ export const gridColumnVars = ({
 	}
 `;
 
-const gridColumn = (theme: Theme) => css`
-	${columnVars(theme)};
-	${gridColumnVars(theme)};
-	${columnCommon};
-
-	grid-column-end: span var(${PUBLIC_CSS_VARS.colSpan}, var(${PUBLIC_CSS_VARS.colCount}));
-	/* stylelint-disable declaration-block-no-redundant-longhand-properties */
-	grid-column-start: var(${PUBLIC_CSS_VARS.colStart});
-	/* stylelint-enable declaration-block-no-redundant-longhand-properties */
-`;
+const gridColumn: CSSProperties = {
+	gridColumnEnd: `span var(${PUBLIC_CSS_VARS.colSpan}, var(${PUBLIC_CSS_VARS.colCount}))`,
+	/* Stylelint-disable declaration-block-no-redundant-longhand-properties */
+	gridColumnStart: `var(${PUBLIC_CSS_VARS.colStart})`,
+	/* Stylelint-enable declaration-block-no-redundant-longhand-properties */
+};
 
 const GridColumn = ({
 	as: Component = "div",
@@ -70,7 +71,11 @@ const GridColumn = ({
 	return (
 		<Component
 			{...props}
-			css={[gridColumn, resolveSx(sx)]}
+			css={[
+				columnVars,
+				gridColumnVars,
+				theme => columnCommon(deepmerge(gridColumn, resolveSX(sx)(theme))),
+			]}
 			style={
 				{
 					...style,

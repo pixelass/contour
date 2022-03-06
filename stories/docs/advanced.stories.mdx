@@ -1,4 +1,4 @@
-import Grid from "@contour/react/grid";
+import { Grid } from "@contour/react";
 import { Meta } from "@storybook/addon-docs";
 import { DebugBox, DebugColumn } from "../helpers";
 
@@ -17,28 +17,69 @@ This feature is strongly inspired by [Material UI](https://mui.com/system/the-sx
 
 These properties are supported:
 
-```js
-const aliases = {
-	m: ["margin"],
-	mt: ["marginTop"],
-	mr: ["marginRight"],
-	mb: ["marginBottom"],
-	ml: ["marginLeft"],
-	mx: ["marginRight", "marginLeft"],
-	my: ["marginTop", "marginBottom"],
-	p: ["padding"],
-	pt: ["paddingTop"],
-	pr: ["paddingRight"],
-	pb: ["paddingBottom"],
-	pl: ["paddingLeft"],
-	px: ["paddingRight", "paddingLeft"],
-	py: ["paddingTop", "paddingBottom"],
-};
+```json
+ {
+	"margin": ["margin"],
+	"m": ["margin"],
+	"marginTop": ["marginTop"],
+	"mt": ["marginTop"],
+	"marginRight": ["marginRight"],
+	"mr": ["marginRight"],
+	"marginBottom": ["marginBottom"],
+	"mb": ["marginBottom"],
+	"marginLeft": ["marginLeft"],
+	"ml": ["marginLeft"],
+	"marginX": ["marginRight", "marginLeft"],
+	"mx": ["marginRight", "marginLeft"],
+	"marginY": ["marginTop", "marginBottom"],
+	"my": ["marginTop", "marginBottom"],
+	"padding": ["padding"],
+	"p": ["padding"],
+	"paddingTop": ["paddingTop"],
+	"pt": ["paddingTop"],
+	"paddingRight": ["paddingRight"],
+	"pr": ["paddingRight"],
+	"paddingBottom": ["paddingBottom"],
+	"pb": ["paddingBottom"],
+	"paddingLeft": ["paddingLeft"],
+	"pl": ["paddingLeft"],
+	"paddingX": ["paddingRight", "paddingLeft"],
+	"px": ["paddingRight", "paddingLeft"],
+	"paddingY": ["paddingTop", "paddingBottom"],
+	"py": ["paddingTop", "paddingBottom"],
+	"bgColor": ["backgroundColor"]
+}
 ```
 
-```tsx
-import Grid from "@contour/react/grid";
-import Column from "@contour/react/column";
+All aliases and their mapped properties will use `theme.contour.spacing` as a multiplier when of type `number` (except `bgColor`).
+
+### Example: Spacing multiplier
+
+```jsx
+import { Column, Grid } from "@contour/react";
+
+export default function App() {
+	return (
+		<Grid sx={{pb: 10}}>
+			<Column>
+				<h1>Contour</h1>
+				<p>This grid has a <code>paddingBottom</code> of <code>10 * theme.contour.spacing</code></p>
+			</Column>
+		</Grid>
+	);
+}
+```
+<DebugBox>
+	<Grid strategy="grid"  sx={{pb: 10}}>
+		<DebugColumn>
+			<h1>Contour</h1>
+			<DebugBox>This grid has a <code>paddingBottom</code> of <code>10 * theme.contour.spacing</code></DebugBox>
+		</DebugColumn>
+	</Grid>
+</DebugBox>
+
+```jsx
+import { Column, Grid } from "@contour/react";
 
 export default function App() {
 	return (

@@ -1,7 +1,7 @@
-import defaultTheme from "@contour/theme/theme";
-import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { cssVar, pxToRem } from "@contour/utils/css";
+import { defaultTheme } from "@contour/theme";
+import { CSS_VAR_RESET, cssVar, PUBLIC_CSS_VARS, pxToRem } from "@contour/utils";
 import { css } from "@emotion/react";
+import { CSSObject } from "@emotion/serialize";
 
 export const gridVars = ({ contour = defaultTheme.contour } = defaultTheme) => {
 	const {
@@ -80,17 +80,22 @@ export const gridVars = ({ contour = defaultTheme.contour } = defaultTheme) => {
 	`;
 };
 
-export const gridCommon = ({
-	contour: {
-		breakpoints: {
-			values,
-			keys: [, , , , xl],
-		},
-	} = defaultTheme.contour,
-} = defaultTheme) => css`
-	box-sizing: border-box;
-	align-items: var(${PUBLIC_CSS_VARS.align});
-	justify-content: var(${PUBLIC_CSS_VARS.justify});
-	max-width: ${pxToRem(values[xl])};
-	margin: 0 auto;
-`;
+export const gridCommon = (
+	{
+		contour: {
+			breakpoints: {
+				values,
+				keys: [, , , , xl],
+			},
+		} = defaultTheme.contour,
+	} = defaultTheme,
+	overrides: CSSObject = {}
+) =>
+	css({
+		boxSizing: "border-box",
+		alignItems: ` var(${PUBLIC_CSS_VARS.align})`,
+		justifyContent: ` var(${PUBLIC_CSS_VARS.justify})`,
+		maxWidth: pxToRem(values[xl]),
+		margin: "0 auto",
+		...overrides,
+	});

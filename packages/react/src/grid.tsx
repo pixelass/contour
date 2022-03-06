@@ -1,19 +1,19 @@
-import { GridContext, useGridContext } from "@contour/react/context";
-import GridProvider from "@contour/react/provider";
-import createTheme from "@contour/theme/create-theme";
+import { createTheme } from "@contour/theme";
 import {
-	Theme,
 	FlexGridProps,
 	GridContextShape,
 	GridGridProps,
 	GridProps,
 	NoStrategy,
 	OptionalStrategy,
-} from "@contour/utils/types";
+	Theme,
+} from "@contour/utils";
 import { useTheme } from "@emotion/react";
 import React, { memo, useMemo } from "react";
+import { GridContext, useGridContext } from "./context";
 import FlexGrid from "./grid/components/flex";
 import GridGrid from "./grid/components/grid";
+import GridProvider from "./provider";
 
 const Grid = ({ strategy: assignedStrategy, ...props }: OptionalStrategy<GridProps>) => {
 	const theme = useTheme();

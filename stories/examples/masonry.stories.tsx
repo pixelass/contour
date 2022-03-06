@@ -1,6 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
+import { Column, Grid } from "@contour/react";
 import { Story } from "@storybook/react";
 import React from "react";
 import { v4 } from "uuid";
