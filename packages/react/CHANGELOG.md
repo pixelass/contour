@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/pixelass/contour/compare/v0.4.0...v0.5.0) (2022-03-06)
+
+
+### Bug Fixes
+
+* build was failing ([#10](https://github.com/pixelass/contour/issues/10)) ([b0b2357](https://github.com/pixelass/contour/commit/b0b235746650074a840ee8ab5cc46c11a1a11d03))
+
+
+### Features
+
+* smarter sx prop ([#7](https://github.com/pixelass/contour/issues/7)) ([8ea46f5](https://github.com/pixelass/contour/commit/8ea46f5a7b4d8856030372d1bda4b2ec355db15d))
+
+
+
+
+
 # [0.4.0](https://github.com/pixelass/contour/compare/v0.3.0...v0.4.0) (2022-03-05)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@contour/theme",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Theme for contour",
   "keywords": [
     "layout",
@@ -55,7 +55,7 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
-    "@contour/utils": "^0.4.0"
+    "@contour/utils": "^0.5.0"
   },
   "peerDependencies": {
     "react": ">=17.0.2"

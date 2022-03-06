@@ -1,6 +1,6 @@
 {
   "name": "@contour/react",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Utilities for contour",
   "keywords": [
     "react",
@@ -40,9 +40,9 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
+    "@contour/theme": "^0.5.0",
+    "@contour/utils": "^0.5.0",
     "@emotion/serialize": "^1.0.2",
-    "@contour/theme": "^0.4.0",
-    "@contour/utils": "^0.4.0",
     "deepmerge": "^4.2.2"
   },
   "peerDependencies": {
