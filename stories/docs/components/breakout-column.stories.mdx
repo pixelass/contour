@@ -1,6 +1,4 @@
-import BreakoutColumn from "@contour/react/breakout-column";
-import Grid from "@contour/react/grid";
-import GridProvider from "@contour/react/provider";
+import { BreakoutColumn, Grid } from "@contour/react";
 import { Meta } from "@storybook/addon-docs";
 import { DebugBox, DebugColumn } from "../../helpers";
 
@@ -11,8 +9,8 @@ import { DebugBox, DebugColumn } from "../../helpers";
 BreakoutColumn is a sub-level component. It can be used multiple times in a `<Grid/>` or `<Row/>`.
 It can only be used with `strategy="flex"`
 
-```tsx
-import Grid from "@contour/react/grid";
+```jsx
+import { Grid } from "@contour/react";
 
 export default function App() {
 	return (
@@ -44,10 +42,9 @@ export default function App() {
 
 ## Defining the breakout
 
-```tsx
-import BreakoutColumn from "@contour/react/breakout-column";
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
+```jsx
+import { BreakoutColumn, Column, Grid } from "@contour/react";
+
 
 export default function App() {
 	return (
@@ -69,26 +66,24 @@ export default function App() {
 }
 ```
 
-<GridProvider>
-	<Grid>
-		<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }} right={{ m: 1, l: 1, xl: 1 }}>
-			<DebugBox strokeWidth="2px">1</DebugBox>
-		</BreakoutColumn>
-		<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }}>
-			<DebugBox strokeWidth="2px">2</DebugBox>
-		</BreakoutColumn>
-		<BreakoutColumn right={{ m: 1, l: 1, xl: 1 }}>
-			<DebugBox strokeWidth="2px">3</DebugBox>
-		</BreakoutColumn>
-		<BreakoutColumn colSpan={{ m: 2, l: 4 }} left={{ m: 1, l: 1, xl: 1 }}>
-			<DebugBox strokeWidth="2px">4</DebugBox>
-		</BreakoutColumn>
-		<DebugColumn colSpan={{ m: 4 }} />
-		<BreakoutColumn colSpan={{ m: 2, l: 4 }} right={{ m: 1, l: 1, xl: 1 }}>
-			<DebugBox strokeWidth="2px">5</DebugBox>
-		</BreakoutColumn>
-	</Grid>
-</GridProvider>
+<Grid>
+	<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }} right={{ m: 1, l: 1, xl: 1 }}>
+		<DebugBox strokeWidth="2px">1</DebugBox>
+	</BreakoutColumn>
+	<BreakoutColumn left={{ m: 1, l: 1, xl: 1 }}>
+		<DebugBox strokeWidth="2px">2</DebugBox>
+	</BreakoutColumn>
+	<BreakoutColumn right={{ m: 1, l: 1, xl: 1 }}>
+		<DebugBox strokeWidth="2px">3</DebugBox>
+	</BreakoutColumn>
+	<BreakoutColumn colSpan={{ m: 2, l: 4 }} left={{ m: 1, l: 1, xl: 1 }}>
+		<DebugBox strokeWidth="2px">4</DebugBox>
+	</BreakoutColumn>
+	<DebugColumn colSpan={{ m: 4 }} />
+	<BreakoutColumn colSpan={{ m: 2, l: 4 }} right={{ m: 1, l: 1, xl: 1 }}>
+		<DebugBox strokeWidth="2px">5</DebugBox>
+	</BreakoutColumn>
+</Grid>
 
 ## Breakout right causes scrollbar
 
@@ -96,9 +91,8 @@ When using `<BreakoutColumn/>` with `right`, some users might experience a scrol
 of the page. To fix this we added a hook that will fix this issue. You can read more about this in
 the [use-viewport docs](/story/docs-hooks-use-viewport--page)
 
-```tsx
-import BreakoutColumn from "@contour/react/breakout-column";
-import Grid from "@contour/react/grid";
+```jsx
+import { BreakoutColumn, Grid  } from "@contour/react";
 import useViewport from "@contour/hooks/viewport";
 
 export default function App() {

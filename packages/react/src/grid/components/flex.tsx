@@ -1,11 +1,9 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import { getCommonVars } from "@contour/react/grid/utils";
-import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import resolveSX from "@contour/utils/resolve-sx";
-import { FlexGridProps } from "@contour/utils/types";
+import { FlexGridProps, PUBLIC_CSS_VARS, resolveSX } from "@contour/utils";
 import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";
 import { gridCommon, gridVars } from "../css";
+import { getCommonVars } from "../utils";
 
 const flexGrid: CSSProperties = {
 	display: "flex",

@@ -1,6 +1,5 @@
-import defaultTheme from "@contour/theme/theme";
-import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { cssVar, cssVarChain } from "@contour/utils/css";
+import { defaultTheme } from "@contour/theme";
+import { CSS_VAR_RESET, cssVar, cssVarChain, PUBLIC_CSS_VARS } from "@contour/utils";
 import { css } from "@emotion/react";
 import { CSSObject } from "@emotion/serialize";
 

@@ -1,4 +1,3 @@
-import { GridContext, useGridContext } from "@contour/react/context";
 import {
 	FlexRowProps,
 	GridContextShape,
@@ -6,8 +5,9 @@ import {
 	NoStrategy,
 	OptionalStrategy,
 	RowProps,
-} from "@contour/utils/types";
+} from "@contour/utils";
 import React, { memo, useMemo } from "react";
+import { GridContext, useGridContext } from "./context";
 import FlexRow from "./row/components/flex";
 import GridRow from "./row/components/grid";
 

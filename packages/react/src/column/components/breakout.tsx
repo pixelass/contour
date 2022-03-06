@@ -1,10 +1,13 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import { gridColumnVars } from "@contour/react/column/components/grid";
-import defaultTheme from "@contour/theme/theme";
-import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { cssVar, getCSSVars } from "@contour/utils/css";
-import resolveSX from "@contour/utils/resolve-sx";
-import { BreakoutColumnProps } from "@contour/utils/types";
+import { defaultTheme } from "@contour/theme";
+import {
+	BreakoutColumnProps,
+	CSS_VAR_RESET,
+	cssVar,
+	getCSSVars,
+	PUBLIC_CSS_VARS,
+	resolveSX,
+} from "@contour/utils";
 import { css } from "@emotion/react";
 import { CSSObject } from "@emotion/serialize";
 import deepmerge from "deepmerge";
@@ -93,9 +96,8 @@ const BreakoutColumn = ({
 		<Component
 			{...props}
 			css={[
-				breakoutColumnVars,
 				columnVars,
-				gridColumnVars,
+				breakoutColumnVars,
 				theme =>
 					columnCommon(
 						deepmerge<CSSObject, CSSObject>(breakoutColumn(theme), resolveSX(sx)(theme))

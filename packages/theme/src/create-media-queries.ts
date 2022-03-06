@@ -1,5 +1,4 @@
-import { pxToRem } from "@contour/utils/css";
-import { BreakpointValues, MediaQueries } from "@contour/utils/types";
+import { BreakpointValues, MediaQueries, pxToRem } from "@contour/utils";
 
 const createMediaQueries = (breakpoints: BreakpointValues<number>): MediaQueries => {
 	const mediaQueries = {};
