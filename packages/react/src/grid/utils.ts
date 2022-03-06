@@ -1,5 +1,10 @@
-import { BreakpointValues, getCSSVars, GridGridProps } from "@contour/utils";
-import { isXBreakpointValues, isYBreakpointValues } from "@contour/utils/type-guards";
+import {
+	BreakpointValues,
+	getCSSVars,
+	GridGridProps,
+	isXBreakpointValues,
+	isYBreakpointValues,
+} from "@contour/utils";
 
 export const getCommonVars = ({
 	gap,

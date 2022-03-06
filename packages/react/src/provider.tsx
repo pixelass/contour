@@ -1,5 +1,5 @@
-import defaultTheme from "@contour/theme/theme";
-import { GridProviderProps } from "@contour/utils/types";
+import { defaultTheme } from "@contour/theme";
+import { GridProviderProps } from "@contour/utils";
 import { ThemeProvider } from "@emotion/react";
 import React from "react";
 

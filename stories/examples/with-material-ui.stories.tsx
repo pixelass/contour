@@ -1,5 +1,4 @@
-import { Column, Grid } from "@contour/react";
-import GridProvider from "@contour/react/provider";
+import { Column, Grid, Provider as GridProvider } from "@contour/react";
 import { createMediaQueries, createTheme as createContourTheme } from "@contour/theme";
 import { css, Global } from "@emotion/react";
 import MenuIcon from "@mui/icons-material/Menu";

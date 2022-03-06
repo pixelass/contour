@@ -1,9 +1,13 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import defaultTheme from "@contour/theme/theme";
-import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { cssVar, getCSSVars } from "@contour/utils/css";
-import resolveSX from "@contour/utils/resolve-sx";
-import { GridColumnProps } from "@contour/utils/types";
+import { defaultTheme } from "@contour/theme";
+import {
+	CSS_VAR_RESET,
+	cssVar,
+	getCSSVars,
+	GridColumnProps,
+	PUBLIC_CSS_VARS,
+	resolveSX,
+} from "@contour/utils";
 import { css } from "@emotion/react";
 import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";

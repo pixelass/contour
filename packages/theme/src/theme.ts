@@ -1,4 +1,4 @@
-import { BreakpointKey, BreakpointValues, Theme } from "@contour/utils/types";
+import { BreakpointKey, BreakpointValues, Theme } from "@contour/utils";
 import createMediaQueries from "./create-media-queries";
 
 const defaultBreakpointNames = ["xs", "s", "m", "l", "xl"];

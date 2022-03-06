@@ -16,7 +16,6 @@ const build = process.argv.includes("--build");
 			"@contour/hooks": ["./packages/hooks/src"],
 			"@contour/hooks/*": ["./packages/hooks/src/*"],
 			"@contour/react": ["./packages/react/src"],
-			"@contour/react/*": ["./packages/react/src/*"],
 			"@contour/theme": ["./packages/theme/src"],
 			"@contour/theme/*": ["./packages/theme/src/*"],
 			"@contour/utils": ["./packages/utils/src"],

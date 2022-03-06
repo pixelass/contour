@@ -1,10 +1,10 @@
+import { CSSObject } from "@emotion/serialize";
 import aliases from "./aliases";
 import forIn from "./for-in";
 import forKey from "./for-key";
 import { isBreakpointValues } from "./type-guards";
 import { Sx, SXObject, Theme } from "./types";
 import withSpacing from "./with-spacing";
-import { CSSObject } from "@emotion/serialize";
 
 /**
  * Creates an emotion compatible object from an SXObject.

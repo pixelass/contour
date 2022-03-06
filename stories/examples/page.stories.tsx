@@ -1,6 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import Column from "@contour/react/column";
-import Grid from "@contour/react/grid";
+import { Column, Grid } from "@contour/react";
 import { defaultTheme } from "@contour/theme";
 import { pxToRem } from "@contour/utils";
 import { css, Global, useTheme } from "@emotion/react";

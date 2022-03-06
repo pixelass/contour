@@ -1,5 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import Column from "@contour/react/column";
+import { Column } from "@contour/react";
 import { ColumnProps, NoStrategy, Theme } from "@contour/utils";
 import { css, keyframes } from "@emotion/react";
 import React, { CSSProperties, FC } from "react";
