@@ -1,21 +1,17 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import { getCommonVars } from "@contour/react/grid/utils";
-import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { resolveSx } from "@contour/utils/resolve-sx";
+import resolveSX from "@contour/utils/resolve-sx";
 import { FlexGridProps } from "@contour/utils/types";
-import { css } from "@emotion/react";
+import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";
 import { gridCommon, gridVars } from "../css";
 
-const flexGrid = (theme = defaultTheme) => css`
-	${gridVars(theme)};
-	${gridCommon(theme)};
-
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0 calc((var(${PUBLIC_CSS_VARS.marginX}) - var(${PUBLIC_CSS_VARS.gapY}) / 2) * 1px);
-`;
+const flexGrid: CSSProperties = {
+	display: "flex",
+	flexWrap: "wrap",
+	padding: `0 calc((var(${PUBLIC_CSS_VARS.marginX}) - var(${PUBLIC_CSS_VARS.gapY}) / 2) * 1px)`,
+};
 
 const FlexGrid = ({
 	as: Component = "div",
@@ -32,7 +28,7 @@ const FlexGrid = ({
 	return (
 		<Component
 			{...props}
-			css={[flexGrid, resolveSx(sx)]}
+			css={[gridVars, theme => gridCommon(theme, deepmerge(flexGrid, resolveSX(sx)(theme)))]}
 			style={
 				{
 					...style,

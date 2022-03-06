@@ -25,18 +25,14 @@ const Header: FC = ({ children }) => {
 					max-width: ${pxToRem(contour.breakpoints.values.xl)};
 					margin: auto;
 					padding: ${pxToRem(contour.gap.y.xs)} ${pxToRem(contour.margin.x.xs)};
-					${contour.mq.s} {
-						padding: ${pxToRem(contour.gap.y.s)} ${pxToRem(contour.margin.x.s)};
-					}
-					${contour.mq.m} {
-						padding: ${pxToRem(contour.gap.y.m)} ${pxToRem(contour.margin.x.m)};
-					}
-					${contour.mq.l} {
-						padding: ${pxToRem(contour.gap.y.l)} ${pxToRem(contour.margin.x.l)};
-					}
-					${contour.mq.xl} {
-						padding: ${pxToRem(contour.gap.y.xl)} ${pxToRem(contour.margin.x.xl)};
-					}
+					${contour.breakpoints.keys.slice(1).map(
+						key => css`
+							${contour.mq[key]} {
+								padding: ${pxToRem(contour.gap.y[key])}
+									${pxToRem(contour.margin.x[key])};
+							}
+						`
+					)}
 				`}
 			>
 				{children}
@@ -88,6 +84,7 @@ const InlineLink: FC<HTMLProps<HTMLAnchorElement>> = ({ children, ...props }) =>
 );
 
 export const Page: Story = () => {
+	const { contour = defaultTheme.contour } = useTheme();
 	return (
 		<>
 			<Global
@@ -104,7 +101,15 @@ export const Page: Story = () => {
 				`}
 			/>
 			<Header>
-				<svg width={24} viewBox="0 0 24 24">
+				<svg
+					css={css`
+						${contour.mq.m} {
+							display: none;
+						}
+					`}
+					width={24}
+					viewBox="0 0 24 24"
+				>
 					<path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
 				</svg>
 				<Nav>

@@ -18,6 +18,7 @@
     "build-storybook:local": "build-storybook -c .storybook -o public --quiet",
     "clean": "lerna run clean",
     "clean:gh-pages": "rimraf node_modules/gh-pages/.cache node_modules/.cache/gh-pages",
+    "predev": "yarn clean; yarn setup",
     "dev": "start-storybook",
     "lint": "yarn tsc:noEmit && yarn xo && yarn stylelint",
     "ncu:major": "npx npm-check-updates@11.8.3",

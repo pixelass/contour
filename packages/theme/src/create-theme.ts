@@ -1,7 +1,7 @@
+import defaultTheme from "@contour/theme/theme";
 import getBreakpointValues from "@contour/utils/get-breakpoint-values";
 import shallowMerge from "@contour/utils/shallow-merge";
-import { PartialTheme, Theme } from "@contour/utils/types";
-import defaultTheme from "@contour/theme/theme";
+import { BreakpointValues, MediaQueries, PartialTheme, Theme } from "@contour/utils/types";
 
 const createTheme = (partialTheme: PartialTheme): Theme => {
 	const hasNewKeys = Boolean(partialTheme.contour.breakpoints?.keys);
@@ -17,10 +17,10 @@ const createTheme = (partialTheme: PartialTheme): Theme => {
 			  ),
 	};
 	const mq = hasNewKeys
-		? partialTheme.contour.mq
+		? (partialTheme.contour.mq as MediaQueries)
 		: shallowMerge(defaultTheme.contour.mq, partialTheme.contour.mq);
 	const colCount = hasNewKeys
-		? partialTheme.contour.colCount
+		? (partialTheme.contour.colCount as BreakpointValues<number>)
 		: shallowMerge(defaultTheme.contour.colCount, partialTheme.contour.colCount);
 	const spacing = partialTheme.contour.spacing ?? defaultTheme.contour.spacing;
 

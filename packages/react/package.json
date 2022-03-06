@@ -68,8 +68,10 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
+    "@emotion/serialize": "^1.0.2",
     "@contour/theme": "^0.4.0",
-    "@contour/utils": "^0.4.0"
+    "@contour/utils": "^0.4.0",
+    "deepmerge": "^4.2.2"
   },
   "devDependencies": {
     "@emotion/react": "^11.7.1",

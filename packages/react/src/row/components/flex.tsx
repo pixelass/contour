@@ -1,20 +1,16 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import defaultTheme from "@contour/theme/theme";
 import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { getCSSVars } from "@contour/utils/css";
-import { resolveSx } from "@contour/utils/resolve-sx";
+import resolveSX from "@contour/utils/resolve-sx";
 import { FlexRowProps } from "@contour/utils/types";
-import { css } from "@emotion/react";
+import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";
 import { rowCommon, rowVars } from "../css";
 
-const flexRow = (theme = defaultTheme) => css`
-	${rowVars(theme)};
-	${rowCommon};
-
-	display: flex;
-	flex-wrap: wrap;
-`;
+const flexRow: CSSProperties = {
+	display: "flex",
+	flexWrap: "wrap",
+};
 
 const FlexRow = ({
 	as: Component = "div",
@@ -30,7 +26,7 @@ const FlexRow = ({
 	return (
 		<Component
 			{...props}
-			css={[flexRow, resolveSx(sx)]}
+			css={[rowVars, theme => rowCommon(deepmerge(flexRow, resolveSX(sx)(theme)))]}
 			style={
 				{
 					...style,

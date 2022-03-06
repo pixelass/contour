@@ -2,13 +2,13 @@ import { GridContext, useGridContext } from "@contour/react/context";
 import GridProvider from "@contour/react/provider";
 import createTheme from "@contour/theme/create-theme";
 import {
-	Theme,
 	FlexGridProps,
 	GridContextShape,
 	GridGridProps,
 	GridProps,
 	NoStrategy,
 	OptionalStrategy,
+	Theme,
 } from "@contour/utils/types";
 import { useTheme } from "@emotion/react";
 import React, { memo, useMemo } from "react";

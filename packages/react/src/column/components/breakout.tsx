@@ -1,10 +1,13 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import { gridColumnVars } from "@contour/react/column/components/grid";
 import defaultTheme from "@contour/theme/theme";
 import { CSS_VAR_RESET, PUBLIC_CSS_VARS } from "@contour/utils/constants";
 import { cssVar, getCSSVars } from "@contour/utils/css";
-import { resolveSx } from "@contour/utils/resolve-sx";
+import resolveSX from "@contour/utils/resolve-sx";
 import { BreakoutColumnProps } from "@contour/utils/types";
 import { css } from "@emotion/react";
+import { CSSObject } from "@emotion/serialize";
+import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";
 import { columnCommon, columnVars } from "../css";
 
@@ -50,62 +53,22 @@ const breakoutColumnVars = ({
 	}
 `;
 
-const breakoutColumn = (theme = defaultTheme) => {
+const breakoutColumn = (theme = defaultTheme): CSSObject => {
 	const {
 		breakpoints: {
 			keys: [, , , , xl],
 			values,
 		},
 	} = theme.contour ?? defaultTheme.contour;
-	return css`
-		/* stylelint-disable function-whitespace-after */
-		${columnVars(theme)};
-		${breakoutColumnVars(theme)};
-		${columnCommon};
-
-		width: calc(
-			100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) -
-				var(${PUBLIC_CSS_VARS.gapX}) * 1px + var(${PUBLIC_CSS_VARS.marginX}) *
-				var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.marginX}) *
-				var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
-		);
-		margin: calc(var(${PUBLIC_CSS_VARS.gapY}) / 2 * 1px)
-			calc(
-				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px - var(${PUBLIC_CSS_VARS.marginX}) *
-					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
-			)
-			calc(var(${PUBLIC_CSS_VARS.gapY}) / 2 * 1px)
-			calc(
-				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px - var(${PUBLIC_CSS_VARS.marginX}) *
-					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
-			);
-
-		${(theme.contour ?? defaultTheme.contour).mq[xl]} {
-			width: calc(
-				100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) -
-					var(${PUBLIC_CSS_VARS.gapX}) * 1px +
-					(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 *
-					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) +
-					(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 *
-					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) + var(${PUBLIC_CSS_VARS.marginX}) *
-					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.marginX}) *
-					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
-			);
-			margin-right: calc(
-				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px -
-					(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 *
-					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) - var(${PUBLIC_CSS_VARS.marginX}) *
-					var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px
-			);
-			margin-left: calc(
-				var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px -
-					(var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 *
-					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) - var(${PUBLIC_CSS_VARS.marginX}) *
-					var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px
-			);
-		}
-		/* stylelint-enable function-whitespace-after */
-	`;
+	return {
+		width: `calc(100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) - var(${PUBLIC_CSS_VARS.gapX}) * 1px + var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px)`,
+		margin: `calc(var(${PUBLIC_CSS_VARS.gapY}) / 2 * 1px) calc( var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px - var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px) calc(var(${PUBLIC_CSS_VARS.gapY}) / 2 * 1px) calc( var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px - var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px)`,
+		[(theme.contour ?? defaultTheme.contour).mq[xl]]: {
+			width: `calc(100% / var(${PUBLIC_CSS_VARS.colCount}) * var(${PUBLIC_CSS_VARS.colSpan}) - var(${PUBLIC_CSS_VARS.gapX}) * 1px + (var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) + (var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) + var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px + var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px)`,
+			marginRight: `calc(var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px - (var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) - var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutRight}, 0) * 1px)`,
+			marginLeft: ` calc(var(${PUBLIC_CSS_VARS.gapX}) / 2 * 1px - (var(${PUBLIC_CSS_VARS.vw}, 100vw) - ${values[xl]}px) / 2 * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) - var(${PUBLIC_CSS_VARS.marginX}) * var(${PUBLIC_CSS_VARS.breakoutLeft}, 0) * 1px)`,
+		},
+	};
 };
 
 const BreakoutColumn = ({
@@ -129,7 +92,15 @@ const BreakoutColumn = ({
 	return (
 		<Component
 			{...props}
-			css={[breakoutColumn, resolveSx(sx)]}
+			css={[
+				breakoutColumnVars,
+				columnVars,
+				gridColumnVars,
+				theme =>
+					columnCommon(
+						deepmerge<CSSObject, CSSObject>(breakoutColumn(theme), resolveSX(sx)(theme))
+					),
+			]}
 			style={
 				{
 					...style,
