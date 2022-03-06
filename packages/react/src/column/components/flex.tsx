@@ -1,9 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import { gridColumnVars } from "@contour/react/column/components/grid";
-import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { getCSSVars } from "@contour/utils/css";
-import resolveSX from "@contour/utils/resolve-sx";
-import { FlexColumnProps } from "@contour/utils/types";
+import { FlexColumnProps, getCSSVars, PUBLIC_CSS_VARS, resolveSX } from "@contour/utils";
 import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";
 import { columnCommon, columnVars } from "../css";
@@ -29,11 +25,7 @@ const FlexColumn = ({
 	return (
 		<Component
 			{...props}
-			css={[
-				columnVars,
-				gridColumnVars,
-				theme => columnCommon(deepmerge(flexColumn, resolveSX(sx)(theme))),
-			]}
+			css={[columnVars, theme => columnCommon(deepmerge(flexColumn, resolveSX(sx)(theme)))]}
 			style={
 				{
 					...style,

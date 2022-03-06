@@ -27,7 +27,6 @@
   "exports": {
     ".": "./dist/index.js",
     "./constants": "./dist/constants.js",
-    "./id": "./dist/id.js",
     "./types": "./dist/types.js",
     "./css": "./dist/css.js",
     "./resolve-sx": "./dist/resolve-sx.js",
@@ -41,9 +40,6 @@
     "*": {
       "constants": [
         "dist/constants.d.ts"
-      ],
-      "id": [
-        "dist/id.d.ts"
       ],
       "types": [
         "dist/types.d.ts"
@@ -77,10 +73,7 @@
   "dependencies": {
     "@emotion/serialize": "^1.0.2",
     "abcq": "^1.0.2",
-    "type-fest": "^2.9.0"
-  },
-  "devDependencies": {
-    "react": "^17.0.2"
+    "type-fest": "^2.12.0"
   },
   "peerDependencies": {
     "react": ">=17.0.2"

@@ -37,10 +37,7 @@ module.exports = () => {
 	const external = [
 		...Object.keys(pkg.dependencies || {}),
 		...Object.keys(pkg.peerDependencies || {}),
-		"path",
-		"fs",
 	];
-	console.log(pkg.name, external);
 	return [
 		{
 			input: `src/index.ts`,

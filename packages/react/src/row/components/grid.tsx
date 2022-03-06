@@ -1,8 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import { PUBLIC_CSS_VARS } from "@contour/utils/constants";
-import { getCSSVars } from "@contour/utils/css";
-import resolveSX from "@contour/utils/resolve-sx";
-import { GridRowProps } from "@contour/utils/types";
+import { getCSSVars, GridRowProps, PUBLIC_CSS_VARS, resolveSX } from "@contour/utils";
 import deepmerge from "deepmerge";
 import React, { CSSProperties, memo } from "react";
 import { rowCommon, rowVars } from "../css";

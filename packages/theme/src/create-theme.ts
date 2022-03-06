@@ -1,7 +1,12 @@
-import defaultTheme from "@contour/theme/theme";
-import getBreakpointValues from "@contour/utils/get-breakpoint-values";
-import shallowMerge from "@contour/utils/shallow-merge";
-import { BreakpointValues, MediaQueries, PartialTheme, Theme } from "@contour/utils/types";
+import defaultTheme from "./theme";
+import {
+	getBreakpointValues,
+	shallowMerge,
+	BreakpointValues,
+	MediaQueries,
+	PartialTheme,
+	Theme,
+} from "@contour/utils";
 
 const createTheme = (partialTheme: PartialTheme): Theme => {
 	const hasNewKeys = Boolean(partialTheme.contour.breakpoints?.keys);
