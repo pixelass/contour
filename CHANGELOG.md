@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/pixelass/contour/compare/v0.5.0...v0.5.1) (2022-03-08)
+
+
+### Bug Fixes
+
+* variables did not respect custom breakpoint keys ([958418d](https://github.com/pixelass/contour/commit/958418d9d86fe09a529b98a070f2c58931c5bf45))
+
+
+
+
+
 # [0.5.0](https://github.com/pixelass/contour/compare/v0.4.0...v0.5.0) (2022-03-06)
 
 
