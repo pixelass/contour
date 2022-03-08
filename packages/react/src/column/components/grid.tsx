@@ -21,11 +21,11 @@ export const gridColumnVars = ({
 		mq,
 	} = defaultTheme.contour,
 } = defaultTheme) => css`
-	${cssVar("colStart", "xs")}: var(${CSS_VAR_RESET});
-	${cssVar("colStart", "s")}: var(${CSS_VAR_RESET});
-	${cssVar("colStart", "m")}: var(${CSS_VAR_RESET});
-	${cssVar("colStart", "l")}: var(${CSS_VAR_RESET});
-	${cssVar("colStart", "xl")}: var(${CSS_VAR_RESET});
+	${cssVar("colStart", xs)}: var(${CSS_VAR_RESET});
+	${cssVar("colStart", s)}: var(${CSS_VAR_RESET});
+	${cssVar("colStart", m)}: var(${CSS_VAR_RESET});
+	${cssVar("colStart", l)}: var(${CSS_VAR_RESET});
+	${cssVar("colStart", xl)}: var(${CSS_VAR_RESET});
 	${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", xs)});
 
 	${mq[s]} {

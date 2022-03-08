@@ -11,11 +11,11 @@ export const rowVars = ({
 		mq,
 	} = defaultTheme.contour,
 } = defaultTheme) => css`
-	${cssVar("colCount", "xs")}: var(${CSS_VAR_RESET});
-	${cssVar("colCount", "s")}: var(${CSS_VAR_RESET});
-	${cssVar("colCount", "m")}: var(${CSS_VAR_RESET});
-	${cssVar("colCount", "l")}: var(${CSS_VAR_RESET});
-	${cssVar("colCount", "xl")}: var(${CSS_VAR_RESET});
+	${cssVar("colCount", xs)}: var(${CSS_VAR_RESET});
+	${cssVar("colCount", s)}: var(${CSS_VAR_RESET});
+	${cssVar("colCount", m)}: var(${CSS_VAR_RESET});
+	${cssVar("colCount", l)}: var(${CSS_VAR_RESET});
+	${cssVar("colCount", xl)}: var(${CSS_VAR_RESET});
 	${PUBLIC_CSS_VARS.colCount}: ${cssVarChain([cssVar("colCount", xs), PUBLIC_CSS_VARS.colSpan])};
 
 	${mq[s]} {
