@@ -1,17 +1,14 @@
-import {
-	FlexRowProps,
-	GridContextShape,
-	GridRowProps,
-	NoStrategy,
-	OptionalStrategy,
-	RowProps,
-} from "@contour/utils";
-import React, { memo, useMemo } from "react";
+import { FlexRowProps, GridContextShape, GridRowProps, RowProps } from "@contour/utils";
+import React, { ElementType, forwardRef, Ref, useMemo } from "react";
 import { GridContext, useGridContext } from "./context";
 import FlexRow from "./row/components/flex";
 import GridRow from "./row/components/grid";
 
-const Row = ({ strategy: assignedStrategy, ...props }: OptionalStrategy<RowProps>) => {
+// eslint-disable-next-line react/function-component-definition
+function RowBase<T extends ElementType = "div">(
+	{ strategy: assignedStrategy, ...props }: RowProps<T>,
+	ref: Ref<HTMLDivElement>
+) {
 	const { strategy } = useGridContext();
 	const strategy_ = assignedStrategy ?? strategy;
 	const gridContext: GridContextShape = useMemo(() => ({ strategy: "grid" }), []);
@@ -20,17 +17,19 @@ const Row = ({ strategy: assignedStrategy, ...props }: OptionalStrategy<RowProps
 		case "grid":
 			return (
 				<GridContext.Provider value={gridContext}>
-					<GridRow {...(props as NoStrategy<GridRowProps>)} strategy="grid" />
+					<GridRow ref={ref} {...(props as GridRowProps<T>)} />
 				</GridContext.Provider>
 			);
 		case "flex":
 		default:
 			return (
 				<GridContext.Provider value={flexContext}>
-					<FlexRow {...(props as NoStrategy<FlexRowProps>)} strategy="flex" />
+					<FlexRow ref={ref} {...(props as FlexRowProps<T>)} />
 				</GridContext.Provider>
 			);
 	}
-};
+}
 
-export default memo(Row);
+const Row = forwardRef(RowBase) as typeof RowBase;
+
+export default Row;

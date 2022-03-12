@@ -35,14 +35,14 @@ export const SXProperty: Story = () => {
 						l: "black",
 						xl: "white",
 					},
-					bgColor: { xs: "red", s: "yellow", m: "blue", l: "orange", xl: "purple" },
+					bgcolor: { xs: "red", s: "yellow", m: "blue", l: "orange", xl: "purple" },
 				}}
 			>
-				<DebugColumn sx={{ py: 2, bgColor: "#ccc", color: "black" }}>
-					<p>Let's get fancy</p>
-					<Row as={DebugBox} sx={{ py: 2, bgColor: "#777", color: "black" }}>
-						<DebugColumn sx={{ py: 2, bgColor: "#eee", color: "black" }}>
-							<Row as={DebugBox} sx={{ py: 2, bgColor: "#333", color: "white" }}>
+				<DebugColumn sx={{ py: 2, bgcolor: "#ccc", color: "black" }}>
+					<p>Let’s get fancy</p>
+					<Row as={DebugBox} sx={{ py: 2, bgcolor: "#777", color: "black" }}>
+						<DebugColumn sx={{ py: 2, bgcolor: "#eee", color: "black" }}>
+							<Row as={DebugBox} sx={{ py: 2, bgcolor: "#333", color: "white" }}>
 								<DebugColumn
 									sx={{
 										py: 3,
@@ -54,7 +54,7 @@ export const SXProperty: Story = () => {
 											l: "black",
 											xl: "white",
 										},
-										bgColor: {
+										bgcolor: {
 											xs: "red",
 											s: "yellow",
 											m: "blue",
@@ -64,19 +64,13 @@ export const SXProperty: Story = () => {
 										h1: {
 											background: "white",
 											color: "darkblue",
-											py: {
-												l: 10,
-												xl: 10,
-											},
+											py: 10,
 											my: 0,
 										},
 										p: {
 											background: "yellow",
 											color: "darkblue",
-											py: {
-												l: 3,
-												xl: 3,
-											},
+											py: 3,
 											mx: 5,
 											my: 0,
 										},
@@ -145,7 +139,7 @@ SXProperty.parameters = {
 
 const story = {
 	component: () => null,
-	title: "Examples/SX Property",
+	title: "Examples / SX Property",
 };
 
 export default story;

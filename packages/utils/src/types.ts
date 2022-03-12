@@ -1,56 +1,10 @@
-import * as React from "react";
-import { CSSProperties, ElementType, ReactNode } from "react";
+import { CSSProperties, ElementType, HTMLProps, ReactNode } from "react";
 import { Except } from "type-fest";
-/* eslint-disable @typescript-eslint/ban-types */
-/* eslint-disable @typescript-eslint/no-explicit-any  */
-
-/**
- * Remove properties `K` from `T`.
- * Distributive for union types.
- *
- * @internal
- */
-export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never;
-
-/**
- * Generate a set of string literal types with the given default record `T` and
- * override record `U`.
- *
- * If the property value was `true`, the property key will be added to the
- * string union.
- *
- * @internal
- */
-export type OverridableStringUnion<T extends string | number, U = {}> = GenerateStringUnion<
-	Overwrite<Record<T, true>, U>
->;
-
-/**
- * @desc Utility type for getting props type of React component.
- * It takes `defaultProps` into an account - making props with defaults optional.
- *
- * @internal
- */
-export type PropsOf<C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>> =
-	JSX.LibraryManagedAttributes<C, React.ComponentProps<C>>;
-/* eslint-enable @typescript-eslint/ban-types  */
-/* eslint-enable @typescript-eslint/no-explicit-any  */
-
-/**
- * Like `T & U`, but using the value types from `U` where their properties overlap.
- *
- * @internal
- */
-export type Overwrite<T, U> = DistributiveOmit<T, keyof U> & U;
-
-type GenerateStringUnion<T> = Extract<
-	{
-		[Key in keyof T]: true extends T[Key] ? Key : never;
-	}[keyof T],
-	string
->;
+import { MergeElementProps, OverridableStringUnion } from "./types/utils";
 
 export interface BreakpointKeyOverrides {}
+
+export type OriginalBreakpointKey = "xs" | "s" | "m" | "l" | "xl";
 
 export type BreakpointKey = OverridableStringUnion<
 	"xs" | "s" | "m" | "l" | "xl",
@@ -106,72 +60,87 @@ export interface SXObject extends Record<string, SXValue> {
 	pl?: SXValue;
 	px?: SXValue;
 	py?: SXValue;
-	bgColor?: SXValue<string>;
+	bgcolor?: SXValue<string>;
 }
 
 export type SxFunction = (theme: Theme) => SXObject;
 
 export type Sx = SxFunction | SXObject;
 
-export interface BaseProps<T = "flex"> {
-	as?: ElementType;
-	children?: ReactNode;
-	strategy: T;
-	style?: CSSProperties;
+export interface BaseProps extends Except<HTMLProps<HTMLElement>, "as" | "colSpan"> {
 	sx?: Sx;
-	align?: Align;
-	justify?: Justify;
+	alignItems?: Align;
+	justifyContent?: Justify;
 }
 
-export interface BaseColumnProps<T = "flex"> extends BaseProps<T> {
+export interface BaseColumnProps<T extends Strategy = "flex"> extends BaseProps {
 	colSpan?: Partial<BreakpointValues>;
-	colStart?: Partial<BreakpointValues>;
+	colStart?: T extends "flex" ? never : Partial<BreakpointValues>;
 	order?: Partial<BreakpointValues>;
 	flex?: boolean;
 }
 
-export interface BaseGridProps<T = "flex"> extends BaseProps<T> {
+export interface BaseGridProps extends BaseProps {
 	colCount?: Partial<BreakpointValues>;
 	gap?: Partial<XYBreakpointValues<number>> | Partial<BreakpointValues<number>>;
 	margin?: Partial<XYBreakpointValues<number>> | Partial<BreakpointValues<number>>;
 }
 
-export interface BaseRowProps<T = "flex"> extends BaseGridProps<T> {}
+export interface BaseRowProps extends BaseGridProps {}
 
-export interface FlexColumnProps extends BaseColumnProps {}
-
-export interface GridColumnProps extends BaseColumnProps<"grid"> {}
-
-export interface BreakoutColumnProps extends NoStrategy<BaseColumnProps> {
-	left?: Partial<BreakpointValues<number>>;
-	right?: Partial<BreakpointValues<number>>;
+export interface FlexColumnProps<P extends ElementType> extends BaseColumnProps {
+	as?: P;
+	fill?: boolean;
 }
 
-export interface FlexRowProps extends BaseRowProps {}
+export type OverrideableFlexColumnProps<P extends ElementType> = {
+	as?: P;
+	fill?: boolean;
+} & MergeElementProps<P, BaseColumnProps>;
 
-export interface GridRowProps extends BaseRowProps<"grid"> {}
+export interface GridColumnProps<P extends ElementType> extends BaseColumnProps<"grid"> {
+	as?: P;
+}
 
-export interface FlexGridProps extends BaseGridProps {}
+export type OverrideableGridColumnProps<P extends ElementType> = {
+	as?: P;
+} & MergeElementProps<P, BaseColumnProps<"grid">>;
 
-export interface GridGridProps extends BaseGridProps<"grid"> {}
+export interface BreakoutColumnProps<P extends ElementType> extends BaseColumnProps {
+	left?: Partial<BreakpointValues<number>>;
+	right?: Partial<BreakpointValues<number>>;
+	as?: P;
+}
 
-export type NoStrategy<T extends { strategy: Strategy }> = Except<T, "strategy">;
+export interface FlexRowProps<P extends ElementType> extends BaseRowProps {
+	as?: P;
+}
 
-export type OptionalStrategy<T extends { strategy: Strategy }> = NoStrategy<T> & {
+export interface GridRowProps<P extends ElementType> extends BaseRowProps {
+	as?: P;
+}
+
+export interface FlexGridProps<P extends ElementType> extends BaseGridProps {
+	as?: P;
+}
+
+export interface GridGridProps<P extends ElementType> extends BaseGridProps {
+	as?: P;
+}
+
+export type ColumnProps<P extends ElementType> = {
+	as?: P;
+} & MergeElementProps<P, FlexColumnProps<P> | GridColumnProps<P>>;
+
+export type GridProps<P extends ElementType> = {
+	as?: P;
 	strategy?: Strategy;
-};
+} & MergeElementProps<P, FlexGridProps<P> | GridGridProps<P>>;
 
-export type ColumnProps =
-	| (FlexColumnProps & PropsOf<BaseProps["as"]>)
-	| (GridColumnProps & PropsOf<BaseProps<"grid">["as"]>);
-
-export type GridProps =
-	| (FlexGridProps & PropsOf<BaseProps["as"]>)
-	| (GridGridProps & PropsOf<BaseProps<"grid">["as"]>);
-
-export type RowProps =
-	| (FlexRowProps & PropsOf<BaseProps["as"]>)
-	| (GridRowProps & PropsOf<BaseProps<"grid">["as"]>);
+export type RowProps<P extends ElementType> = {
+	as?: P;
+	strategy?: Strategy;
+} & MergeElementProps<P, FlexRowProps<P> | GridRowProps<P>>;
 
 export interface Breakpoints {
 	values: BreakpointValues<number>;
@@ -189,20 +158,17 @@ export interface Theme {
 		colCount: BreakpointValues<number>;
 		gap: XYBreakpointValues<number>;
 		margin: XYBreakpointValues<number>;
-		spacing: number;
+		spacing(multiplier: number): string;
 		mq: MediaQueries;
 	};
 }
 
 export interface PartialTheme {
-	contour: {
-		breakpoints?: Partial<Breakpoints>;
-		colCount?: Partial<BreakpointValues<number>>;
-		gap?: Partial<BreakpointValues<number>> | Partial<XYBreakpointValues<number>>;
-		margin?: Partial<BreakpointValues<number>> | Partial<XYBreakpointValues<number>>;
-		spacing?: number;
-		mq?: Partial<MediaQueries>;
-	};
+	breakpoints?: Partial<Breakpoints>;
+	colCount?: Partial<BreakpointValues<number>>;
+	gap?: Partial<BreakpointValues<number>> | Partial<XYBreakpointValues<number>>;
+	margin?: Partial<BreakpointValues<number>> | Partial<XYBreakpointValues<number>>;
+	spacing?: number;
 }
 
 export interface GridProviderProps {

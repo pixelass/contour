@@ -9,7 +9,7 @@ import { DebugBox, Rainbow } from "../../helpers";
 Grid is a top-level component. It can be used multiple times on a page.
 
 ```jsx
-import {  Grid } from "@contour/react";
+import { Grid } from "@contour/react";
 
 export default function App() {
 	return (
@@ -33,12 +33,12 @@ export default function App() {
 
 ## Additional Properties
 
-| Name       | Required | Default | Description                                      |
-| :--------- | :------- | :------ | :----------------------------------------------- |
-| `as`       | No       | -       | The Component or Element that should be rendered |
-| `strategy` | No       | `flex`  | One of `flex`, `grid`                            |
-| `align`    | No       | -       | One of `start`, `center`, `end`                  |
-| `justify`  | No       | -       | One of `start`, `center`, `end`                  |
+| Name             | Required | Default | Description                                      |
+| :--------------- | :------- | :------ | :----------------------------------------------- |
+| `as`             | No       | -       | The Component or Element that should be rendered |
+| `strategy`       | No       | `flex`  | One of `flex`, `grid`                            |
+| `alignItems`     | No       | -       | One of `start`, `center`, `end`                  |
+| `justifyContent` | No       | -       | One of `start`, `center`, `end`                  |
 
 ## Strategy: Grid
 
@@ -67,10 +67,10 @@ export default function App() {
 	<div style={{ gridColumnEnd: "span 2" }}>
 		<DebugBox>2</DebugBox>
 	</div>
-	<Column colSpan={{m: 4}}>
+	<Column colSpan={{ m: 4 }}>
 		<DebugBox>3</DebugBox>
 	</Column>
-	<Column colSpan={{m: 4}}>
+	<Column colSpan={{ m: 4 }}>
 		<DebugBox>3</DebugBox>
 	</Column>
 </Grid>
@@ -83,7 +83,6 @@ aware that this adds extra padding that cannot be removed.
 ```jsx
 import { Column, Grid } from "@contour/react";
 
-
 export default function App() {
 	return (
 		<Grid>
@@ -92,7 +91,7 @@ export default function App() {
 					colCount={{ l: 4, xl: 4 }}
 					gap={{ l: 32, xl: 32 }}
 					margin={{ l: 32, xl: 32 }}
-					justify="center"
+					justifyContent="center"
 				>
 					{/* ... */}
 				</Grid>
@@ -109,7 +108,7 @@ export default function App() {
 			colCount={{ l: 4, xl: 4 }}
 			gap={{ l: 32, xl: 32 }}
 			margin={{ l: 32, xl: 32 }}
-			justify="center"
+			justifyContent="center"
 		>
 			<Rainbow length={3} />
 		</Grid>

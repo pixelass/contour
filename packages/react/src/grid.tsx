@@ -1,28 +1,28 @@
 import { createTheme } from "@contour/theme";
-import {
-	FlexGridProps,
-	GridContextShape,
-	GridGridProps,
-	GridProps,
-	NoStrategy,
-	OptionalStrategy,
-	Theme,
-} from "@contour/utils";
+import { FlexGridProps, GridContextShape, GridGridProps, GridProps } from "@contour/utils";
 import { useTheme } from "@emotion/react";
-import React, { memo, useMemo } from "react";
+import React, { ElementType, forwardRef, Ref, useMemo } from "react";
 import { GridContext, useGridContext } from "./context";
 import FlexGrid from "./grid/components/flex";
 import GridGrid from "./grid/components/grid";
 import GridProvider from "./provider";
 
-const Grid = ({ strategy: assignedStrategy, ...props }: OptionalStrategy<GridProps>) => {
+// eslint-disable-next-line react/function-component-definition
+function GridBase<T extends ElementType = "div">(
+	{ strategy: assignedStrategy, ...props }: GridProps<T>,
+	ref: Ref<HTMLDivElement>
+) {
 	const theme = useTheme();
 	const { strategy } = useGridContext();
 	const strategy_ = assignedStrategy ?? strategy;
 	const gridContext: GridContextShape = useMemo(() => ({ strategy: "grid" }), []);
 	const flexContext: GridContextShape = useMemo(() => ({ strategy: "flex" }), []);
 	const outerTheme = useMemo(
-		() => createTheme({ contour: { ...((theme as Partial<Theme>).contour ?? {}) } }),
+		() =>
+			createTheme({
+				...(theme.contour ?? {}),
+				spacing: theme.contour ? Number.parseInt(theme.contour.spacing(16), 10) : undefined,
+			}),
 		[theme]
 	);
 	switch (strategy_) {
@@ -30,7 +30,7 @@ const Grid = ({ strategy: assignedStrategy, ...props }: OptionalStrategy<GridPro
 			return (
 				<GridProvider theme={outerTheme}>
 					<GridContext.Provider value={gridContext}>
-						<GridGrid {...(props as NoStrategy<GridGridProps>)} strategy="grid" />
+						<GridGrid ref={ref} {...(props as GridGridProps<T>)} />
 					</GridContext.Provider>
 				</GridProvider>
 			);
@@ -39,11 +39,12 @@ const Grid = ({ strategy: assignedStrategy, ...props }: OptionalStrategy<GridPro
 			return (
 				<GridProvider theme={outerTheme}>
 					<GridContext.Provider value={flexContext}>
-						<FlexGrid {...(props as NoStrategy<FlexGridProps>)} strategy="flex" />
+						<FlexGrid ref={ref} {...(props as FlexGridProps<T>)} />
 					</GridContext.Provider>
 				</GridProvider>
 			);
 	}
-};
+}
+const Grid = forwardRef(GridBase) as typeof GridBase;
 
-export default memo(Grid);
+export default Grid;

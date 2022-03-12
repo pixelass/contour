@@ -18,7 +18,7 @@ This feature is strongly inspired by [Material UI](https://mui.com/system/the-sx
 These properties are supported:
 
 ```json
- {
+{
 	"margin": ["margin"],
 	"m": ["margin"],
 	"marginTop": ["marginTop"],
@@ -47,11 +47,11 @@ These properties are supported:
 	"px": ["paddingRight", "paddingLeft"],
 	"paddingY": ["paddingTop", "paddingBottom"],
 	"py": ["paddingTop", "paddingBottom"],
-	"bgColor": ["backgroundColor"]
+	"bgcolor": ["backgroundColor"]
 }
 ```
 
-All aliases and their mapped properties will use `theme.contour.spacing` as a multiplier when of type `number` (except `bgColor`).
+All aliases and their mapped properties will use `theme.contour.spacing` as a multiplier when of type `number`.
 
 ### Example: Spacing multiplier
 
@@ -60,20 +60,27 @@ import { Column, Grid } from "@contour/react";
 
 export default function App() {
 	return (
-		<Grid sx={{pb: 10}}>
+		<Grid sx={{ pb: 10 }}>
 			<Column>
 				<h1>Contour</h1>
-				<p>This grid has a <code>paddingBottom</code> of <code>10 * theme.contour.spacing</code></p>
+				<p>
+					This grid has a <code>paddingBottom</code> of{" "}
+					<code>10 * theme.contour.spacing</code>
+				</p>
 			</Column>
 		</Grid>
 	);
 }
 ```
+
 <DebugBox>
-	<Grid strategy="grid"  sx={{pb: 10}}>
+	<Grid strategy="grid" sx={{ pb: 10 }}>
 		<DebugColumn>
 			<h1>Contour</h1>
-			<DebugBox>This grid has a <code>paddingBottom</code> of <code>10 * theme.contour.spacing</code></DebugBox>
+			<DebugBox>
+				This grid has a <code>paddingBottom</code> of{" "}
+				<code>10 * theme.contour.spacing</code>
+			</DebugBox>
 		</DebugColumn>
 	</Grid>
 </DebugBox>
@@ -84,18 +91,19 @@ import { Column, Grid } from "@contour/react";
 export default function App() {
 	return (
 		<>
-			<Grid strategy="grid" >
+			<Grid strategy="grid">
 				<Column>Contour</Column>
 				<Column>Contour</Column>
 			</Grid>
-			<Grid strategy="grid" sx={{py: 0}}>
-				<Column sx={{p: 4}}>Contour</Column>
-				<Column sx={{background: "red", color: "white"}}>Contour</Column>
+			<Grid strategy="grid" sx={{ py: 0 }}>
+				<Column sx={{ p: 4 }}>Contour</Column>
+				<Column sx={{ bgcolor: "red", color: "white" }}>Contour</Column>
 			</Grid>
 		</>
 	);
 }
 ```
+
 <>
 	<DebugBox>
 		<Grid strategy="grid">
@@ -108,11 +116,11 @@ export default function App() {
 		</Grid>
 	</DebugBox>
 	<DebugBox>
-		<Grid strategy="grid" sx={{py: 0}}>
-			<DebugColumn  sx={{p: 4}}>
+		<Grid strategy="grid" sx={{ py: 0 }}>
+			<DebugColumn sx={{ p: 4 }}>
 				<DebugBox>Contour</DebugBox>
 			</DebugColumn>
-			<DebugColumn sx={{background: "red", color: "white"}}>
+			<DebugColumn sx={{ bgcolor: "red", color: "white" }}>
 				<DebugBox>Contour</DebugBox>
 			</DebugColumn>
 		</Grid>

@@ -4,13 +4,15 @@ import {
 	CSS_VAR_RESET,
 	cssVar,
 	getCSSVars,
-	GridColumnProps,
+	OverrideableGridColumnProps,
 	PUBLIC_CSS_VARS,
 	resolveSX,
 } from "@contour/utils";
+import { jsx } from "@emotion/core";
 import { css } from "@emotion/react";
+import { CSSObject } from "@emotion/serialize";
 import deepmerge from "deepmerge";
-import React, { CSSProperties, memo } from "react";
+import { ElementType, forwardRef, Ref } from "react";
 import { columnCommon, columnVars } from "../css";
 
 export const gridColumnVars = ({
@@ -45,50 +47,52 @@ export const gridColumnVars = ({
 	}
 `;
 
-const gridColumn: CSSProperties = {
+const gridColumn: CSSObject = {
 	gridColumnEnd: `span var(${PUBLIC_CSS_VARS.colSpan}, var(${PUBLIC_CSS_VARS.colCount}))`,
 	/* Stylelint-disable declaration-block-no-redundant-longhand-properties */
 	gridColumnStart: `var(${PUBLIC_CSS_VARS.colStart})`,
 	/* Stylelint-enable declaration-block-no-redundant-longhand-properties */
 };
 
-const GridColumn = ({
-	as: Component = "div",
-	strategy,
-	style,
-	align,
-	justify,
-	flex,
-	colSpan = {},
-	colStart = {},
-	order = {},
-	sx = {},
-	...props
-}: GridColumnProps) => {
+// eslint-disable-next-line react/function-component-definition
+function GridColumnBase<T extends ElementType = "div">(
+	{
+		as: Component,
+		style,
+		alignItems,
+		justifyContent,
+		flex,
+		colSpan = {},
+		colStart = {},
+		order = {},
+		sx = {},
+		...props
+	}: OverrideableGridColumnProps<T>,
+	ref: Ref<HTMLDivElement>
+) {
 	const colSpanVars = getCSSVars("colSpan", colSpan);
 	const colStartVars = getCSSVars("colStart", colStart);
 	const orderVars = getCSSVars("order", order);
-	return (
-		<Component
-			{...props}
-			css={[
-				columnVars,
-				gridColumnVars,
-				theme => columnCommon(deepmerge(gridColumn, resolveSX(sx)(theme))),
-			]}
-			style={
-				{
-					...style,
-					...colSpanVars,
-					...colStartVars,
-					...orderVars,
-					[PUBLIC_CSS_VARS.align]: align,
-					[PUBLIC_CSS_VARS.justify]: justify,
-					[PUBLIC_CSS_VARS.display]: flex && "flex",
-				} as CSSProperties
-			}
-		/>
-	);
-};
+	return jsx(Component ?? "div", {
+		ref,
+		...props,
+		css: [
+			columnVars,
+			gridColumnVars,
+			theme => columnCommon(deepmerge<CSSObject>(gridColumn, resolveSX(sx)(theme))),
+		],
+		style: {
+			...style,
+			...colSpanVars,
+			...colStartVars,
+			...orderVars,
+			[PUBLIC_CSS_VARS.align]: alignItems,
+			[PUBLIC_CSS_VARS.justify]: justifyContent,
+			[PUBLIC_CSS_VARS.display]: flex && "flex",
+		},
+	});
+}
 
-export default memo(GridColumn);
+const GridColumn = forwardRef(GridColumnBase) as typeof GridColumnBase;
+
+export default GridColumn;

@@ -8,10 +8,11 @@ import {
 	PUBLIC_CSS_VARS,
 	resolveSX,
 } from "@contour/utils";
+import { jsx } from "@emotion/core";
 import { css } from "@emotion/react";
 import { CSSObject } from "@emotion/serialize";
 import deepmerge from "deepmerge";
-import React, { CSSProperties, memo } from "react";
+import { ElementType, forwardRef, Ref } from "react";
 import { columnCommon, columnVars } from "../css";
 
 const breakoutColumnVars = ({
@@ -74,49 +75,52 @@ const breakoutColumn = (theme = defaultTheme): CSSObject => {
 	};
 };
 
-const BreakoutColumn = ({
-	as: Component = "div",
-	style,
-	align,
-	justify,
-	flex,
-	colSpan = {},
-	order = {},
-	left = {},
-	right = {},
-	sx = {},
-	...props
-}: BreakoutColumnProps) => {
+// eslint-disable-next-line react/function-component-definition
+function BreakoutColumnBase<T extends ElementType = "div">(
+	{
+		as: Component,
+		style,
+		alignItems,
+		justifyContent,
+		flex,
+		colSpan = {},
+		order = {},
+		left = {},
+		right = {},
+		sx = {},
+		...props
+	}: BreakoutColumnProps<T>,
+	ref: Ref<HTMLDivElement>
+) {
 	const colSpanVars = getCSSVars("colSpan", colSpan);
 	const orderVars = getCSSVars("order", order);
 	const breakoutLeftVars = getCSSVars("breakoutLeft", left);
 	const breakoutRightVars = getCSSVars("breakoutRight", right);
 
-	return (
-		<Component
-			{...props}
-			css={[
-				columnVars,
-				breakoutColumnVars,
-				theme =>
-					columnCommon(
-						deepmerge<CSSObject, CSSObject>(breakoutColumn(theme), resolveSX(sx)(theme))
-					),
-			]}
-			style={
-				{
-					...style,
-					...colSpanVars,
-					...orderVars,
-					...breakoutLeftVars,
-					...breakoutRightVars,
-					[PUBLIC_CSS_VARS.align]: align,
-					[PUBLIC_CSS_VARS.justify]: justify,
-					[PUBLIC_CSS_VARS.display]: flex && "flex",
-				} as CSSProperties
-			}
-		/>
-	);
-};
+	return jsx(Component ?? "div", {
+		ref,
+		...props,
+		css: [
+			columnVars,
+			breakoutColumnVars,
+			theme =>
+				columnCommon(
+					deepmerge<CSSObject, CSSObject>(breakoutColumn(theme), resolveSX(sx)(theme))
+				),
+		],
+		style: {
+			...style,
+			...colSpanVars,
+			...orderVars,
+			...breakoutLeftVars,
+			...breakoutRightVars,
+			[PUBLIC_CSS_VARS.align]: alignItems,
+			[PUBLIC_CSS_VARS.justify]: justifyContent,
+			[PUBLIC_CSS_VARS.display]: flex && "flex",
+		},
+	});
+}
 
-export default memo(BreakoutColumn);
+const BreakoutColumn = forwardRef(BreakoutColumnBase) as typeof BreakoutColumnBase;
+
+export default BreakoutColumn;

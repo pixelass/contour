@@ -1,4 +1,4 @@
-import { BreakpointKey, BreakpointValues, Theme } from "@contour/utils";
+import { BreakpointKey, BreakpointValues, pxToRem, Theme } from "@contour/utils";
 import createMediaQueries from "./create-media-queries";
 
 const defaultBreakpointNames = ["xs", "s", "m", "l", "xl"];
@@ -20,7 +20,7 @@ const defaultTheme: Theme = {
 			values: defaultBreakpointValues,
 			keys: defaultBreakpointNames as BreakpointKey[],
 		},
-		spacing: 8,
+		spacing: multiplier => pxToRem(multiplier * 8),
 		colCount: {
 			[xs]: 2,
 			[s]: 4,

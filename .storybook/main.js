@@ -16,6 +16,9 @@ module.exports = {
 		"../stories/docs/components/row.stories.mdx",
 		"../stories/docs/components/column.stories.mdx",
 		"../stories/docs/components/breakout-column.stories.mdx",
+		"../stories/examples/mui/*.stories.@(tsx|mdx)",
+		"../stories/examples/{**,*}/*.stories.@(tsx|mdx)",
+		"../stories/examples/*.stories.@(tsx|mdx)",
 		"../**/*.stories.@(tsx|mdx)",
 	],
 	addons: [

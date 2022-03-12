@@ -1,7 +1,7 @@
 import {
+	BaseGridProps,
 	BreakpointValues,
 	getCSSVars,
-	GridGridProps,
 	isXBreakpointValues,
 	isYBreakpointValues,
 } from "@contour/utils";
@@ -10,7 +10,7 @@ export const getCommonVars = ({
 	gap,
 	margin,
 	colCount,
-}: Pick<GridGridProps, "gap" | "margin" | "colCount">) => {
+}: Pick<BaseGridProps, "gap" | "margin" | "colCount">) => {
 	const gapX = isXBreakpointValues(gap)
 		? gap.x
 		: isYBreakpointValues(gap)

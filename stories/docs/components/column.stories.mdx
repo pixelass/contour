@@ -11,7 +11,6 @@ Column is a sub-level component. It can be used multiple times in a `<Grid/>` or
 ```jsx
 import { Column, Grid } from "@contour/react";
 
-
 export default function App() {
 	return (
 		<Grid>
@@ -32,12 +31,13 @@ export default function App() {
 
 ## Additional Properties
 
-| Name      | Required | Default | Description                                              |
-| :-------- | :------- | :------ | :------------------------------------------------------- |
-| `as`      | No       | -       | The Component or Element that should be rendered         |
-| `align`   | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`) |
-| `justify` | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`) |
-| `flex`    | No       | -       | Use `display: flex;` (enables `align`, `justify`)        |
+| Name             | Required | Default | Description                                                   |
+| :--------------- | :------- | :------ | :------------------------------------------------------------ |
+| `as`             | No       | -       | The Component or Element that should be rendered              |
+| `alignItems`     | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`)      |
+| `justifyContent` | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`)      |
+| `flex`           | No       | -       | Use `display: flex;` (enables `alignItems`, `justifyContent`) |
+| `fill`           | No       | -       | Fill the available space                                      |
 
 ## Defining the colSpan
 
@@ -63,6 +63,41 @@ export default function App() {
 	<DebugColumn colSpan={{ m: 2 }}>3</DebugColumn>
 </Grid>
 
+## Filling the available space (`strategy="flex"`)
+
+You can set a column to `fill`. It will fill the available space. Be aware that this property has no
+effect with `strategy="grid"`. You have to use `strategy="flex"`.
+
+> Note: `fill` will break the nested `colCount` logic, since there is no way of inheriting the
+> available columns.
+
+```jsx
+import { Column, Grid } from "@contour/react";
+
+export default function App() {
+	return (
+		<Grid >
+			<Column  colSpan={{ m: 4 }}>
+				1
+			</Column>
+			<Column fill>
+				2
+			</Column>
+		</Grid>
+	);
+}
+```
+
+<Grid>
+	<DebugColumn  colSpan={{ m: 4 }}>
+		1
+	</DebugColumn>
+	<DebugColumn fill>
+		2
+	</DebugColumn>
+</Grid>
+
+
 ## Defining the colStart (`strategy="grid"`)
 
 You can set the `colStart` per breakpoint to adjust the start of the column. Be aware that this
@@ -70,7 +105,6 @@ property has no effect with `strategy="flex"`. You have to use `strategy="grid"`
 
 ```jsx
 import { Column, Grid } from "@contour/react";
-
 
 export default function App() {
 	return (

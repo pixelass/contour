@@ -1,6 +1,6 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import { Column } from "@contour/react";
-import { ColumnProps, NoStrategy, Theme } from "@contour/utils";
+import { ColumnProps, Theme } from "@contour/utils";
 import { css, keyframes } from "@emotion/react";
 import React, { CSSProperties, FC } from "react";
 
@@ -37,7 +37,11 @@ export const debugBox = css`
 `;
 
 export const DebugColumn: FC<
-	NoStrategy<ColumnProps> & { color?: string; strokeWidth?: string; dashWidth?: string }
+	ColumnProps<keyof JSX.IntrinsicElements> & {
+		color?: string;
+		strokeWidth?: string;
+		dashWidth?: string;
+	}
 > = ({ color = "currentColor", dashWidth = "8px", strokeWidth = "1px", ...props }) => (
 	<Column
 		css={css`
@@ -102,9 +106,9 @@ export const getColumnsWidth = (theme: Theme, colSpan: number, gap = 0) => {
 
 export const Rainbow = ({ length }: { length: number }) => (
 	<>
-		{Array.from({ length }).map((_, index) => (
+		{Array.from({ length }, (_, index) => ({ id: index })).map(({ id }, index) => (
 			<DebugColumn
-				key={index}
+				key={id}
 				colSpan={{ xs: 1 }}
 				strokeWidth="2px"
 				color={`hsl(${(360 / length) * index}, 100%, 40%)`}

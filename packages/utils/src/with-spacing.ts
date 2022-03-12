@@ -1,4 +1,4 @@
-import { pxToRem } from "./css";
+import { Theme } from "./types";
 
 /**
  * Multiplies the value by the spacing and converts the value to rem.
@@ -6,7 +6,7 @@ import { pxToRem } from "./css";
  * @param value
  * @param spacing
  */
-const withSpacing = (value: number | string, spacing: number) =>
-	typeof value === "number" ? pxToRem(value * spacing) : value;
+const withSpacing = (value: number | string, spacing: Theme["contour"]["spacing"]) =>
+	typeof value === "number" ? spacing(value) : value;
 
 export default withSpacing;
