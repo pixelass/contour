@@ -1,6 +1,6 @@
 {
   "name": "@contour/hooks",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Utilities for contour",
   "keywords": [
     "react",
@@ -48,7 +48,7 @@
     "watch": "rollup -cw"
   },
   "dependencies": {
-    "@contour/utils": "^0.5.0"
+    "@contour/utils": "^0.6.0"
   },
   "peerDependencies": {
     "react": ">=17.0.2"

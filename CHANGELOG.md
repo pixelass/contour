@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/pixelass/contour/compare/v0.5.1...v0.6.0) (2022-03-13)
+
+
+### Features
+
+* api improvements ([#11](https://github.com/pixelass/contour/issues/11)) ([b3155ed](https://github.com/pixelass/contour/commit/b3155edccb3c86b56fa31f87f1c70ab03f15352f))
+
+
+
+
+
 ## [0.5.1](https://github.com/pixelass/contour/compare/v0.5.0...v0.5.1) (2022-03-08)
 
 
