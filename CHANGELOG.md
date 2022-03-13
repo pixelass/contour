@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/pixelass/contour/compare/v0.6.1...v0.6.2) (2022-03-13)
+
+
+### Bug Fixes
+
+* use outer theme if it has contour prop ([b519db8](https://github.com/pixelass/contour/commit/b519db851a17b395f3a269cc177e4aafa32f3c96))
+
+
+
+
+
 ## [0.6.1](https://github.com/pixelass/contour/compare/v0.6.0...v0.6.1) (2022-03-13)
 
 
