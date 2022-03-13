@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/pixelass/contour/compare/v0.6.0...v0.6.1) (2022-03-13)
+
+
+### Bug Fixes
+
+* use emotion/react instead of core ([9aa2ed9](https://github.com/pixelass/contour/commit/9aa2ed96c8d043c12590355069e539f65a1c2608))
+
+
+
+
+
 # [0.6.0](https://github.com/pixelass/contour/compare/v0.5.1...v0.6.0) (2022-03-13)
 
 
