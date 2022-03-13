@@ -31,12 +31,12 @@ export default function App() {
 
 ## Additional Properties
 
-| Name       | Required | Default | Description                                      |
-| :--------- | :------- | :------ | :----------------------------------------------- |
-| `as`       | No       | -       | The Component or Element that should be rendered |
-| `strategy` | No       | `flex`  | One of `flex`, `grid`                            |
-| `align`    | No       | -       | One of `start`, `center`, `end`                  |
-| `justify`  | No       | -       | One of `start`, `center`, `end`                  |
+| Name             | Required | Default | Description                                      |
+| :--------------- | :------- | :------ | :----------------------------------------------- |
+| `as`             | No       | -       | The Component or Element that should be rendered |
+| `strategy`       | No       | `flex`  | One of `flex`, `grid`                            |
+| `align`          | No       | -       | One of `start`, `center`, `end`                  |
+| `justifyContent` | No       | -       | One of `start`, `center`, `end`                  |
 
 ## Strategy: Grid
 
@@ -47,15 +47,14 @@ When chosing `grid`, `<Row/>` becomes a standalone layout.
 ```jsx
 import { Column, Grid, Row } from "@contour/react";
 
-
 export default function App() {
 	return (
-			<Grid>
-				<Column>
-					<Row strategy="grid">{/* ... */}</Row>
-					<Row>{/* ... */}</Row>
-				</Column>
-			</Grid>
+		<Grid>
+			<Column>
+				<Row strategy="grid">{/* ... */}</Row>
+				<Row>{/* ... */}</Row>
+			</Column>
+		</Grid>
 	);
 }
 ```
@@ -71,7 +70,6 @@ export default function App() {
 	</Column>
 </Grid>
 
-
 ## Compound Row
 
 To use a different grid logic for a section, you can adjust the `<Row/>`.
@@ -79,12 +77,11 @@ To use a different grid logic for a section, you can adjust the `<Row/>`.
 ```jsx
 import { Column, Grid, Row } from "@contour/react";
 
-
 export default function App() {
 	return (
 		<Grid>
 			<Column colSpan={{ l: 9 }}>
-				<Row colCount={{ l: 4, xl: 4 }} justify="center">
+				<Row colCount={{ l: 4, xl: 4 }} justifyContent="center">
 					{/* ... */}
 				</Row>
 			</Column>
@@ -96,7 +93,7 @@ export default function App() {
 <Grid>
 	<Rainbow length={12} />
 	<Column colSpan={{ l: 9 }}>
-		<Row colCount={{ l: 4, xl: 4 }} justify="center">
+		<Row colCount={{ l: 4, xl: 4 }} justifyContent="center">
 			<Rainbow length={3} />
 		</Row>
 	</Column>

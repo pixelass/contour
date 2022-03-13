@@ -11,4 +11,4 @@ yarn add @contour/theme
 
 ## Documentation
 
-* [Configuration]https://contour-rust.vercel.app/?path=/story/docs-configuration--page)
+- [Configuration]https://contour-rust.vercel.app/?path=/story/docs-configuration--page)

@@ -11,4 +11,4 @@ yarn add @contour/hooks
 
 ## Documentation
 
-* [`useViewport`](https://contour-rust.vercel.app/?path=/story/docs-hooks-use-viewport--page)
+- [`useViewport`](https://contour-rust.vercel.app/?path=/story/docs-hooks-use-viewport--page)

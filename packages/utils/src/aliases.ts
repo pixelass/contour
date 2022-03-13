@@ -27,6 +27,6 @@ const aliases: Record<string, string[]> = {
 	px: ["paddingRight", "paddingLeft"],
 	paddingY: ["paddingTop", "paddingBottom"],
 	py: ["paddingTop", "paddingBottom"],
-	bgColor: ["backgroundColor"],
+	bgcolor: ["backgroundColor"],
 };
 export default aliases;

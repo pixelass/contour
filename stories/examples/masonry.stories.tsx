@@ -16,7 +16,7 @@ export const Masonry: Story = () => {
 			<div style={{ maxWidth: 600, margin: "auto", padding: "1em", background: "yellow" }}>
 				<p>
 					<strong>Warning:</strong> This feature is only implemented in Firefox, and can
-					be enabled by setting the flag&nbsp;
+					be enabled by setting the flag{" "}
 					<code>layout.css.grid-template-masonry-value.enabled</code> to <code>true</code>{" "}
 					in <code>about:config</code>, in order to allow testing and providing of
 					feedback.
@@ -33,7 +33,7 @@ export const Masonry: Story = () => {
 						>
 							<DebugBox
 								style={{ height: item.height, padding: "1rem" }}
-								strokeWidth={"2px"}
+								strokeWidth="2px"
 								color={index === positionedItem ? "red" : "blue"}
 							>
 								{index + 1}
@@ -53,7 +53,7 @@ Masonry.parameters = {
 
 const story = {
 	component: () => null,
-	title: "Examples/Masonry",
+	title: "Examples / Masonry",
 };
 
 export default story;

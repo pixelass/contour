@@ -12,6 +12,7 @@ export const columnVars = ({
 	} = defaultTheme.contour,
 } = defaultTheme) => css`
 	${cssVar("colSpan", xs)}: var(${CSS_VAR_RESET});
+	${cssVar("colSpan", xs)}: var(${CSS_VAR_RESET});
 	${cssVar("colSpan", s)}: var(${CSS_VAR_RESET});
 	${cssVar("colSpan", m)}: var(${CSS_VAR_RESET});
 	${cssVar("colSpan", l)}: var(${CSS_VAR_RESET});
@@ -21,6 +22,9 @@ export const columnVars = ({
 	${cssVar("order", m)}: var(${CSS_VAR_RESET});
 	${cssVar("order", l)}: var(${CSS_VAR_RESET});
 	${cssVar("order", xl)}: var(${CSS_VAR_RESET});
+	${PUBLIC_CSS_VARS.display}: var(${CSS_VAR_RESET});
+	${PUBLIC_CSS_VARS.align}: var(${CSS_VAR_RESET});
+	${PUBLIC_CSS_VARS.justify}: var(${CSS_VAR_RESET});
 	${PUBLIC_CSS_VARS.colSpan}: ${cssVarChain([cssVar("colSpan", xs), PUBLIC_CSS_VARS.colCount])};
 	${PUBLIC_CSS_VARS.order}: var(${cssVar("order", xs)});
 
@@ -69,10 +73,10 @@ export const columnVars = ({
 
 export const columnCommon = (overrides: CSSObject = {}) =>
 	css({
-		display: ` var(${PUBLIC_CSS_VARS.display})`,
+		display: `var(${PUBLIC_CSS_VARS.display})`,
 		boxSizing: "border-box",
 		alignItems: `var(${PUBLIC_CSS_VARS.align})`,
 		justifyContent: `var(${PUBLIC_CSS_VARS.justify})`,
-		order: ` var(${PUBLIC_CSS_VARS.order})`,
+		order: `var(${PUBLIC_CSS_VARS.order})`,
 		...overrides,
 	});

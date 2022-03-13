@@ -43,6 +43,7 @@ const Header: FC = ({ children }) => {
 const Link: FC<HTMLProps<HTMLAnchorElement>> = ({ children, ...props }) => (
 	<a
 		{...props}
+		rel="noreferrer"
 		css={css`
 			display: block;
 			padding: 1rem;
@@ -72,6 +73,7 @@ const Nav: FC = ({ children }) => {
 const InlineLink: FC<HTMLProps<HTMLAnchorElement>> = ({ children, ...props }) => (
 	<a
 		{...props}
+		rel="noreferrer"
 		css={css`
 			display: inline-block;
 			padding: 1rem;
@@ -139,7 +141,10 @@ export const Page: Story = () => {
 				<Column colSpan={{ s: 2, m: 4, l: 2 }}>
 					<DebugBox style={{ height: 100 }} />
 				</Column>
-				<Column colSpan={{ s: 2, m: 8, l: 10 }}>
+				<Column fill>
+					<DebugBox style={{ height: 100 }} color="red" />
+				</Column>
+				<Column colSpan={{ s: 2, m: 4, l: 2 }}>
 					<DebugBox style={{ height: 100 }} />
 				</Column>
 			</Grid>
@@ -190,7 +195,7 @@ Page.parameters = {
 
 const story = {
 	component: () => null,
-	title: "Examples/Page",
+	title: "Examples / Page",
 };
 
 export default story;

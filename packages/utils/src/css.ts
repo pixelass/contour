@@ -1,14 +1,11 @@
-import process from "process";
 import { CSSProperties } from "react";
-import { CSS_VAR_PREFIX, CSS_VAR_SUFFIX, CSS_VARS_MAP } from "./constants";
+import { CSS_VAR_PREFIX, CSS_VARS_MAP, IS_OBFUSCATED } from "./constants";
 import { BreakpointValues, CSSVarKey } from "./types";
 
 export const cssVar = (key: keyof typeof CSS_VARS_MAP, subKey?: string) =>
 	`--${CSS_VAR_PREFIX}${CSS_VARS_MAP[key]}${
-		subKey
-			? `${process.env.NODE_ENV === "production" ? "" : "-"}${CSS_VARS_MAP[subKey] ?? subKey}`
-			: ""
-	}${CSS_VAR_SUFFIX}`;
+		subKey ? `${IS_OBFUSCATED ? "" : "-"}${CSS_VARS_MAP[subKey] ?? subKey}` : ""
+	}`;
 
 export const cssVarChain = (vars: Array<string | number>) => {
 	const [current] = vars.splice(0, 1);

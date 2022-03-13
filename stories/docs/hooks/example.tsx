@@ -1,9 +1,10 @@
 import useViewport from "@contour/hooks/viewport";
 import { BreakoutColumn, Grid } from "@contour/react";
+import React from "react";
 
 import { DebugBox } from "../../helpers";
 
-export default function Example() {
+export const Example = () => {
 	useViewport();
 	return (
 		<Grid>
@@ -12,4 +13,4 @@ export default function Example() {
 			</BreakoutColumn>
 		</Grid>
 	);
-}
+};

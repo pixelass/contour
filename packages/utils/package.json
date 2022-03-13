@@ -29,10 +29,11 @@
     "./constants": "./dist/constants.js",
     "./types": "./dist/types.js",
     "./css": "./dist/css.js",
+    "./get-breakpoint-values": "./dist/get-breakpoint-values.js",
+    "./remap-object": "./dist/remap-object.js",
     "./resolve-sx": "./dist/resolve-sx.js",
-    "./type-guards": "./dist/type-guards.js",
     "./shallow-merge": "./dist/shallow-merge.js",
-    "./get-breakpoint-values": "./dist/get-breakpoint-values.js"
+    "./type-guards": "./dist/type-guards.js"
   },
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -47,17 +48,20 @@
       "css": [
         "dist/css.d.ts"
       ],
+      "get-breakpoint-values": [
+        "dist/get-breakpoint-values.d.ts"
+      ],
       "resolve-sx": [
         "dist/resolve-sx.d.ts"
       ],
-      "type-guards": [
-        "dist/type-guards.d.ts"
+      "remap-object": [
+        "dist/remap-object.d.ts"
       ],
       "shallow-merge": [
         "dist/shallow-merge.d.ts"
       ],
-      "get-breakpoint-values": [
-        "dist/get-breakpoint-values.d.ts"
+      "type-guards": [
+        "dist/type-guards.d.ts"
       ]
     }
   },

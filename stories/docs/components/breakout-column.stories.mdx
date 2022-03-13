@@ -33,18 +33,17 @@ export default function App() {
 
 ## Additional Properties
 
-| Name      | Required | Default | Description                                              |
-| :-------- | :------- | :------ | :------------------------------------------------------- |
-| `as`      | No       | -       | The Component or Element that should be rendered         |
-| `align`   | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`) |
-| `justify` | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`) |
-| `flex`    | No       | -       | Use `display: flex;` (enables `align`, `justify`)        |
+| Name             | Required | Default | Description                                                   |
+| :--------------- | :------- | :------ | :------------------------------------------------------------ |
+| `as`             | No       | -       | The Component or Element that should be rendered              |
+| `alignItems`     | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`)      |
+| `justifyContent` | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`)      |
+| `flex`           | No       | -       | Use `display: flex;` (enables `alignItems`, `justifyContent`) |
 
 ## Defining the breakout
 
 ```jsx
 import { BreakoutColumn, Column, Grid } from "@contour/react";
-
 
 export default function App() {
 	return (
@@ -92,7 +91,7 @@ of the page. To fix this we added a hook that will fix this issue. You can read 
 the [use-viewport docs](/story/docs-hooks-use-viewport--page)
 
 ```jsx
-import { BreakoutColumn, Grid  } from "@contour/react";
+import { BreakoutColumn, Grid } from "@contour/react";
 import useViewport from "@contour/hooks/viewport";
 
 export default function App() {

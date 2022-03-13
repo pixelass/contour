@@ -1,56 +1,53 @@
-import process from "process";
 import id from "./id";
 import { Axis, BreakpointValues, CSSVarKey } from "./types";
 
-export const LOGO = "⃪";
-
-export const CSS_VAR_PREFIX = process.env.NODE_ENV === "production" ? LOGO : "contour-";
-export const CSS_VAR_SUFFIX = process.env.NODE_ENV === "production" ? "" : "";
+// Disabled for better debugging support
+// export const IS_OBFUSCATED =  process.env.NODE_ENV === "production";
+export const IS_OBFUSCATED = false;
+export const CSS_VAR_PREFIX = IS_OBFUSCATED ? "" : "contour-";
 
 export const CSS_VARS_MAP: Record<
 	keyof BreakpointValues | CSSVarKey | Axis | "align" | "justify" | "display" | "vw",
 	string
 > = {
-	align: process.env.NODE_ENV === "production" ? id.generate() : "align",
-	justify: process.env.NODE_ENV === "production" ? id.generate() : "justify",
-	display: process.env.NODE_ENV === "production" ? id.generate() : "display",
-	colCount: process.env.NODE_ENV === "production" ? id.generate() : "col-count",
-	colSpan: process.env.NODE_ENV === "production" ? id.generate() : "col-span",
-	colStart: process.env.NODE_ENV === "production" ? id.generate() : "col-start",
-	gapX: process.env.NODE_ENV === "production" ? id.generate() : "gap-x",
-	gapY: process.env.NODE_ENV === "production" ? id.generate() : "gap-y",
-	marginX: process.env.NODE_ENV === "production" ? id.generate() : "margin-x",
-	marginY: process.env.NODE_ENV === "production" ? id.generate() : "margin-y",
-	breakoutLeft: process.env.NODE_ENV === "production" ? id.generate() : "breakout-left",
-	breakoutRight: process.env.NODE_ENV === "production" ? id.generate() : "breakout-right",
-	order: process.env.NODE_ENV === "production" ? id.generate() : "order",
-	xs: process.env.NODE_ENV === "production" ? id.generate() : "xs",
-	s: process.env.NODE_ENV === "production" ? id.generate() : "s",
-	m: process.env.NODE_ENV === "production" ? id.generate() : "m",
-	l: process.env.NODE_ENV === "production" ? id.generate() : "l",
-	xl: process.env.NODE_ENV === "production" ? id.generate() : "xl",
-	x: process.env.NODE_ENV === "production" ? id.generate() : "x",
-	y: process.env.NODE_ENV === "production" ? id.generate() : "y",
-	vw: process.env.NODE_ENV === "production" ? id.generate() : "vw",
+	align: IS_OBFUSCATED ? id.generate() : "align",
+	justify: IS_OBFUSCATED ? id.generate() : "justify",
+	display: IS_OBFUSCATED ? id.generate() : "display",
+	colCount: IS_OBFUSCATED ? id.generate() : "col-count",
+	colSpan: IS_OBFUSCATED ? id.generate() : "col-span",
+	colStart: IS_OBFUSCATED ? id.generate() : "col-start",
+	gapX: IS_OBFUSCATED ? id.generate() : "gap-x",
+	gapY: IS_OBFUSCATED ? id.generate() : "gap-y",
+	marginX: IS_OBFUSCATED ? id.generate() : "margin-x",
+	marginY: IS_OBFUSCATED ? id.generate() : "margin-y",
+	breakoutLeft: IS_OBFUSCATED ? id.generate() : "breakout-left",
+	breakoutRight: IS_OBFUSCATED ? id.generate() : "breakout-right",
+	order: IS_OBFUSCATED ? id.generate() : "order",
+	xs: IS_OBFUSCATED ? id.generate() : "xs",
+	s: IS_OBFUSCATED ? id.generate() : "s",
+	m: IS_OBFUSCATED ? id.generate() : "m",
+	l: IS_OBFUSCATED ? id.generate() : "l",
+	xl: IS_OBFUSCATED ? id.generate() : "xl",
+	x: IS_OBFUSCATED ? id.generate() : "x",
+	y: IS_OBFUSCATED ? id.generate() : "y",
+	vw: IS_OBFUSCATED ? id.generate() : "vw",
 };
 
-export const CSS_VAR_RESET = `--${CSS_VAR_PREFIX}${
-	process.env.NODE_ENV === "production" ? id.generate() : "reset"
-}${CSS_VAR_SUFFIX}`;
+export const CSS_VAR_RESET = `--${CSS_VAR_PREFIX}${IS_OBFUSCATED ? id.generate() : "reset"}`;
 
 export const PUBLIC_CSS_VARS = {
-	vw: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.vw}${CSS_VAR_SUFFIX}`,
-	colCount: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.colCount}${CSS_VAR_SUFFIX}`,
-	colSpan: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.colSpan}${CSS_VAR_SUFFIX}`,
-	colStart: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.colStart}${CSS_VAR_SUFFIX}`,
-	gapX: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.gapX}${CSS_VAR_SUFFIX}`,
-	gapY: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.gapY}${CSS_VAR_SUFFIX}`,
-	marginX: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.marginX}${CSS_VAR_SUFFIX}`,
-	marginY: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.marginY}${CSS_VAR_SUFFIX}`,
-	order: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.order}${CSS_VAR_SUFFIX}`,
-	breakoutLeft: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.breakoutLeft}${CSS_VAR_SUFFIX}`,
-	breakoutRight: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.breakoutRight}${CSS_VAR_SUFFIX}`,
-	align: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.align}${CSS_VAR_SUFFIX}`,
-	justify: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.justify}${CSS_VAR_SUFFIX}`,
-	display: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.display}${CSS_VAR_SUFFIX}`,
+	vw: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.vw}`,
+	colCount: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.colCount}`,
+	colSpan: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.colSpan}`,
+	colStart: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.colStart}`,
+	gapX: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.gapX}`,
+	gapY: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.gapY}`,
+	marginX: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.marginX}`,
+	marginY: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.marginY}`,
+	order: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.order}`,
+	breakoutLeft: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.breakoutLeft}`,
+	breakoutRight: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.breakoutRight}`,
+	align: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.align}`,
+	justify: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.justify}`,
+	display: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.display}`,
 };

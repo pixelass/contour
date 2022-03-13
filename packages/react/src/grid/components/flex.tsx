@@ -1,42 +1,45 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import { FlexGridProps, PUBLIC_CSS_VARS, resolveSX } from "@contour/utils";
+import { jsx } from "@emotion/core";
+import { CSSObject } from "@emotion/serialize";
 import deepmerge from "deepmerge";
-import React, { CSSProperties, memo } from "react";
+import { CSSProperties, ElementType, forwardRef, Ref } from "react";
 import { gridCommon, gridVars } from "../css";
 import { getCommonVars } from "../utils";
 
-const flexGrid: CSSProperties = {
+const flexGrid: CSSObject = {
 	display: "flex",
 	flexWrap: "wrap",
 	padding: `0 calc((var(${PUBLIC_CSS_VARS.marginX}) - var(${PUBLIC_CSS_VARS.gapY}) / 2) * 1px)`,
 };
 
-const FlexGrid = ({
-	as: Component = "div",
-	strategy,
-	align,
-	justify,
-	colCount = {},
-	style = {},
-	gap = {},
-	margin = {},
-	sx = {},
-	...props
-}: FlexGridProps) => {
-	return (
-		<Component
-			{...props}
-			css={[gridVars, theme => gridCommon(theme, deepmerge(flexGrid, resolveSX(sx)(theme)))]}
-			style={
-				{
-					...style,
-					...getCommonVars({ gap, margin, colCount }),
-					[PUBLIC_CSS_VARS.align]: align,
-					[PUBLIC_CSS_VARS.justify]: justify,
-				} as CSSProperties
-			}
-		/>
-	);
-};
+// eslint-disable-next-line react/function-component-definition
+function FlexGridBase<T extends ElementType = "div">(
+	{
+		as: Component,
+		alignItems,
+		justifyContent,
+		colCount = {},
+		gap = {},
+		margin = {},
+		style = {},
+		sx = {},
+		...props
+	}: FlexGridProps<T>,
+	ref: Ref<HTMLDivElement>
+) {
+	return jsx(Component ?? "div", {
+		ref,
+		...props,
+		css: [gridVars, theme => gridCommon(theme, deepmerge(flexGrid, resolveSX(sx)(theme)))],
+		style: {
+			...style,
+			...getCommonVars({ gap, margin, colCount }),
+			[PUBLIC_CSS_VARS.align]: alignItems,
+			[PUBLIC_CSS_VARS.justify]: justifyContent,
+		} as CSSProperties,
+	});
+}
+const FlexGrid = forwardRef(FlexGridBase) as typeof FlexGridBase;
 
-export default memo(FlexGrid);
+export default FlexGrid;
