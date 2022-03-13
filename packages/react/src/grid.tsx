@@ -12,23 +12,16 @@ function GridBase<T extends ElementType = "div">(
 	{ strategy: assignedStrategy, ...props }: GridProps<T>,
 	ref: Ref<HTMLDivElement>
 ) {
-	const theme = useTheme();
+	const outerTheme = useTheme();
 	const { strategy } = useGridContext();
 	const strategy_ = assignedStrategy ?? strategy;
 	const gridContext: GridContextShape = useMemo(() => ({ strategy: "grid" }), []);
 	const flexContext: GridContextShape = useMemo(() => ({ strategy: "flex" }), []);
-	const outerTheme = useMemo(
-		() =>
-			createTheme({
-				...(theme.contour ?? {}),
-				spacing: theme.contour ? Number.parseInt(theme.contour.spacing(16), 10) : undefined,
-			}),
-		[theme]
-	);
+	const theme = useMemo(() => (outerTheme.contour ? outerTheme : createTheme({})), [outerTheme]);
 	switch (strategy_) {
 		case "grid":
 			return (
-				<GridProvider theme={outerTheme}>
+				<GridProvider theme={theme}>
 					<GridContext.Provider value={gridContext}>
 						<GridGrid ref={ref} {...(props as GridGridProps<T>)} />
 					</GridContext.Provider>
@@ -37,7 +30,7 @@ function GridBase<T extends ElementType = "div">(
 		case "flex":
 		default:
 			return (
-				<GridProvider theme={outerTheme}>
+				<GridProvider theme={theme}>
 					<GridContext.Provider value={flexContext}>
 						<FlexGrid ref={ref} {...(props as FlexGridProps<T>)} />
 					</GridContext.Provider>
