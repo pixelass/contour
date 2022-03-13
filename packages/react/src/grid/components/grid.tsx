@@ -1,6 +1,6 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import { GridGridProps, PUBLIC_CSS_VARS, resolveSX } from "@contour/utils";
-import { jsx } from "@emotion/core";
+import { jsx } from "@emotion/react";
 import { CSSObject } from "@emotion/serialize";
 import deepmerge from "deepmerge";
 import { CSSProperties, ElementType, forwardRef, Ref } from "react";

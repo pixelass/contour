@@ -8,8 +8,7 @@ import {
 	PUBLIC_CSS_VARS,
 	resolveSX,
 } from "@contour/utils";
-import { jsx } from "@emotion/core";
-import { css } from "@emotion/react";
+import { css, jsx } from "@emotion/react";
 import { CSSObject } from "@emotion/serialize";
 import deepmerge from "deepmerge";
 import { ElementType, forwardRef, Ref } from "react";
