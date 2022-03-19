@@ -50,8 +50,8 @@ export const rowVars = ({
 export const rowCommon = (overrides: CSSObject = {}) =>
 	css({
 		boxSizing: "border-box",
-		alignItems: `var(${PUBLIC_CSS_VARS.align})`,
-		justifyContent: `var(${PUBLIC_CSS_VARS.justify})`,
+		alignItems: `var(${PUBLIC_CSS_VARS.alignItems})`,
+		justifyContent: `var(${PUBLIC_CSS_VARS.justifyContent})`,
 		margin: `0 calc(var(${PUBLIC_CSS_VARS.gapX}) / -2 * 1px)`,
 		...overrides,
 	});

@@ -31,13 +31,15 @@ export default function App() {
 
 ## Additional Properties
 
-| Name             | Required | Default | Description                                                   |
-| :--------------- | :------- | :------ | :------------------------------------------------------------ |
-| `as`             | No       | -       | The Component or Element that should be rendered              |
-| `alignItems`     | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`)      |
-| `justifyContent` | No       | -       | One of `start`, `center`, `end` (requires `flex={true}`)      |
-| `flex`           | No       | -       | Use `display: flex;` (enables `alignItems`, `justifyContent`) |
-| `fill`           | No       | -       | Fill the available space                                      |
+| Name             | Required | Default | Description                                                 |
+| :--------------- | :------- | :------ | :---------------------------------------------------------- |
+| `as`             | No       | -       | The Component or Element that should be rendered            |
+| `wrap`           | No       | -       | One of `wrap`, `nowrap` (requires `flex`)                   |
+| `alignItems`     | No       | -       | One of `flex-start`, `center`, `flex-end` (requires `flex`) |
+| `alignContent`   | No       | -       | One of `flex-start`, `center`, `flex-end` (requires `flex`) |
+| `justifyContent` | No       | -       | One of `flex-start`, `center`, `flex-end` (requires `flex`) |
+| `flex`           | No       | -       | Use `display: flex;` (enables flexbox properties)           |
+| `fill`           | No       | -       | Fill the available space                                    |
 
 ## Defining the colSpan
 
@@ -76,27 +78,18 @@ import { Column, Grid } from "@contour/react";
 
 export default function App() {
 	return (
-		<Grid >
-			<Column  colSpan={{ m: 4 }}>
-				1
-			</Column>
-			<Column fill>
-				2
-			</Column>
+		<Grid>
+			<Column colSpan={{ m: 4 }}>1</Column>
+			<Column fill>2</Column>
 		</Grid>
 	);
 }
 ```
 
 <Grid>
-	<DebugColumn  colSpan={{ m: 4 }}>
-		1
-	</DebugColumn>
-	<DebugColumn fill>
-		2
-	</DebugColumn>
+	<DebugColumn colSpan={{ m: 4 }}>1</DebugColumn>
+	<DebugColumn fill>2</DebugColumn>
 </Grid>
-
 
 ## Defining the colStart (`strategy="grid"`)
 

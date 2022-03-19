@@ -93,8 +93,8 @@ export const gridCommon = (
 ) =>
 	css({
 		boxSizing: "border-box",
-		alignItems: ` var(${PUBLIC_CSS_VARS.align})`,
-		justifyContent: ` var(${PUBLIC_CSS_VARS.justify})`,
+		alignItems: ` var(${PUBLIC_CSS_VARS.alignItems})`,
+		justifyContent: ` var(${PUBLIC_CSS_VARS.justifyContent})`,
 		maxWidth: pxToRem(values[xl]),
 		margin: "0 auto",
 		...overrides,

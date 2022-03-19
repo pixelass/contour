@@ -23,8 +23,9 @@ export const columnVars = ({
 	${cssVar("order", l)}: var(${CSS_VAR_RESET});
 	${cssVar("order", xl)}: var(${CSS_VAR_RESET});
 	${PUBLIC_CSS_VARS.display}: var(${CSS_VAR_RESET});
-	${PUBLIC_CSS_VARS.align}: var(${CSS_VAR_RESET});
-	${PUBLIC_CSS_VARS.justify}: var(${CSS_VAR_RESET});
+	${PUBLIC_CSS_VARS.alignContent}: var(${CSS_VAR_RESET});
+	${PUBLIC_CSS_VARS.alignItems}: var(${CSS_VAR_RESET});
+	${PUBLIC_CSS_VARS.justifyContent}: var(${CSS_VAR_RESET});
 	${PUBLIC_CSS_VARS.colSpan}: ${cssVarChain([cssVar("colSpan", xs), PUBLIC_CSS_VARS.colCount])};
 	${PUBLIC_CSS_VARS.order}: var(${cssVar("order", xs)});
 
@@ -75,8 +76,9 @@ export const columnCommon = (overrides: CSSObject = {}) =>
 	css({
 		display: `var(${PUBLIC_CSS_VARS.display})`,
 		boxSizing: "border-box",
-		alignItems: `var(${PUBLIC_CSS_VARS.align})`,
-		justifyContent: `var(${PUBLIC_CSS_VARS.justify})`,
+		alignContent: `var(${PUBLIC_CSS_VARS.alignContent})`,
+		alignItems: `var(${PUBLIC_CSS_VARS.alignItems})`,
+		justifyContent: `var(${PUBLIC_CSS_VARS.justifyContent})`,
 		order: `var(${PUBLIC_CSS_VARS.order})`,
 		...overrides,
 	});

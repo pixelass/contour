@@ -32,8 +32,8 @@ function FlexRowBase<T extends ElementType = "div">(
 		style: {
 			...style,
 			...cssVars,
-			[PUBLIC_CSS_VARS.align]: alignItems,
-			[PUBLIC_CSS_VARS.justify]: justifyContent,
+			[PUBLIC_CSS_VARS.alignItems]: alignItems,
+			[PUBLIC_CSS_VARS.justifyContent]: justifyContent,
 		},
 	});
 }
