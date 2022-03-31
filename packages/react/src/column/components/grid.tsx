@@ -34,7 +34,7 @@ export const gridColumnVars = ({
 	}
 
 	${mq[m]} {
-		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", "m")});
+		${PUBLIC_CSS_VARS.colStart}: var(${cssVar("colStart", m)});
 	}
 
 	${mq[l]} {
