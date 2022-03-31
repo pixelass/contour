@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/pixelass/contour/compare/v0.6.2...v0.6.3) (2022-03-31)
+
+
+### Bug Fixes
+
+* colstart did not use custom breakpoints ([#13](https://github.com/pixelass/contour/issues/13)) ([fb96df3](https://github.com/pixelass/contour/commit/fb96df3a0aac71332160ce76d0348ec42b16a248))
+
+
+
+
+
 ## [0.6.2](https://github.com/pixelass/contour/compare/v0.6.1...v0.6.2) (2022-03-13)
 
 
