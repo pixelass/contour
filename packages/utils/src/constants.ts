@@ -7,11 +7,19 @@ export const IS_OBFUSCATED = false;
 export const CSS_VAR_PREFIX = IS_OBFUSCATED ? "" : "contour-";
 
 export const CSS_VARS_MAP: Record<
-	keyof BreakpointValues | CSSVarKey | Axis | "align" | "justify" | "display" | "vw",
+	| keyof BreakpointValues
+	| CSSVarKey
+	| Axis
+	| "alignContent"
+	| "alignItems"
+	| "justifyContent"
+	| "display"
+	| "vw",
 	string
 > = {
-	align: IS_OBFUSCATED ? id.generate() : "align",
-	justify: IS_OBFUSCATED ? id.generate() : "justify",
+	alignContent: IS_OBFUSCATED ? id.generate() : "align-content",
+	alignItems: IS_OBFUSCATED ? id.generate() : "align-items",
+	justifyContent: IS_OBFUSCATED ? id.generate() : "justify-content",
 	display: IS_OBFUSCATED ? id.generate() : "display",
 	colCount: IS_OBFUSCATED ? id.generate() : "col-count",
 	colSpan: IS_OBFUSCATED ? id.generate() : "col-span",
@@ -47,7 +55,8 @@ export const PUBLIC_CSS_VARS = {
 	order: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.order}`,
 	breakoutLeft: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.breakoutLeft}`,
 	breakoutRight: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.breakoutRight}`,
-	align: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.align}`,
-	justify: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.justify}`,
+	alignContent: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.alignContent}`,
+	alignItems: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.alignItems}`,
+	justifyContent: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.justifyContent}`,
 	display: `--${CSS_VAR_PREFIX}${CSS_VARS_MAP.display}`,
 };

@@ -35,8 +35,8 @@ function FlexGridBase<T extends ElementType = "div">(
 		style: {
 			...style,
 			...getCommonVars({ gap, margin, colCount }),
-			[PUBLIC_CSS_VARS.align]: alignItems,
-			[PUBLIC_CSS_VARS.justify]: justifyContent,
+			[PUBLIC_CSS_VARS.alignItems]: alignItems,
+			[PUBLIC_CSS_VARS.justifyContent]: justifyContent,
 		} as CSSProperties,
 	});
 }

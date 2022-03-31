@@ -56,8 +56,8 @@ function FlexColumnBase<T extends ElementType = "div">(
 			...style,
 			...colSpanVars,
 			...orderVars,
-			[PUBLIC_CSS_VARS.align]: alignItems,
-			[PUBLIC_CSS_VARS.justify]: justifyContent,
+			[PUBLIC_CSS_VARS.alignItems]: alignItems,
+			[PUBLIC_CSS_VARS.justifyContent]: justifyContent,
 			[PUBLIC_CSS_VARS.display]: flex && "flex",
 		},
 	});

@@ -85,8 +85,8 @@ function GridColumnBase<T extends ElementType = "div">(
 			...colSpanVars,
 			...colStartVars,
 			...orderVars,
-			[PUBLIC_CSS_VARS.align]: alignItems,
-			[PUBLIC_CSS_VARS.justify]: justifyContent,
+			[PUBLIC_CSS_VARS.alignItems]: alignItems,
+			[PUBLIC_CSS_VARS.justifyContent]: justifyContent,
 			[PUBLIC_CSS_VARS.display]: flex && "flex",
 		},
 	});
